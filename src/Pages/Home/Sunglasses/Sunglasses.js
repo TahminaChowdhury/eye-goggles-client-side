@@ -23,7 +23,7 @@ const Sunglasses = ({product}) => {
               {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {description.slice(0, 50)}...
+              {description.split(' ').slice(0, 10).toString().replace(/,/g, ' ')}
             </Typography>
             <Typography variant="h5" color="text.secondary">
               $ {price}

@@ -13,6 +13,7 @@ import NotFound from "./Pages/NotFound/NotFound"
 import AuthProvider from "./ContextApi/AuthProvider";
 import PrivateRoute from "./Pages/Shared/Login/PrivateRoute/PrivateRoute";
 import SingleSunglass from "./Pages/Home/SingleSunglass/SingleSunglass";
+import Signup from "./Pages/Shared/Signup/Signup";
 function App() {
   return (
     <div>
@@ -28,6 +29,9 @@ function App() {
             <Home></Home>
           </Route>
 
+          <Route path="/signup">
+            <Signup></Signup>
+          </Route>
 
          <PrivateRoute path="/sunglass/:sunglassId">
             <SingleSunglass></SingleSunglass>

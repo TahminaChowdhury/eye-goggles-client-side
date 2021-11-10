@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initAuth from '../Firebase/firebase.init'
 
@@ -14,6 +14,37 @@ const useFirebase = () => {
 
     // providers
     const googleProvider = new GoogleAuthProvider();
+
+
+
+    // signin with email and password
+    
+    const signupWithEmailAndPassword = (email, password) => {
+        setisLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setUser(user);
+            setError('');
+        })
+        .catch((error) => {
+            setError(error.message);
+        }).finally(() => setisLoading(false));
+    };
+
+    // sign in with email and password
+    const loginWithEmailAndPassword = (email, password) => {
+        setisLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setUser(user);
+            setError('');
+        })
+        .catch((error) => {
+            setError(error.message);
+        }).finally(() => setisLoading(false));
+    }
 
     const loginWithGoogle = (location , history) => {
         
@@ -53,11 +84,15 @@ const useFirebase = () => {
             } else {
               setUser({});
             }
+            setisLoading(false);
           });
     },[])
 
     return{
         user,
+        isLoading,
+        signupWithEmailAndPassword,
+        loginWithEmailAndPassword,
         loginWithGoogle,
         logout
     };
