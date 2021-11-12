@@ -16,6 +16,9 @@ import SingleSunglass from "./Pages/Home/SingleSunglass/SingleSunglass";
 import Signup from "./Pages/Shared/Signup/Signup";
 import DashBoard from "./Pages/Shared/Navigation/DashBoard/DashBoard";
 import Explore from "./Pages/Shared/Navigation/Explore/Explore";
+import MyOrders from "./Pages/Shared/Navigation/DashBoard/MyOrders/MyOrders";
+import Payment from "./Pages/Shared/Navigation/DashBoard/Payment/Payment";
+import Review from "./Pages/Shared/Navigation/DashBoard/Review/Review";
 function App() {
   return (
     <div>
@@ -38,6 +41,19 @@ function App() {
           <PrivateRoute path='/dashboard'>
             <DashBoard></DashBoard>
           </PrivateRoute>
+
+          <PrivateRoute path="/myorders">
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+
+          <PrivateRoute path="/payment">
+            <Payment></Payment>
+          </PrivateRoute>
+
+          <PrivateRoute path="/review">
+            <Review></Review>
+          </PrivateRoute>
+
 
           <Route path='/login'>
             <Login></Login>

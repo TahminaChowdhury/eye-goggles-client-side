@@ -8,6 +8,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setisLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
+
 
     // auth
     const auth = getAuth();
@@ -79,9 +81,12 @@ const useFirebase = () => {
 
         .then((result) => {
             const user = result.user;
+            console.log(user)
             setUser(user);
+
+            saveUserToDb(user.displayName, user.email, "PUT");
            
-            const { from } = location.state || { from: { pathname: "/" } };
+            const { from } = location.state || { from: { pathname: "/" }};
 
             history.replace(from);
             setError("")
@@ -107,6 +112,11 @@ const useFirebase = () => {
         .then(data => console.log(data))
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res => res.json())
+        .then(data => setAdmin(data.admin))
+    },[user.email])
 
     // logout
 
@@ -134,6 +144,7 @@ const useFirebase = () => {
         user,
         error,
         isLoading,
+        admin,
         signupWithEmailAndPassword,
         loginWithEmailAndPassword,
         loginWithGoogle,

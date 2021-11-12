@@ -20,14 +20,18 @@ import useAuth from '../../../../Hooks/useAuth';
 import MyOrders from './MyOrders/MyOrders';
 import Payment from './Payment/Payment';
 import Review from './Review/Review';
-
+import MakeAdmin from './AdminPortal/MakeAdmin/MakeAdmin';
+import ManageAllOrders from './AdminPortal/ManageAllOrders/ManageAllOrders';
+import AddProducts from './AdminPortal/AddProducts/AddProducts';
+import ManageProducts from './AdminPortal/ManageProducts/ManageProducts';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute'
 const drawerWidth = 240;
 
 
 export default function DashBoard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const {logout} = useAuth()
+  const {admin,logout} = useAuth();
   let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
@@ -39,17 +43,28 @@ export default function DashBoard(props) {
       <Toolbar />
       <Divider />
       <List>
-      <Link to={`${url}/myorders`}>My Orders</Link>
-      <br/>
-      <Link to={`${url}/payment`}>Payment</Link>
-      <br/>
-      <Link to={`${url}/review`}>Review</Link>
-      <br/>
-      <Button onClick={logout} variant="contained">Logout</Button>
+        {
+          admin && <Box>
+              <Link to={`${url}/makeadmin`}>Make Admin</Link>
+              <br/>
+              <Link to={`${url}/manageallorders`}>Mange All Orders</Link>
+              <br/>
+              <Link to={`${url}/addproducts`}>Add Products</Link>
+              <br/>
+              <Link to={`${url}/manageproducts`}>Manage Products</Link>
+                  </Box>
+        }
+      
       </List>
       <Divider />
       <List>
-        
+      <Link to="/myOrders">My Orders</Link>
+      <br/>
+      <Link to="/payment">Payment</Link>
+      <br/>
+      <Link to="/review">Review</Link>
+      <br/>
+      <Button onClick={logout} variant="contained">Logout</Button>
       </List>
     </div>
   );
@@ -121,15 +136,18 @@ export default function DashBoard(props) {
         <Route exact path={path}>
           
         </Route>
-        <Route path={`${path}/myorders`}>
-         <MyOrders></MyOrders>
-        </Route>
-        <Route path={`${path}/payment`}>
-         <Payment></Payment>
-        </Route>
-        <Route path={`${path}/review`}>
-         <Review></Review>
-        </Route>
+        <AdminRoute path={`${path}/makeadmin`}>
+         <MakeAdmin></MakeAdmin>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageallorders`}>
+         <ManageAllOrders></ManageAllOrders>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addproducts`}>
+         <AddProducts></AddProducts>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageproducts`}>
+         <ManageProducts></ManageProducts>
+        </AdminRoute>
       </Switch>
       </Box>
     </Box>
