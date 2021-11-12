@@ -5,7 +5,7 @@ import img from '../../images/oops-404-error-with-broken-robot-concept-illustrat
 
 const NotFound = () => {
     return (
-        <Container fixed sx={{textAlign: 'center', my: 5}}>
+        <Container fixed sx={{textAlign: 'center', my: 5 , width: "100%"}}>
             <img src={img} alt="" />
             <br />
             <Link to="/home" style={{ textDecoration: "none"}}>

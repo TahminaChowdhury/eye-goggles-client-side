@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import useAuth from '../../../../Hooks/useAuth';
 import { Alert } from '@mui/material';
 
-const PurchaseForm = () => {
+const PurchaseForm = ({sunglass}) => {
     const {user} = useAuth();
     const { register, handleSubmit } = useForm();
     const [bookingSuccess, setBookingSuccess] = useState(true);
     const onSubmit = data => {
         fetch('http://localhost:5000/orders',{
-            method: "PUT",
+            method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data)
         })
@@ -23,6 +23,7 @@ const PurchaseForm = () => {
     };
     return (
         <form onSubmit={handleSubmit(onSubmit)} style={{marginTop: "80px", marginLeft: "50px"}}>
+        <input type="name" {...register("productName")} defaultValue={sunglass.name}/>
         <input type="name" {...register("name")} defaultValue={user.displayName}/>
         <input type="email" {...register("email")} defaultValue={user.email}/>
         <input type="number" {...register("mobile")} placeholder="Your Mobile Number here..."/>

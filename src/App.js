@@ -14,12 +14,14 @@ import AuthProvider from "./ContextApi/AuthProvider";
 import PrivateRoute from "./Pages/Shared/Login/PrivateRoute/PrivateRoute";
 import SingleSunglass from "./Pages/Home/SingleSunglass/SingleSunglass";
 import Signup from "./Pages/Shared/Signup/Signup";
+import DashBoard from "./Pages/Shared/Navigation/DashBoard/DashBoard";
+import Explore from "./Pages/Shared/Navigation/Explore/Explore";
 function App() {
   return (
     <div>
       <AuthProvider>
       <Router>
-        <Navigation></Navigation>
+
         <Switch>
           <Route exact path='/'>
             <Home></Home>
@@ -27,6 +29,18 @@ function App() {
 
           <Route path='/home'>
             <Home></Home>
+          </Route>
+
+          <Route path='/explore'>
+            <Explore></Explore>
+          </Route>
+          
+          <PrivateRoute path='/dashboard'>
+            <DashBoard></DashBoard>
+          </PrivateRoute>
+
+          <Route path='/login'>
+            <Login></Login>
           </Route>
 
           <Route path="/signup">
@@ -37,18 +51,12 @@ function App() {
             <SingleSunglass></SingleSunglass>
          </PrivateRoute>
 
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-
-        
-
           <Route exact path="*">
             <NotFound></NotFound>
           </Route>
 
         </Switch>
-        <Footer></Footer>
+
       </Router>
       </AuthProvider>
     </div>

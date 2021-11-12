@@ -33,7 +33,9 @@ const SingleSunglass = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6} sx={{textAlign: "center", my: 5, py: 5}}>
-                <PurchaseForm></PurchaseForm>
+                <PurchaseForm
+                sunglass={sunglass}
+                ></PurchaseForm>
             </Grid>
         </Grid>
         </Box>
