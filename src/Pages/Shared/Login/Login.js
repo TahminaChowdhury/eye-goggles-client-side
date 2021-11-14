@@ -18,7 +18,7 @@ const Login = () => {
         loginWithEmailAndPassword(data.email, data.password)
     };
     return (
-        <div>
+        <div className="text-center my-5 py-5">
             <form onSubmit={handleSubmit(onSubmit)}>
 
             <input type="email" {...register("email")} placeholder="Email"/>
@@ -27,7 +27,7 @@ const Login = () => {
             <input type="submit" value="Login"/>
             </form>
             <Button onClick={handleLoginWithGoogle} variant="contained">Login with Google</Button>
-            <h1>This is login page</h1>
+            
         </div>
     );
 };

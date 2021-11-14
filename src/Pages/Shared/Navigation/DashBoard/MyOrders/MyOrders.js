@@ -8,7 +8,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import Orders from './Orders/Orders';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -37,53 +39,35 @@ const MyOrders = () => {
     const [isDelete, setIsDelete] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://pacific-lowlands-13394.herokuapp.com/orders/${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrders(data))
     },[isDelete]);
 
     const handleCancelOrder = (id) => {
-        fetch(`http://localhost:5000/orders/${id}`,{
+        fetch(`https://pacific-lowlands-13394.herokuapp.com/orders/${id}`,{
             method: "DELETE",
             headers: {"content-type": "application/json"}
         })
         .then(res => res.json())
         .then(data => {
-            if (data.acknowledged) {
-                alert("Are you sure, want to delete ?")
-                setIsDelete(true);
-            }
+          if (data.deletedCount) {
+            alert("Are you sure, want to delete ?")
+            setIsDelete(true);
+          } else {
+            setIsDelete(false);
+          }
         })
     }
     return (
-        <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Name</StyledTableCell>
-              <StyledTableCell align="right">Email</StyledTableCell>
-              <StyledTableCell align="right">Product Name</StyledTableCell>
-              <StyledTableCell align="right">Quantity</StyledTableCell>
-              <StyledTableCell align="right">Order</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {myOrders.map((row) => (
-              <StyledTableRow key={row._id }>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.email}</StyledTableCell>
-                <StyledTableCell align="right">{row.productName}</StyledTableCell>
-                <StyledTableCell align="right">{row.quantity}</StyledTableCell>
-                <StyledTableCell align="right">
-                    <Button onClick={() => handleCancelOrder(row._id)} variant="conatiner">Cancel Order</Button>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        {myOrders.map((pd, index) => <Orders 
+        key={pd._id}
+        handleCancelOrder={handleCancelOrder}
+        pd={pd}></Orders>)}
+      </Grid>
+    </Box>
     );
 };
 

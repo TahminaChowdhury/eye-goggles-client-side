@@ -1,17 +1,19 @@
 import * as React from 'react';
+import './DashBoard.css'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
+import MailIcon from '@material-ui/icons/Mail';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
@@ -25,6 +27,7 @@ import ManageAllOrders from './AdminPortal/ManageAllOrders/ManageAllOrders';
 import AddProducts from './AdminPortal/AddProducts/AddProducts';
 import ManageProducts from './AdminPortal/ManageProducts/ManageProducts';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute'
+import DashBoardHome from './DashBoardHome/DashBoardHome';
 const drawerWidth = 240;
 
 
@@ -32,6 +35,7 @@ export default function DashBoard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const {admin,logout} = useAuth();
+  console.log(admin)
   let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
@@ -39,32 +43,34 @@ export default function DashBoard(props) {
   };
 
   const drawer = (
-    <div>
+    <div className="link-list">
       <Toolbar />
       <Divider />
+      <h4>Admin Portal</h4>
       <List>
         {
-          admin && <Box>
-              <Link to={`${url}/makeadmin`}>Make Admin</Link>
-              <br/>
-              <Link to={`${url}/manageallorders`}>Mange All Orders</Link>
-              <br/>
-              <Link to={`${url}/addproducts`}>Add Products</Link>
-              <br/>
-              <Link to={`${url}/manageproducts`}>Manage Products</Link>
-                  </Box>
+          !admin? "":
+          <Box>
+          <Link to={`${url}/makeadmin`}>Make Admin</Link>
+          <br/>
+          <Link to={`${url}/manageallorders`}>Mange All Orders</Link>
+          <br/>
+          <Link to={`${url}/addproducts`}>Add Products</Link>
+          <br/>
+          <Link to={`${url}/manageproducts`}>Manage Products</Link>
+            </Box>
         }
       
       </List>
       <Divider />
-      <List>
-      <Link to="/myOrders">My Orders</Link>
+      <List sx={{fontWeight: 'bold', fontSize: 16}}>
+      <Link to={`${url}/myorders`}>My Orders</Link>
       <br/>
-      <Link to="/payment">Payment</Link>
+      <Link to={`${url}/payment`}>Payment</Link>
       <br/>
-      <Link to="/review">Review</Link>
+      <Link to={`${url}/Review`}>Review</Link>
       <br/>
-      <Button onClick={logout} variant="contained">Logout</Button>
+      <Button onClick={logout} sx={{my: 5, py: 5}}> <LogoutIcon/> Logout</Button>
       </List>
     </div>
   );
@@ -81,9 +87,9 @@ export default function DashBoard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar style={{backgroundColor: "#14A76C"}}>
           <IconButton
-            color="inherit"
+            // color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -134,20 +140,36 @@ export default function DashBoard(props) {
         <Toolbar />
         <Switch>
         <Route exact path={path}>
-          
+          <DashBoardHome></DashBoardHome>
         </Route>
         <AdminRoute path={`${path}/makeadmin`}>
          <MakeAdmin></MakeAdmin>
         </AdminRoute>
+
         <AdminRoute path={`${path}/manageallorders`}>
          <ManageAllOrders></ManageAllOrders>
         </AdminRoute>
+
         <AdminRoute path={`${path}/addproducts`}>
          <AddProducts></AddProducts>
         </AdminRoute>
+
         <AdminRoute path={`${path}/manageproducts`}>
          <ManageProducts></ManageProducts>
         </AdminRoute>
+
+        <Route path={`${path}/myorders`}>
+         <MyOrders></MyOrders>
+        </Route>
+
+        <Route path={`${path}/payment`}>
+         <Payment></Payment>
+        </Route>
+
+        <Route path={`${path}/review`}>
+         <Review></Review>
+        </Route>
+        
       </Switch>
       </Box>
     </Box>

@@ -5,8 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Link, NavLink } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import useAuth from '../../../Hooks/useAuth';
 
 
@@ -16,7 +17,7 @@ const Navigation = () => {
         <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{backgroundColor: "white", color: "black"}}>
         <Toolbar>
-          {/* <IconButton
+          <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -24,17 +25,17 @@ const Navigation = () => {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton> */}
+          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             EyeGoggles
           </Typography>
-          <Link to="/explore">
+          <Link to="/explore" style={{marginRight: "10px"}}>
             Explore
           </Link>
           {
             user?.email ? 
             <Box>
-              <Link to="/dashboard">
+              <Link to="/dashboard" style={{marginRight: "10px"}}>
                 DashBoard
               </Link>
               <Button onClick={logout} color="inherit">Logout</Button> 

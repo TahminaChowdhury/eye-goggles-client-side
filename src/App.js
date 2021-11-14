@@ -19,6 +19,7 @@ import Explore from "./Pages/Shared/Navigation/Explore/Explore";
 import MyOrders from "./Pages/Shared/Navigation/DashBoard/MyOrders/MyOrders";
 import Payment from "./Pages/Shared/Navigation/DashBoard/Payment/Payment";
 import Review from "./Pages/Shared/Navigation/DashBoard/Review/Review";
+import PurchaseForm from "./Pages/Home/SingleSunglass/PurchaseForm/PurchaseForm";
 function App() {
   return (
     <div>
@@ -38,6 +39,10 @@ function App() {
             <Explore></Explore>
           </Route>
           
+          <Route path='/purchaseform'>
+            <PurchaseForm></PurchaseForm>
+          </Route>
+
           <PrivateRoute path='/dashboard'>
             <DashBoard></DashBoard>
           </PrivateRoute>

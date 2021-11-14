@@ -103,7 +103,7 @@ const useFirebase = () => {
 
     const saveUserToDb = (displayName, email, method) => {
         const user = {displayName, email}
-        fetch('http://localhost:5000/users', {
+        fetch('https://pacific-lowlands-13394.herokuapp.com/users', {
             method: method,
             headers: {"content-type": "application/json"},
             body: JSON.stringify(user)
@@ -113,9 +113,12 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://pacific-lowlands-13394.herokuapp.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
+        .catch(error => {
+
+        })
     },[user.email])
 
     // logout
