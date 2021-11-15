@@ -20,9 +20,10 @@ const MakeAdmin = () => {
      
     return (
         <Box>
+            <h4 className="my-5">Add Admin</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="email" {...register("email")} />
-            <input type="submit" />
+            <input type="email" {...register("email")} placeholder="Email"/>
+            <input type="submit" value="Add Admin"/>
             </form>
         </Box>
     );

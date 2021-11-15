@@ -29,14 +29,14 @@ const Navigation = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             EyeGoggles
           </Typography>
-          <Link to="/explore" style={{marginRight: "10px"}}>
-            Explore
+          <Link to="/explore" style={{marginRight: "10px", textDecoration: "none", color: "Black"}}>
+          <Button color="inherit">Explore</Button>
           </Link>
           {
             user?.email ? 
             <Box>
-              <Link to="/dashboard" style={{marginRight: "10px"}}>
-                DashBoard
+              <Link to="/dashboard" style={{marginRight: "10px", textDecoration: "none", color: "Black"}}>
+              <Button color="inherit">DashBoard</Button>
               </Link>
               <Button onClick={logout} color="inherit">Logout</Button> 
             </Box>
@@ -46,8 +46,8 @@ const Navigation = () => {
             </NavLink>
           }
           
-          <NavLink to="/signup">
-            <Button>Sign up</Button>
+          <NavLink to="/signup" style={{textDecoration: "none"}}>
+            <Button variant="contained">Sign up</Button>
           </NavLink>
         </Toolbar>
       </AppBar>

@@ -22,7 +22,7 @@ const Review = () => {
    
     return (
         <div>
-            <Container sx={{my: 5, py: 5}}>
+            <Container sx={{}}>
             <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>

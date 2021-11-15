@@ -21,6 +21,7 @@ const AddProducts = () => {
     };
     return (
         <Box>
+            <h4 className="my-5">Add Products</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" {...register("brandName")} placeholder="Brand Name"/>
             <br />

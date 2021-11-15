@@ -46,8 +46,8 @@ export default function DashBoard(props) {
     <div className="link-list">
       <Toolbar />
       <Divider />
-      <h4>Admin Portal</h4>
-      <List>
+      <h5 style={{paddingLeft: "10px"}}>Admin Portal</h5>
+      <List sx={{fontWeight: 'bold', fontSize: 16, p: 2}}>
         {
           !admin? "":
           <Box>
@@ -63,14 +63,14 @@ export default function DashBoard(props) {
       
       </List>
       <Divider />
-      <List sx={{fontWeight: 'bold', fontSize: 16}}>
+      <List sx={{fontWeight: 'bold', fontSize: 16, p: 2}}>
       <Link to={`${url}/myorders`}>My Orders</Link>
       <br/>
       <Link to={`${url}/payment`}>Payment</Link>
       <br/>
       <Link to={`${url}/Review`}>Review</Link>
       <br/>
-      <Button onClick={logout} sx={{my: 5, py: 5}}> <LogoutIcon/> Logout</Button>
+      <Button onClick={logout} sx={{my: 5}} variant="contained"> Logout</Button>
       </List>
     </div>
   );
@@ -87,7 +87,7 @@ export default function DashBoard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar style={{backgroundColor: "#14A76C"}}>
+        <Toolbar>
           <IconButton
             // color="inherit"
             aria-label="open drawer"

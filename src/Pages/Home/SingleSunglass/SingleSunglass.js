@@ -56,8 +56,9 @@ const SingleSunglass = () => {
                 </Typography>
 
             </Grid>
-            <Grid item xs={12} sm={12} md={6} sx={{textAlign: "center", my: 5, py: 5}}>
+            <Grid item xs={12} sm={12} md={6} sx={{textAlign: "center", my: 5}}>
             <Box>
+                
                 <form onSubmit={handleSubmit(onSubmit)} style={{marginTop: "80px", marginLeft: "50px"}}>
 
                 <input type="text" {...register("brandName")} defaultValue={sunglass.brandName}/>

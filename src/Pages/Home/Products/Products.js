@@ -48,8 +48,10 @@ const Products = () => {
           
         </Grid>
 
-        <Grid item xs={12} sm={12} md={12} sx={{my: 5}}>
+        <Grid item xs={12} sm={12} md={12} sx={{my: 5, py: 5}}>
+        <h4>Customer Reviews</h4>
         <Grid container spacing={2}>
+          
         {
             reviews.map(review => <Grid item xs={12} sm={12} md={4}>
                 <Card sx={{ minWidth: 275 }}>

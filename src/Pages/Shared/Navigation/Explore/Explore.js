@@ -3,6 +3,9 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../../Navigation/Navigation'
+import TopBanner from '../../../TopBanner/TopBanner'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Footer from '../../Footer/Footer';
 
 const Explore = () => {
     const [sunglasses, setSunglasses] = useState([]);
@@ -15,11 +18,12 @@ const Explore = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Navigation></Navigation>
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <TopBanner></TopBanner>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{my: 5, py: 5}}>
             {sunglasses.map((sunglass, index) => (
             <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Card >
-                    <CardActionArea>
+                  <Card sx={{ height: '100%' }}>
+                    <CardActionArea sx={{my: 3 }}>
                     <CardMedia
                         component="img"
                         height="140"
@@ -39,16 +43,19 @@ const Explore = () => {
                     </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Link to={`/sunglass/${sunglass._id}`}>
-                        <Button size="small" color="primary">
-                        Buy Now
-                    </Button>
+                    <Box>
+                    <Link to={`/sunglass/${sunglass._id}`} style={{textDecoration: "none"}}>
+                        <Button size="medium" style={{backgroundColor: "	rgb(193, 243, 76)", color: "black"}}>
+                        <ShoppingCartIcon/>  Buy Now
+                        </Button>
                         </Link>
+                    </Box>
                     </CardActions>
                 </Card>
             </Grid>
             ))}
         </Grid>
+        <Footer></Footer>
         </Box>
     );
 };
