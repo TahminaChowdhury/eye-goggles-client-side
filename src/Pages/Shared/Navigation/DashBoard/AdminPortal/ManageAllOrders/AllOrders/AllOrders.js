@@ -28,7 +28,7 @@ const AllOrders = ({pd, handleCancelOrder}) => {
     return (
         <Grid item xs={12} sm={12} md={12}>
            <Box sx={{display: 'flex', borderBottom: 1}}>
-           <Grid item xs={12} sm={12} md={4} sx={{m: 3}}>
+           <Grid item xs={12} sm={12} md={4} sx={{m: 3, py: 3}}>
                <img src={img} alt="" style={{width: "300px"}}/>
             </Grid>
             <Grid item xs={12} sm={12} md={8}>
@@ -48,7 +48,7 @@ const AllOrders = ({pd, handleCancelOrder}) => {
                     <option value="Pending">Pending</option>
                     <option value="Shipped">Shipped</option>
                 </select>
-                <input type="submit" />
+                <Button variant="contained" type="submit" className="ms-2">Update</Button>
                 </form>
                 </Grid>
                 </Box>
