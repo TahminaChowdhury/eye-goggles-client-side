@@ -20,6 +20,7 @@ import MyOrders from "./Pages/Shared/Navigation/DashBoard/MyOrders/MyOrders";
 import Payment from "./Pages/Shared/Navigation/DashBoard/Payment/Payment";
 import Review from "./Pages/Shared/Navigation/DashBoard/Review/Review";
 import PurchaseForm from "./Pages/Home/SingleSunglass/PurchaseForm/PurchaseForm";
+import ContactUs from "./Pages/Home/ConatctUs/ContactUs";
 function App() {
   return (
     <div>
@@ -41,6 +42,10 @@ function App() {
           
           <Route path='/purchaseform'>
             <PurchaseForm></PurchaseForm>
+          </Route>
+
+          <Route path='/conatcatus'>
+            <ContactUs></ContactUs>
           </Route>
 
           <PrivateRoute path='/dashboard'>

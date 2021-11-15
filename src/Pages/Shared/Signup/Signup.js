@@ -9,7 +9,7 @@ import useAuth from '../../../Hooks/useAuth'
 
 
 const Signup = () => {
-  const {user, signupWithEmailAndPassword} = useAuth();
+  const {user, signupWithEmailAndPassword,error} = useAuth();
   const history = useHistory();
 
   const { register, handleSubmit } = useForm();
@@ -21,7 +21,7 @@ const Signup = () => {
         <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2} sx={{textAlign: 'center', my: 5}}>
           <Grid item xs={12} sm={12} md={12}>
-
+          <h2>Sign up please</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
 
             <input type="name" placeholder="Name" {...register("name", { required: true })} />
@@ -31,6 +31,7 @@ const Signup = () => {
             <input type="password" placeholder="Password"{...register("password")} />
 
             <input type="password" placeholder="Re-enter Your Password"{...register("reEnterPassword")} />
+            <h5 className="text-danger my-3">{error}</h5>
             <input type="submit" value="Sign up"/>
           </form>
 

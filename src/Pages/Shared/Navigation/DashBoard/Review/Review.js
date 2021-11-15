@@ -1,4 +1,4 @@
-import { Container, Grid, MenuItem, TextField } from '@mui/material';
+import { Alert, Container, Grid, MenuItem, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 const Review = () => {
    
     const { register, handleSubmit } = useForm();
+    const [review, setReview] = useState(true);
     const onSubmit = data => {
         fetch('https://pacific-lowlands-13394.herokuapp.com/reviews',{
         method: "POST",
@@ -16,6 +17,13 @@ const Review = () => {
           "content-type": "application/json"
         },
         body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.acknowledged === 'true') {
+                setReview(true);
+            }
         })
     };
      
@@ -34,6 +42,9 @@ const Review = () => {
                 <input type="number"{...register("rating")} placeholder="Ratings"/>
                 <input type="submit" />
                 </form>
+                {
+                    review && <Alert severity="success">SuccessFully Added Your Review</Alert>
+                }
                 </Grid>
             </Grid>
             </Box>

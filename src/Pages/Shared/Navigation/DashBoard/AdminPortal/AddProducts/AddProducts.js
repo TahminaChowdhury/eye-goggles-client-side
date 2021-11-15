@@ -1,10 +1,11 @@
+import { Alert } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddProducts = () => {
     const { register, handleSubmit } = useForm();
-    const [bookingSuccess, setBookingSuccess] = useState(true);
+    const [AddProducts, setAddproducts] = useState(true);
     const onSubmit = data => {
         fetch('https://pacific-lowlands-13394.herokuapp.com/sunglasses',{
             method: "POST",
@@ -15,7 +16,7 @@ const AddProducts = () => {
         .then(data => {
             console.log(data)
             if (data.acknowledged === 'true') {
-                setBookingSuccess(true);
+                setAddproducts(true);
             }
         })
     };
@@ -35,6 +36,9 @@ const AddProducts = () => {
             <br />
             <input type="submit" value="Submit"/>
             </form>
+            {
+                AddProducts && <Alert severity="success">SuccessFully Added product</Alert>
+            }
         </Box>
     );
 };

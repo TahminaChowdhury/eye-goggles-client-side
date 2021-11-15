@@ -1,3 +1,4 @@
+import { Alert } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
@@ -5,6 +6,7 @@ import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const { register, handleSubmit } = useForm();
+    const [success, setSuccess] = useState(false);
 
     const onSubmit = data => {
         setEmail(data.email);
@@ -15,7 +17,12 @@ const MakeAdmin = () => {
             body: JSON.stringify(user)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            if (data.modifiedCount !== 0) {
+                setSuccess(true);
+            }
+
+        })
     };
      
     return (
@@ -25,6 +32,9 @@ const MakeAdmin = () => {
             <input type="email" {...register("email")} placeholder="Email"/>
             <input type="submit" value="Add Admin"/>
             </form>
+            {
+                success && <Alert severity="success">SuccessFul Admin Added</Alert>
+            }
         </Box>
     );
 };
