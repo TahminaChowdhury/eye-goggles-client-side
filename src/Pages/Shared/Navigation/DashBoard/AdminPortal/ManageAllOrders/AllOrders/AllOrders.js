@@ -44,10 +44,7 @@ const AllOrders = ({pd, handleCancelOrder}) => {
                     Status- {pd.status}
                 </Typography>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <select {...register("status")}>
-                    <option value="Pending">Pending</option>
-                    <option value="Shipped">Shipped</option>
-                </select>
+                <input defaultValue="Shipped" {...register("status")} />
                 <Button variant="contained" type="submit" className="ms-2">Update</Button>
                 </form>
                 </Grid>

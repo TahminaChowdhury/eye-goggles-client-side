@@ -15,7 +15,7 @@ const TopBanner = () => {
               <h1>Put on your shades</h1>
             </div>
           </Grid> */}
-          <Grid item xs={12} sm={12} md={12} >
+          <Grid item xs={12} sm={12} md={6} >
           <div id="carouselExampleSlidesOnly" className="carousel slide, ms-auto" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
