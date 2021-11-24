@@ -1,37 +1,103 @@
 import './TopBanner.css'
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
 import React from 'react';
-import img from '../../images/portrait-beautiful-woman-waving-hair-smiling-stylish-apparel-wearing-denim-jacket-yellow-top-fashion-trend-summer-style-happy-positive-mood-sunny-day-sunrise-emotional-cheerful_285396-4663.jpg'
-import img3 from '../../images/romantic-couple-with-sunglasses-lying-sand_1140-420.jpg'
-import img2 from '../../images/handsome-man-outdoors-drinking-coffee-with-sunglasses-guy-with-beard-instagram-effect_1212-819.jpg'
+import Fade from 'react-reveal/Fade';
+import Pulse from 'react-reveal/Pulse';
+import img1 from '../../images/photo-1483985988355-763728e1935b.png'
+import img2 from '../../images/handsome-fashion-businessman-model-dressed-elegant-blue-suit-posing-street_158538-14341.jpg'
+import img3 from '../../images/portrait-smiling-beautiful-girl-her-handsome-boyfriend-casual-summer-clothes-woman-with-bottle-water-straw_158538-5358.jpg'
+
 
 const TopBanner = () => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {/* <Grid item xs={12} sm={12} md={5} >
-            <div className="top-banner">
-              <h1>Put on your shades</h1>
-            </div>
-          </Grid> */}
-          <Grid item xs={12} sm={12} md={6} >
-          <div id="carouselExampleSlidesOnly" className="carousel slide, ms-auto" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        <div className="h-75 top-banner">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src={img} class="d-block w-100" alt="..."/>
+
+                  <div className="d-flex justify-content-between">
+
+                    {/* headings */}
+
+                    <div className="m-5 p-5 text-start">
+                      <div className="p-5 text-white heading">
+                          <Fade left>
+                          <h2>Available in all colors and sizes</h2>
+
+                          <div className="mt-4">
+                            <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                          </div>
+                          </Fade>
+                      </div>
+                    </div>
+
+                    {/* img */}
+                    <div>
+                        <Pulse>
+                        <img src={img1} class="" alt="..."/>
+                        </Pulse>
+                        </div>
+                  </div>
                 </div>
+
                 <div class="carousel-item">
-                <img src={img2} class="d-block w-100" alt="..."/>
-                </div>
+                  <div className="d-flex justify-content-between">
+
+                    {/* headings */}
+                      <div className="m-5 p-5 text-start">
+                        <div className="p-5 text-white heading">
+                          <Fade left>
+                          <h2>Available in all colors and sizes</h2>
+
+                          <div className="mt-4">
+                            <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                          </div>
+                          </Fade>
+                      </div>
+                      </div>
+
+                      {/* img */}
+                      <div>
+                          <Pulse>
+                          <img src={img2} class="" alt="..."/>
+                          </Pulse>
+                          </div>
+                      </div>
+                  </div>
                 <div class="carousel-item">
-                <img src={img3} class="d-block w-100" alt="..."/>
+                <div className="d-flex justify-content-between">
+
+                    {/* headings */}
+                  <div className="m-5 p-5 text-start">
+                      <div className="p-5 text-white heading">
+                        <Fade left>
+                        <h2>Available in all colors and sizes</h2>
+
+                        <div className="mt-4">
+                          <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                        </div>
+                        </Fade>
+                      </div>
+                    </div>
+
+                    {/* img */}
+                    <div>
+                        <Pulse>
+                        <img src={img3} class="" alt="..."/>
+                        </Pulse>
+                        </div>
+                  </div>
                 </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
-            </div>
-          </Grid>
-        </Grid>
-      </Box>
+        </div>
     );
 };
 

@@ -1,0 +1,30 @@
+.top-banner{
+    background-image: url(../../images/photo-1574680736722-96dc3167446c.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.top-banner img{
+    width: 700px;
+    height: 500px;
+}
+
+.heading{
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    font-weight: bold;
+    border: 3px solid rgb(193, 243, 76);
+    margin-left: 50px;
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: start;
+}
+.shop-btn{
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    border: 3px solid rgb(193, 243, 76);
+    color: white;
+}

@@ -1,7 +1,6 @@
 import { Card, CardActions, CardContent, Container, Grid, Paper, Rating, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import Sunglasses from '../Sunglasses/Sunglasses';
 
 
