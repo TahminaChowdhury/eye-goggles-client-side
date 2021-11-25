@@ -1,57 +1,50 @@
+
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import './Navigation.css'
 import { Link, NavLink } from 'react-router-dom';
-import { useState, useEffect } from "react";
 import useAuth from '../../../Hooks/useAuth';
 
 
 const Navigation = () => {
+
   const {user,logout} = useAuth();
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor: "white", color: "black"}}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            EyeGoggles
-          </Typography>
-          <Link to="/explore" style={{marginRight: "10px", textDecoration: "none", color: "Black"}}>
-          <Button color="inherit">Explore</Button>
-          </Link>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container py-3">
+        <span className="logo">EyeGoggles</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <NavLink to="/home">Home</NavLink>
+            </li>
+            <li class="nav-item">
+            <NavLink to="/">Pages</NavLink>
+            </li>
+            <li class="nav-item">
+            <NavLink to="/explore">Explore</NavLink>
+            </li>
+            <li class="nav-item">
+            <NavLink to="/contactus">Contactus</NavLink>
+            </li>
+          </ul>
           {
             user?.email ? 
-            <Box>
-              <Link to="/dashboard" style={{marginRight: "10px", textDecoration: "none", color: "Black"}}>
-              <Button color="inherit">DashBoard</Button>
-              </Link>
-              <Button onClick={logout} color="inherit">Logout</Button> 
-            </Box>
+            <div>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+                <button onClick={logout} className="logout-btn rounded-pill px-3 py-1">Logout</button>
+            </div>
             :
-            <NavLink to="/login"> 
-            <Button color="inherit">Login</Button>
-            </NavLink>
+            <NavLink to="/login">Login</NavLink>
           }
-          
-          <NavLink to="/signup" style={{textDecoration: "none"}}>
-            <Button variant="contained">Sign up</Button>
-          </NavLink>
-        </Toolbar>
-      </AppBar>
-    </Box>
+          <NavLink to="/signup">SignUp</NavLink>
+        </div>
+      </div>
+    </nav>
     );
 };
 

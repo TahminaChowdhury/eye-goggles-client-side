@@ -1,0 +1,18 @@
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+}
+.navbar a{
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 17px;
+    line-height: 23px;
+    font-weight: 600;
+    text-decoration: none;
+    color:black;
+}
+.logout-btn{
+    background-color: white;
+    border: 2px solid rgb(176, 248, 7);
+    color: black;
+}

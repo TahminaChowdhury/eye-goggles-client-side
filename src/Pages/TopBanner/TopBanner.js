@@ -24,7 +24,7 @@ const TopBanner = () => {
                           <h2>Available in all colors and sizes</h2>
 
                           <div className="mt-4">
-                            <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                            <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
                           </div>
                           </Fade>
                       </div>
@@ -49,7 +49,7 @@ const TopBanner = () => {
                           <h2>Available in all colors and sizes</h2>
 
                           <div className="mt-4">
-                            <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                            <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
                           </div>
                           </Fade>
                       </div>
@@ -73,7 +73,7 @@ const TopBanner = () => {
                         <h2>Available in all colors and sizes</h2>
 
                         <div className="mt-4">
-                          <button className="btn shop-btn px-5 py-2 text-white">Shop</button>
+                          <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
                         </div>
                         </Fade>
                       </div>
