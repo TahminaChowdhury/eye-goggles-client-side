@@ -1,14 +1,12 @@
-
 import React from "react";
+import './App.css'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Footer from "./Pages/Shared/Footer/Footer";
 import Login from "./Pages/Shared/Login/Login";
-import Navigation from "./Pages/Shared/Navigation/Navigation";
 import NotFound from "./Pages/NotFound/NotFound"
 import AuthProvider from "./ContextApi/AuthProvider";
 import PrivateRoute from "./Pages/Shared/Login/PrivateRoute/PrivateRoute";
@@ -23,7 +21,7 @@ import PurchaseForm from "./Pages/Home/SingleSunglass/PurchaseForm/PurchaseForm"
 import ContactUs from "./Pages/Home/ConatctUs/ContactUs";
 function App() {
   return (
-    <div>
+    <div className="App">
       <AuthProvider>
       <Router>
 
@@ -44,7 +42,7 @@ function App() {
             <PurchaseForm></PurchaseForm>
           </Route>
 
-          <Route path='/conatcatus'>
+          <Route path='/contactus'>
             <ContactUs></ContactUs>
           </Route>
 

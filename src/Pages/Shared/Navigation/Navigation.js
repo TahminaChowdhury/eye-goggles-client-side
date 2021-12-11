@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './Navigation.css'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 
@@ -18,12 +18,9 @@ const Navigation = () => {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <NavLink to="/home">Home</NavLink>
-            </li>
-            <li class="nav-item">
-            <NavLink to="/">Pages</NavLink>
             </li>
             <li class="nav-item">
             <NavLink to="/explore">Explore</NavLink>
@@ -36,7 +33,7 @@ const Navigation = () => {
             user?.email ? 
             <div>
               <NavLink to="/dashboard">Dashboard</NavLink>
-                <button onClick={logout} className="logout-btn rounded-pill px-3 py-1">Logout</button>
+                <button onClick={logout} className="logout-btn rounded-pill px-3 py-1 fw-bold">Logout</button>
             </div>
             :
             <NavLink to="/login">Login</NavLink>

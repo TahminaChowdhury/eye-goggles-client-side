@@ -1,0 +1,12 @@
+.simple-btn{
+    background-color: black;
+    border: 2px solid black;
+    color: White;
+    font-weight: 500;
+    
+}
+.MuiCard-root{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }

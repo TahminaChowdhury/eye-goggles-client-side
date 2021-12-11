@@ -3,13 +3,14 @@
 This project was bootstrapped with [Create React App](https://eye-goggles.web.app/).
 
 ## About this website
+* This is a sunglass selling website.
 
-* This website is about eye shades.
+* A complete responsive and single page application website with firebase authentication.
 
-* We have branded eye shades.
+* Users can buy products and are also able to delete their orders and give a review on the dashboard page.The review will appear on the home page.
 
-* Eye shades can really make a person more attractive, although it is all perception. In addition to concealing imperfections and making faces more symmetrical, sunglasses also conceal emotions, boost the wearer's confidence, and just make them seem cooler. ... You may even start to wear your sunglasses at night
+* Admin can manage all orders,add new products,delete new products and also an admin can make a new admin.
 
-* The most important benefit of wearing eye shades is that they protect your eyes from ultraviolet (UV) light. UV light can have harmful effects on the eyelid, cornea, lens and retina.
 
-* Eye shades help prevent certain eye diseases related to the sun.
+
+

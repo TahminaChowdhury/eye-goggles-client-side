@@ -1,103 +1,39 @@
 import './TopBanner.css'
 import React from 'react';
-import Fade from 'react-reveal/Fade';
-import Pulse from 'react-reveal/Pulse';
-import img1 from '../../images/photo-1483985988355-763728e1935b.png'
-import img2 from '../../images/handsome-fashion-businessman-model-dressed-elegant-blue-suit-posing-street_158538-14341.jpg'
-import img3 from '../../images/portrait-smiling-beautiful-girl-her-handsome-boyfriend-casual-summer-clothes-woman-with-bottle-water-straw_158538-5358.jpg'
+import Slide from 'react-reveal/Slide';
+import img from '../../images/h11-removebg-preview.png'
+import { Link } from 'react-router-dom';
+
 
 
 const TopBanner = () => {
     return (
-        <div className="h-75 top-banner">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-
-                  <div className="d-flex justify-content-between">
-
-                    {/* headings */}
-
-                    <div className="m-5 p-5 text-start">
-                      <div className="p-5 text-white heading">
-                          <Fade left>
-                          <h2>Available in all colors and sizes</h2>
-
-                          <div className="mt-4">
-                            <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
-                          </div>
-                          </Fade>
-                      </div>
-                    </div>
-
-                    {/* img */}
-                    <div>
-                        <Pulse>
-                        <img src={img1} class="" alt="..."/>
-                        </Pulse>
-                        </div>
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <div className="d-flex justify-content-between">
-
-                    {/* headings */}
-                      <div className="m-5 p-5 text-start">
-                        <div className="p-5 text-white heading">
-                          <Fade left>
-                          <h2>Available in all colors and sizes</h2>
-
-                          <div className="mt-4">
-                            <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
-                          </div>
-                          </Fade>
-                      </div>
-                      </div>
-
-                      {/* img */}
-                      <div>
-                          <Pulse>
-                          <img src={img2} class="" alt="..."/>
-                          </Pulse>
-                          </div>
-                      </div>
-                  </div>
-                <div class="carousel-item">
-                <div className="d-flex justify-content-between">
-
-                    {/* headings */}
-                  <div className="m-5 p-5 text-start">
-                      <div className="p-5 text-white heading">
-                        <Fade left>
-                        <h2>Available in all colors and sizes</h2>
-
-                        <div className="mt-4">
-                          <button className="btn shop-btn px-5 py-2 text-white">Explore</button>
-                        </div>
-                        </Fade>
-                      </div>
-                    </div>
-
-                    {/* img */}
-                    <div>
-                        <Pulse>
-                        <img src={img3} class="" alt="..."/>
-                        </Pulse>
-                        </div>
-                  </div>
+      <Slide top>
+        <div className="h-75 top-banner mx-5">
+          <div className="row d-flex">
+           <div className="col-sm-12 col-md-4 col-lg-4">
+              <div>
+                <h4 className="text-dark ms-5 ps-5 mt-5 pt-5">Stylish and Trendy 
+                </h4>
+                <p className="brand-name ms-5 ps-5">EYE GOGGLES</p>
+                <div className="ms-5 ps-5 ">
+                  <Link to="/explore">
+                      <button className="shopNow-btn text-white">
+                      <div>Shop Now</div>
+                      <i class="fas fa-arrow-right"></i>
+                      </button>
+                  </Link>
                 </div>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+           </div>
+           <div className="col-sm-12 col-md-8 col-lg-8">
+              <div>
+                <img className="img-fluid w-100" src={img} alt="" />
+              </div>
+           </div>
+           </div>
         </div>
+      </Slide>
     );
 };
 

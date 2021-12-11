@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material';
+import { Alert, Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
@@ -21,26 +21,33 @@ const AddProducts = () => {
         })
     };
     return (
-        <Box>
-            <h4 className="my-5">Add Products</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" {...register("brandName")} placeholder="Brand Name"/>
-            <br />
-            <input type="text" {...register("name")} placeholder="Product name"/>
-            <br />
-            <input  {...register("img")} placeholder="Iage Url"/>
-            <br />
-            <input type="text" {...register("description")} placeholder="Description"/>
-            <br />
-            <input type="number" {...register("price")} placeholder="Price"/>
-            <br />
-            <input type="submit" value="Submit"/>
-            </form>
-            {
-                AddProducts && <Alert severity="success">SuccessFully Added product</Alert>
-            }
-        </Box>
+        <div>
+            <Container>
+            <Box sx={{ flexGrow: 1, textAlign: "center"}}>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={12}>
+                    <h2 className="my-5 fw-bold">Add Products</h2>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="text" {...register("brandName")} placeholder="Brand Name" className="input-field"/>
+                    <br />
+                    <input type="text" {...register("name")} placeholder="Product name" className="input-field"/>
+                    <br />
+                    <input  {...register("img")} placeholder="Iage Url" className="input-field"/>
+                    <br />
+                    <input type="text" {...register("description")} placeholder="Description" className="input-field"/>
+                    <br />
+                    <input type="number" {...register("price")} placeholder="Price" className="input-field"/>
+                    <br />
+                    <input type="submit" value="Submit" className="submit-field"/>
+                    </form>
+                </Grid>
+            </Grid>
+            </Box>
+            </Container>
+        </div>
     );
 };
 
 export default AddProducts;
+
+

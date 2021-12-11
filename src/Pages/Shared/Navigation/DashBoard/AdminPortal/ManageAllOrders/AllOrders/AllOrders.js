@@ -37,7 +37,7 @@ const AllOrders = ({pd, handleCancelOrder}) => {
                 </Typography>
                 <Box sx={{display: 'flex'}}>
                 <Grid item xs={6} sm={6} md={6}>
-                 <Button onClick={()=> handleCancelOrder(pd._id)} variant="contained" sx={{mt: 5}}>Cancel Order</Button>
+                 <button onClick={()=> handleCancelOrder(pd._id)} className="simple-btn px-3 py-1 mt-5">Cancel Order</button>
                 </Grid>
                 <Grid item xs={6} sm={6} md={6}>
                 <Typography variant="h6" gutterBottom component="div" sx={{pt: 5}}>
@@ -45,7 +45,7 @@ const AllOrders = ({pd, handleCancelOrder}) => {
                 </Typography>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <input defaultValue="Shipped" {...register("status")} />
-                <Button variant="contained" type="submit" className="ms-2">Update</Button>
+                <button variant="contained" type="submit" className="simple-btn px-3 py-1 mt-5">Update</button>
                 </form>
                 </Grid>
                 </Box>

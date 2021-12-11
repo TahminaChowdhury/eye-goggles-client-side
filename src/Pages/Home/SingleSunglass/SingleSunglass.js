@@ -7,6 +7,7 @@ import useAuth from '../../../Hooks/useAuth'
 import { Alert } from '@mui/material';
 
 
+
 const SingleSunglass = () => {
     const {user} = useAuth();
     const {sunglassId} = useParams();
@@ -38,17 +39,18 @@ const SingleSunglass = () => {
 
    
     return (
-        <Container fixed>
+
+        
         <Box sx={{ width: '100%', my: 5 }}>
+            <Container fixed>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
             <Grid item xs={12} sm={12} md={6}>
-
-                <Typography variant="h4" gutterBottom component="div">
+                <img src={sunglass.img} alt="" />
+                <Typography variant="h6" gutterBottom component="div" sx={{fontWeight: 'bold'}}>
                 {sunglass.name}
                 </Typography>
-                <img src={sunglass.img} alt="" />
-                <Typography variant="h5" gutterBottom component="div" sx={{my: 5}}>
+                <Typography variant="h6" gutterBottom component="div" sx={{my: 5, fontWeight: 'bold'}}>
                 Description
                 </Typography>
                 <Typography variant="body1" gutterBottom>
@@ -87,8 +89,9 @@ const SingleSunglass = () => {
             </Box>
             </Grid>
         </Grid>
-        </Box>
         </Container>
+        </Box>
+        
     );
 };
 

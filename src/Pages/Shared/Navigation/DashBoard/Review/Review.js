@@ -1,3 +1,4 @@
+import './Review.css'
 import { Alert, Container, Grid, MenuItem, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
@@ -29,21 +30,24 @@ const Review = () => {
    
     return (
         <div>
-            <Container sx={{}}>
-            <Box sx={{ flexGrow: 1 }}>
+            <Container>
+            <Box sx={{ flexGrow: 1, textAlign: "center", pb: 5}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
-                <h4 className="my-5">Write Your Rview here please</h4>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="name"{...register("name")} placeholder="Name"/>
-                <input type="email"{...register("email")} placeholder="Email"/>
-                <input type="text"{...register("review")} placeholder="Write Your Review"/>
-                <input type="number"{...register("rating")} placeholder="Ratings"/>
-                <input type="submit" />
+                <h2 className="my-5 fw-bold">Write Your Review Here Please!</h2>
+                <form onSubmit={handleSubmit(onSubmit)} className="review-field">
+
+                <input type="name"{...register("name")} placeholder="Name" required className="input-field"/>
+
+                <input type="email"{...register("email")} placeholder="Email"  required className="input-field"/>
+
+                <input type="textarea"{...register("review")} placeholder="Write Your Review" required className="textarea text-start"/>
+
+                <input type="number"{...register("rating")}
+                placeholder="Ratings" required className="input-field mb-3"/>
+
+                <input type="submit" className="submit-field"/>
                 </form>
-                {
-                    review && <Alert severity="success">SuccessFully Added Your Review</Alert>
-                }
                 </Grid>
             </Grid>
             </Box>

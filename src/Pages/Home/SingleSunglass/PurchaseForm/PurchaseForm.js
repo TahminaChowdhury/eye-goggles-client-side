@@ -6,7 +6,9 @@ const PurchaseForm = () => {
     
     
     return (
-        <div></div>
+        <div>
+            
+        </div>
     );
 };
 

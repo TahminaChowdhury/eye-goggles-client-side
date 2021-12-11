@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material';
+import { Alert, Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
@@ -26,17 +26,23 @@ const MakeAdmin = () => {
     };
      
     return (
-        <Box>
-            <h4 className="my-5">Add Admin</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="email" {...register("email")} placeholder="Email"/>
-            <input type="submit" value="Add Admin"/>
-            </form>
-            {
-                success && <Alert severity="success">SuccessFul Admin Added</Alert>
-            }
-        </Box>
+        <div>
+            <Container>
+            <Box sx={{ flexGrow: 1, textAlign: "center"}}>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={12}>
+                    <h2 className="my-5 fw-bold">Add Admin</h2>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="email" {...register("email")} placeholder="Email" className="input-field"/>
+                    <input type="submit" value="Add Admin" className="submit-field"/>
+                    </form> 
+                </Grid>
+            </Grid>
+            </Box>
+            </Container>
+        </div>
     );
 };
 
 export default MakeAdmin;
+

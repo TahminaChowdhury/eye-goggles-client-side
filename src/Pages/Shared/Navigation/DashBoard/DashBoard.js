@@ -43,11 +43,13 @@ export default function DashBoard(props) {
   };
 
   const drawer = (
-    <div className="link-list">
-      <Toolbar />
-      <Divider />
-      <h5 style={{paddingLeft: "10px"}}>Admin Portal</h5>
-      <List sx={{fontWeight: 'bold', fontSize: 16, p: 2}}>
+    <div className="link-list text-center">
+      <Toolbar style={{backgroundColor: "black", color: "white"}}>
+        <h5 className="ms-4">Eye Goggles</h5>
+      </Toolbar>
+      <h5 className="fw-bold py-2">Admin Portal</h5>
+      <Divider/>
+      <List sx={{fontSize: 20, py: 2}}>
         {
           !admin? "":
           <Box>
@@ -60,17 +62,16 @@ export default function DashBoard(props) {
           <Link to={`${url}/manageproducts`}>Manage Products</Link>
             </Box>
         }
-      
       </List>
-      <Divider />
-      <List sx={{fontWeight: 'bold', fontSize: 16, p: 2}}>
+      <Divider/>
+      <List sx={{ fontSize: 16}}>
       <Link to={`${url}/myorders`}>My Orders</Link>
       <br/>
       <Link to={`${url}/payment`}>Payment</Link>
       <br/>
       <Link to={`${url}/Review`}>Review</Link>
       <br/>
-      <Button onClick={logout} sx={{my: 5}} variant="contained"> Logout</Button>
+      <button onClick={logout} className="logout-btn mt-3 px-3 py-1"> Logout</button>
       </List>
     </div>
   );
@@ -87,9 +88,8 @@ export default function DashBoard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar style={{backgroundColor: "black"}}>
           <IconButton
-            // color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -97,9 +97,6 @@ export default function DashBoard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            DashBoard
-          </Typography>
         </Toolbar>
       </AppBar>
       <Box
@@ -135,7 +132,7 @@ export default function DashBoard(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
         <Switch>

@@ -1,16 +1,21 @@
-import { Grid } from '@mui/material';
-import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth'
+import img from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg'
 
 
 
 
 const Signup = () => {
-  const {user, signupWithEmailAndPassword,error} = useAuth();
+  const {user, loginWithGoogle,signupWithEmailAndPassword,error} = useAuth();
   const history = useHistory();
+  const location = useLocation();
+
+  const handleSignUpWithGoogle = () => {
+    loginWithGoogle(location, history)
+};
 
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
@@ -18,26 +23,42 @@ const Signup = () => {
   };
     
     return (
-        <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} sx={{textAlign: 'center', my: 5}}>
-          <Grid item xs={12} sm={12} md={12}>
-          <h2>Sign up please</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="loginForm">
+      <div className="row">
+           <div className="col-sm-12 col-md-6 col-lg-6">
+               <div className="container text-center mt-5 pt-5">
+                   <h2 className="mb-3">Sign Up</h2>
+                   <span>Alreday have an acoount ?</span><Link to="/login" className="text-primary ps-2">Login</Link> 
+                   <div className="mt-4">
+                   <form onSubmit={handleSubmit(onSubmit)}>
 
-            <input type="name" placeholder="Name" {...register("name", { required: true })} />
+                   <input type="email" {...register("email")} placeholder="Email"className="input-field"/>
 
-            <input type="email" {...register("email")} placeholder="Email"/>
+                   <input type="password" placeholder="Password"{...register("password")} className="input-field"/>
+                   <h5 className="text-danger my-3">{error}</h5>
+                   
+                   <input type="submit" value="Sign up" className="submit-input rounded-pill fs-5 fw-bold"/>
 
-            <input type="password" placeholder="Password"{...register("password")} />
-
-            <input type="password" placeholder="Re-enter Your Password"{...register("reEnterPassword")} />
-            <h5 className="text-danger my-3">{error}</h5>
-            <input type="submit" value="Sign up"/>
-          </form>
-
-          </Grid>
-        </Grid>
-      </Box>
+                   </form>
+                   </div>
+                   <div className="text-center my-5">
+                        <h6>Or Sign Up Using</h6>
+                    </div>
+                    <div className="container d-flex justify-content-center">
+                        <div className="me-2">
+                        <button onClick={handleSignUpWithGoogle} className="social-btn"><i class="fab fa-google"></i></button>
+                        </div>
+                        <div className="ms-2">
+                        <button className="social-btn"><i class="fab fa-facebook-f"></i></button>
+                        </div>
+                    </div>
+               </div>
+           </div>
+           <div className="col-sm-12 col-md-6 col-lg-6 login-img">
+           <img className="img-fluid" src={img} alt="" />
+           </div>
+      </div>
+   </div>
     );
 };
 

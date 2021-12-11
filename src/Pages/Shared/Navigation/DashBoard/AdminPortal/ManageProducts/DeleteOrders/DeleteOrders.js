@@ -19,7 +19,7 @@ const DeleteOrders = ({pd, handleDeleteOrder}) => {
                 </Typography>
                 <Box sx={{display: 'flex'}}>
                 <Grid item xs={6} sm={6} md={6}>
-                 <Button onClick={()=> handleDeleteOrder(pd._id)} variant="contained" sx={{mt: 5}}>Cancel Order</Button>
+                 <button onClick={()=> handleDeleteOrder(pd._id)} className="simple-btn px-3 py-1 mt-5">Cancel Order</button>
                 </Grid>
                 <Grid item xs={6} sm={6} md={6}>
                 <Typography variant="h6" gutterBottom component="div" sx={{pt: 5}}>
