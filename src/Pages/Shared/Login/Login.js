@@ -9,7 +9,7 @@ import img from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg'
 
 
 const Login = () => {
-    const {user, loginWithGoogle, loginWithEmailAndPassword,error} = useAuth();
+    const {user, loginWithGoogle, loginWithFacebook ,loginWithEmailAndPassword,error} = useAuth();
     const history = useHistory();
     const location = useLocation();
     
@@ -19,7 +19,8 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        loginWithEmailAndPassword(data.email, data.password)
+        loginWithEmailAndPassword(data.email, data.password, location, history)
+        console.log(data)
     };
     return (
         <div className="loginForm">
@@ -49,7 +50,7 @@ const Login = () => {
                         <button onClick={handleLoginWithGoogle} className="social-btn"><i class="fab fa-google"></i></button>
                         </div>
                         <div className="ms-2">
-                        <button className="social-btn"><i class="fab fa-facebook-f"></i></button>
+                        <button onClick={loginWithFacebook} className="social-btn"><i class="fab fa-facebook-f"></i></button>
                         </div>
                     </div>
                 </div>

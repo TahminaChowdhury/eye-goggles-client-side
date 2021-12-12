@@ -9,7 +9,7 @@ import img from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg'
 
 
 const Signup = () => {
-  const {user, loginWithGoogle,signupWithEmailAndPassword,error} = useAuth();
+  const {user, loginWithGoogle, loginWithFacebook,signupWithEmailAndPassword,error} = useAuth();
   const history = useHistory();
   const location = useLocation();
 
@@ -49,7 +49,7 @@ const Signup = () => {
                         <button onClick={handleSignUpWithGoogle} className="social-btn"><i class="fab fa-google"></i></button>
                         </div>
                         <div className="ms-2">
-                        <button className="social-btn"><i class="fab fa-facebook-f"></i></button>
+                        <button onClick={loginWithFacebook} className="social-btn"><i class="fab fa-facebook-f"></i></button>
                         </div>
                     </div>
                </div>

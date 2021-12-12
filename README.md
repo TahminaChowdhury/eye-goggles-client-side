@@ -11,6 +11,9 @@ This project was bootstrapped with [Create React App](https://eye-goggles.web.ap
 
 * Admin can manage all orders,add new products,delete new products and also an admin can make a new admin.
 
+* For admin access login with this email and pass: admin@admin.com
+pass:123456
+
 
 
 

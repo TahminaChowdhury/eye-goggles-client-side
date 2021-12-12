@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initAuth from '../Firebase/firebase.init'
 
@@ -16,6 +16,7 @@ const useFirebase = () => {
 
     // providers
     const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
 
 
@@ -55,7 +56,7 @@ const useFirebase = () => {
 
     // sign in with email and password
 
-    const loginWithEmailAndPassword = (email, password) => {
+    const loginWithEmailAndPassword = (email, password, location , history) => {
 
         setisLoading(true);
 
@@ -64,6 +65,10 @@ const useFirebase = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             setUser(user);
+
+            const { from } = location.state || { from: { pathname: "/" }};
+
+            history.replace(from);
             setError('');
         })
         .catch((error) => {
@@ -81,7 +86,6 @@ const useFirebase = () => {
 
         .then((result) => {
             const user = result.user;
-            console.log(user)
             setUser(user);
 
             saveUserToDb(user.displayName, user.email, "PUT");
@@ -98,6 +102,29 @@ const useFirebase = () => {
         }).finally(() => setisLoading(false));
     };
 
+    // login with facebook
+
+    const loginWithFacebook = () => {
+        signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+
+                const user = result.user;
+
+                const credential = FacebookAuthProvider.credentialFromResult(result);
+                const accessToken = credential.accessToken;
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                const email = error.email;
+            
+                const credential = FacebookAuthProvider.credentialFromError(error);
+
+                // ...
+            });
+    }
 
     // save user to database
 
@@ -151,6 +178,7 @@ const useFirebase = () => {
         signupWithEmailAndPassword,
         loginWithEmailAndPassword,
         loginWithGoogle,
+        loginWithFacebook,
         logout
     };
 };
