@@ -6,7 +6,7 @@ import useAuth from '../../../../Hooks/useAuth';
 const PrivateRoute = ({ children, ...rest }) => {
     const {user, isLoading} = useAuth();
     if (isLoading) {
-      return <CircularProgress color="inherit" />
+      return <div className="text-center my-5 py-5"><CircularProgress color="inherit" /></div>
     }
     return (
         <Route

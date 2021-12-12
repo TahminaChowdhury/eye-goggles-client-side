@@ -19,7 +19,7 @@ const TopBanner = () => {
                 <div className="ms-5 ps-5 ">
                   <Link to="/explore">
                       <button className="shopNow-btn text-white">
-                      <div>Shop Now</div>
+                      <div>Explore More</div>
                       <i class="fas fa-arrow-right"></i>
                       </button>
                   </Link>

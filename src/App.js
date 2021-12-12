@@ -17,7 +17,6 @@ import Explore from "./Pages/Shared/Navigation/Explore/Explore";
 import MyOrders from "./Pages/Shared/Navigation/DashBoard/MyOrders/MyOrders";
 import Payment from "./Pages/Shared/Navigation/DashBoard/Payment/Payment";
 import Review from "./Pages/Shared/Navigation/DashBoard/Review/Review";
-import PurchaseForm from "./Pages/Home/SingleSunglass/PurchaseForm/PurchaseForm";
 import ContactUs from "./Pages/Home/ConatctUs/ContactUs";
 function App() {
   return (
@@ -36,10 +35,6 @@ function App() {
 
           <Route path='/explore'>
             <Explore></Explore>
-          </Route>
-          
-          <Route path='/purchaseform'>
-            <PurchaseForm></PurchaseForm>
           </Route>
 
           <Route path='/contactus'>

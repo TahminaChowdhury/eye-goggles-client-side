@@ -49,12 +49,12 @@ const Products = () => {
         </Grid>
 
         <Grid item xs={12} sm={12} md={12} sx={{my: 5, py: 5}}>
-        <h2 className="title">What Our Customers are Saying</h2>
+        <h2 className="title">Customer Reviews</h2>
         <Grid container spacing={2}>
           
         {
             reviews.map(review => <Grid item xs={12} sm={12} md={4}>
-                <Card sx={{ minWidth: 275, height: '100%', mt: 5, pt: 3 }}>
+                <Card sx={{ minWidth: 275, height: '100%', mt: 5, pt: 3 }} style={{backgroundColor: "#FAFAFA"}}>
                  <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                 <Typography component="legend"></Typography>

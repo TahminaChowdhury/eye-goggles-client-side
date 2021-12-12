@@ -1,0 +1,15 @@
+.text-style{
+    border-bottom: 2px solid black;
+    width: fit-content;
+}
+.purchase-from input{
+    width: 70%;
+    border: 1px solid rgb(179, 177, 177);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.details{
+    background-color: #ffefef;
+    height: 150px;
+}

@@ -9,7 +9,7 @@ const Footer = () => {
                <div className="row d-flex justify-content-between">
                     <div className="col-sm-6 col-md-4 col-lg-4">
                     <div className=" text-start">
-                        <h1 className="heading">Eye Goggles</h1>
+                        <h1 className="brand-name">Eye Goggles</h1>
                         <p>If you had weak eyes, they needed exercise to get strong. Glasses were like crutches. They prevented people with feeble eyes from seeing the world on their own.</p>
                     </div>
                     </div>
@@ -19,7 +19,7 @@ const Footer = () => {
                         <p>Contact-Info</p>
                         <p><i class="far fa-envelope"></i>        Email:eyegoggles@gmail.com</p>
                         <p><i class="fas fa-phone-alt"></i> Call us: 01755-555-80</p>
-                        <p><i class="fas fa-map-marker-alt"></i>Sector-1,Road-3,Uttara,Dhaka-1230</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Sector-1,Road-3,Uttara,Dhaka-1230</p>
                     </div>
                     </div>
                </div>

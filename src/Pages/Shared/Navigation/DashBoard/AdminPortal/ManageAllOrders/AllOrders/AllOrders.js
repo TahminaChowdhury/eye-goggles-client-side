@@ -43,10 +43,6 @@ const AllOrders = ({pd, handleCancelOrder}) => {
                 <Typography variant="h6" gutterBottom component="div" sx={{pt: 5}}>
                     Status- {pd.status}
                 </Typography>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <input defaultValue="Shipped" {...register("status")} />
-                <button variant="contained" type="submit" className="simple-btn px-3 py-1 mt-5">Update</button>
-                </form>
                 </Grid>
                 </Box>
             </Grid>

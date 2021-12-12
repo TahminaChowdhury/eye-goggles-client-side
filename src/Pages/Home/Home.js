@@ -1,6 +1,4 @@
-import { Modal } from 'bootstrap';
-import React, { useEffect, useState } from 'react';
-import Footer from '../Shared/Footer/Footer';
+import React from 'react';
 import Navigation from '../Shared/Navigation/Navigation';
 import TopBanner from '../TopBanner/TopBanner';
 import ContactUs from './ConatctUs/ContactUs';
@@ -14,7 +12,6 @@ const Home = () => {
             <TopBanner></TopBanner>
             <Products></Products>
             <ContactUs></ContactUs>
-            <Footer></Footer>
         </div>
     );
 };
