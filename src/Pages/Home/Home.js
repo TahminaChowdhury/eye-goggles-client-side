@@ -3,6 +3,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 import TopBanner from '../TopBanner/TopBanner';
 import ContactUs from './ConatctUs/ContactUs';
 import Products from './Products/Products';
+import Footer from '../Shared/Footer/Footer';
 
 const Home = () => {
 
@@ -11,7 +12,7 @@ const Home = () => {
             <Navigation></Navigation>
             <TopBanner></TopBanner>
             <Products></Products>
-            <ContactUs></ContactUs>
+            <Footer></Footer>
         </div>
     );
 };
