@@ -14,6 +14,6 @@ This project was bootstrapped with [Create React App](https://eye-goggles.web.ap
 * For admin access login with this email and pass: admin@admin.com
 pass:123456
 
-
+* Technologies used: ReactJS, React Router, Material UI, Bootstrap 5, Firebase Authentication, Node.js, Express.js, MongoDB, Heroku.  
 
 

@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import Button from '@mui/material/Button';
 import React from 'react';
 
 const Orders = ({pd, handleCancelOrder}) => {
