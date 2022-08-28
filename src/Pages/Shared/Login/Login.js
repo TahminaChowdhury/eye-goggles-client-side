@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css'
 import { Button } from '@mui/material';
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import img from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg'
 
 const Login = () => {
     const {user, loginWithGoogle, loginWithFacebook ,loginWithEmailAndPassword,error} = useAuth();
-    const history = useHistory();
+    const history = useNavigate();
     const location = useLocation();
     
     const handleLoginWithGoogle = () => {

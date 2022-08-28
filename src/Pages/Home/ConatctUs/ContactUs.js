@@ -4,13 +4,13 @@ import './Contact.css'
 import img from '../../../images/location-icon-vector-24263344.jpg'
 import img1 from '../../../images/phone-symbol-auricular-inside-circle-260nw-1121268638.jpg'
 import img2 from '../../../images/9-99241_email-icon-black-circle-envelope-email-icon-png.png'
-import Footer from '../../Shared/Footer/Footer';
+import Footer from '../Footer/Footer';
 
 const ContactUs = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <div className='contact-section'>
+            <div className='page-header'>
                 <h6 className="text-center pt-5">Contact Us</h6>
                 <p className='text-center'>Home/Contactus</p>
             </div>

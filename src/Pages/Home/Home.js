@@ -1,20 +1,18 @@
 import React from 'react';
-import Navigation from '../Shared/Navigation/Navigation';
-import TopBanner from '../TopBanner/TopBanner';
-import ContactUs from './ConatctUs/ContactUs';
+import TopBanner from './TopBanner/TopBanner';
 import Products from './Products/Products';
-import Footer from '../Shared/Footer/Footer';
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from './Footer/Footer'
 
 const Home = () => {
-
-    return (
-        <div>
-            <Navigation></Navigation>
-            <TopBanner></TopBanner>
-            <Products></Products>
-            <Footer></Footer>
-        </div>
-    );
+  return (
+    <div>
+      <Navigation/>
+      <TopBanner></TopBanner>
+      <Products></Products>
+      <Footer/>
+    </div>
+  );
 };
 
 export default Home;

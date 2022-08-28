@@ -22,7 +22,7 @@ const useFirebase = () => {
 
     // signin with email and password
     
-    const signupWithEmailAndPassword = (name ,email, password, history) => {
+    const signupWithEmailAndPassword = (name ,email, password, history, location) => {
 
         setisLoading(true);
 
@@ -42,8 +42,10 @@ const useFirebase = () => {
               }).catch((error) => {
                 
               });
+              const { from } = location.state || { from: { pathname: "/" }};
 
-              history.replace('/home')
+            history(from);
+
               setError('');
         })
         .catch((error) => {
@@ -68,7 +70,7 @@ const useFirebase = () => {
 
             const { from } = location.state || { from: { pathname: "/" }};
 
-            history.replace(from);
+            history(from);
             setError('');
         })
         .catch((error) => {
@@ -92,7 +94,7 @@ const useFirebase = () => {
            
             const { from } = location.state || { from: { pathname: "/" }};
 
-            history.replace(from);
+            history(from);
             setError("")
 
         }).catch((error) => {

@@ -1,82 +1,72 @@
-import React from "react";
-import './App.css'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Shared/Login/Login";
-import NotFound from "./Pages/NotFound/NotFound"
-import AuthProvider from "./ContextApi/AuthProvider";
-import PrivateRoute from "./Pages/Shared/Login/PrivateRoute/PrivateRoute";
-import SingleSunglass from "./Pages/Home/SingleSunglass/SingleSunglass";
-import Signup from "./Pages/Shared/Signup/Signup";
-import DashBoard from "./Pages/Shared/Navigation/DashBoard/DashBoard";
-import Explore from "./Pages/Shared/Navigation/Explore/Explore";
-import MyOrders from "./Pages/Shared/Navigation/DashBoard/MyOrders/MyOrders";
-import Payment from "./Pages/Shared/Navigation/DashBoard/Payment/Payment";
-import Review from "./Pages/Shared/Navigation/DashBoard/Review/Review";
-import ContactUs from "./Pages/Home/ConatctUs/ContactUs";
+import React from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import ContactUs from './Pages/Home/ConatctUs/ContactUs';
+import Login from './Pages/Shared/Login/Login';
+import NotFound from './Pages/NotFound/NotFound';
+import AuthProvider from './ContextApi/AuthProvider';
+import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
+import SingleSunglass from './Pages/Home/Products/Sunglasses/SingleSunglass/SingleSunglass';
+import Signup from './Pages/Shared/Signup/Signup';
+import Explore from './Pages/Home/Explore/Explore';
+import DashBoard from './Pages/Dashboard/DashBoard/DashBoard';
+import AllOrders from './Pages/Dashboard/Admin/AllOrders/AllOrders';
+import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
+import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
+import Cart from './Pages/Cart/Cart/Cart';
+
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <Router>
-
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-
-          <Route path='/home'>
-            <Home></Home>
-          </Route>
-
-          <Route path='/explore'>
-            <Explore></Explore>
-          </Route>
-
-          <Route path='/contactus'>
-            <ContactUs></ContactUs>
-          </Route>
-
-          <PrivateRoute path='/dashboard'>
-            <DashBoard></DashBoard>
-          </PrivateRoute>
-
-          <PrivateRoute path="/myorders">
-            <MyOrders></MyOrders>
-          </PrivateRoute>
-
-          <PrivateRoute path="/payment">
-            <Payment></Payment>
-          </PrivateRoute>
-
-          <PrivateRoute path="/review">
-            <Review></Review>
-          </PrivateRoute>
-
-
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-
-          <Route path="/signup">
-            <Signup></Signup>
-          </Route>
-
-         <PrivateRoute path="/sunglass/:sunglassId">
-            <SingleSunglass></SingleSunglass>
-         </PrivateRoute>
-
-          <Route exact path="*">
-            <NotFound></NotFound>
-          </Route>
-
-        </Switch>
-
-      </Router>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/sunglass/:id" element={<SingleSunglass />} />
+            <Route path="*" element={<NotFound />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <DashBoard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/makeadmin"
+              element={
+                <PrivateRoute>
+                  <MakeAdmin />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/dashboard/allorders" element={<AllOrders />} />
+            <Route
+              path="/dashboard/addproduct"
+              element={
+                <PrivateRoute>
+                  <AddProduct />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/updateproduct"
+              element={
+                <PrivateRoute>
+                  <UpdateProduct />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </AuthProvider>
     </div>
   );
