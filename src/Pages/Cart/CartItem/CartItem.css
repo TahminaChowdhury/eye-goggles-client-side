@@ -3,5 +3,46 @@
   height: 150px;
   object-fit: contain;
 }
+.delete-btn {
+  background: 0;
+  border: 0;
+  outline: 0;
+  color: var(--primary);
+}
+.quantity-input {
+  width: 40px;
+  height: 60px;
+  padding: 0%;
+  margin: 0;
+  border: 0;
+  border: 1px solid var(--primary);
+  padding-left: 12px;
+}
+.group-btn-div {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.icrement-btn {
+  outline: 0;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 30px;
+  border-right: 1px solid var(--primary);
+  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+.decrement-btn {
+  outline: 0;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 30px;
+  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+/* D8E9A8 */
 
-
+/* ECE7B4 */

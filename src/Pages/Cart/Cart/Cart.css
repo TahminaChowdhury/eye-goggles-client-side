@@ -2,8 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
-
-.cart-items input {
+.cart-items{
+  margin-top: 130px;
+}
+.coupon-code-input {
   position: relative;
   display: inline-block;
   width: 40%;
@@ -25,7 +27,9 @@
     border-color 0.3s ease;
 }
 
-.cart-items button {
+.regular-btn{
+  outline: 1px solid black;
+  outline-offset: 2px;
   position: relative;
   display: inline-flex;
   vertical-align: middle;
@@ -49,7 +53,7 @@
     opacity 0.44s cubic-bezier(0.34, 0.24, 0.09, 0.73),
     transform 0.44s cubic-bezier(0.34, 0.24, 0.09, 0.73);
   color: #fff;
-  background-color: #000;
+  background-color: var(--primary);
   border: 1px solid transparent;
   display: inline-flex;
   flex-direction: column;
@@ -59,6 +63,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.cart-items button:hover{
+  background-color: var(--secondary);
 }
 .cart {
   display: flex;

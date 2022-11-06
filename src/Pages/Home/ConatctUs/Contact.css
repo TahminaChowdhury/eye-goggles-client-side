@@ -1,4 +1,8 @@
-.page-header{
-    background-color: #ffefef;
-    height: 150px;
+.page-header {
+  background-color: var(--light);
+  height: 110px;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

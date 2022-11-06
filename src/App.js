@@ -16,12 +16,14 @@ import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import Cart from './Pages/Cart/Cart/Cart';
+import Navigationbar from './Pages/Shared/Navigationbar/Navigationbar';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
+        <Navigationbar/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />

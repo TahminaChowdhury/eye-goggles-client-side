@@ -1,4 +1,4 @@
-import Navigation from '../../Shared/Navigation/Navigation';
+
 import Footer from '../../Home/Footer/Footer';
 import { Box, Container, Grid } from '@material-ui/core';
 import {
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 import { addToCart, removeFromCart } from '../../redux/Cart/cartActions';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -63,10 +64,12 @@ const Cart = () => {
 
   return (
     <Fragment>
-      <Navigation />
       <div className="page-header">
-        <h6 className="text-center pt-5">Contact Us</h6>
-        <p className="text-center">Home / Contactus</p>
+        <p>Home</p>
+        <p>
+          <ChevronLeftIcon />
+        </p>
+        <p>Cart</p>
       </div>
       <Box sx={{ my: 5 }}>
         <Container fixed>
@@ -79,7 +82,7 @@ const Cart = () => {
                   <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                       <TableHead>
-                        <TableRow sx={{ fontSize: '19px' }}>
+                        <TableRow>
                           <TableCell></TableCell>
                           <TableCell>Product</TableCell>
                           <TableCell></TableCell>
@@ -110,11 +113,12 @@ const Cart = () => {
                           type="text"
                           name="coupon_code"
                           placeholder="Coupon Code"
+                          className="coupon-code-input"
                         />
-                        <button>Apply Coupon</button>
+                        <button className="regular-btn">Apply Coupon</button>
                       </div>
                       <div>
-                        <button>Update cart</button>
+                        <button className="regular-btn">Update cart</button>
                       </div>
                     </div>
                   </Grid>
@@ -147,7 +151,7 @@ const Cart = () => {
                           <textarea
                             name="note"
                             id="cartSpecialInstructions"
-                            cols="70"
+                            cols="60"
                             rows="8"
                           ></textarea>
                         </div>
@@ -175,8 +179,11 @@ const Cart = () => {
                           <span>Total</span>
                           <span> $ {total.toFixed(2)}</span>
                         </div>
-                        <button>Checkout</button>
-                        <button className="ms-4">Continue Shopping</button>
+                        <button className="regular-btn">Checkout</button>
+                        <button className="ms-4 regular-btn">
+                          {' '}
+                          Continue Shopping
+                        </button>
                       </Paper>
                     </Grid>
                   </Grid>

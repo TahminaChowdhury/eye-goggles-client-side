@@ -1,8 +1,14 @@
+:root {
+  --primary: #000;
+  --secondary: #babd42;
+  --light: #f4fcd9;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 body {
   overflow-x: hidden;

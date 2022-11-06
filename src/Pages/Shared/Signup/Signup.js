@@ -22,7 +22,13 @@ const Signup = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    signupWithEmailAndPassword(data.name, data.email, data.password, history, location);
+    signupWithEmailAndPassword(
+      data.name,
+      data.email,
+      data.password,
+      history,
+      location
+    );
   };
 
   return (
