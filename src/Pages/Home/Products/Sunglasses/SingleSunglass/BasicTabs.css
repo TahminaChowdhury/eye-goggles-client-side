@@ -1,0 +1,13 @@
+.tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+}
+.Mui-selected {
+    color: #babd42;
+}

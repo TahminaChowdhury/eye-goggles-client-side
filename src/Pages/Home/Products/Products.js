@@ -17,21 +17,29 @@ const Products = () => {
   return (
     <Container fixed>
       <Box sx={{ flexGrow: 1, my: 5, py: 5, textAlign: 'center' }}>
+        <h1>Featured Products</h1>
         <Grid
           container
           spacing={{ xs: 5, md: 5 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
+          sx={{ textAlign: 'center' }}
         >
           {loading ? (
-            <div>
-               <CircularProgress />
-  
-            </div>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+              }}
+            >
+              <CircularProgress color="inherit" />
+            </Box>
           ) : error ? (
             <h2>{error}</h2>
           ) : (
             products
-              .slice(0, 6)
+              .slice(0, 3)
               .map((product) => (
                 <Sunglasses key={product._id} product={product}></Sunglasses>
               ))

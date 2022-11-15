@@ -30,14 +30,6 @@ const Sunglasses = ({ product }) => {
             >
               {name}
             </Typography>
-            <Typography variant="p" color="text.secondary">
-              {description
-                .split(' ')
-                .slice(0, 10)
-                .toString()
-                .replace(/,/g, ' ')}
-              ...
-            </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions

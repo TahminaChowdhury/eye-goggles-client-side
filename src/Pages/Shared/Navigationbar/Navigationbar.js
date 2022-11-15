@@ -51,7 +51,7 @@ const Navigationbar = () => {
           {/* Bootom-bar start */}
           <div className="bottom-bar">
             <div>
-              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Toggle className='navbar-toggle-icon' aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
                 <Nav className="nav py-3" navbarScroll>
                   <NavLink to="/home">Home</NavLink>

@@ -7,7 +7,7 @@ export const getProducts = () => async (dispatch) => {
       type: actionTypes.GET_PRODUCT_REQUEST,
     });
     const { data } = await axios.get(
-      'https://pacific-lowlands-13394.herokuapp.com/sunglasses'
+      'https://eye-goggles.up.railway.app/sunglasses'
     );
 
     dispatch({
@@ -31,7 +31,7 @@ export const getProductDetails = (id) => async (dispatch) => {
       type: actionTypes.GET_PRODUCT_DETAILS_REQUEST,
     });
     const { data } = await axios.get(
-      `https://pacific-lowlands-13394.herokuapp.com/sunglasses/${id}`
+      `https://eye-goggles.up.railway.app/sunglasses/${id}`
     );
 
     dispatch({

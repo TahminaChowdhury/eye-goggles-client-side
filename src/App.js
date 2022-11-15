@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-        <Navigationbar/>
+          <Navigationbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />

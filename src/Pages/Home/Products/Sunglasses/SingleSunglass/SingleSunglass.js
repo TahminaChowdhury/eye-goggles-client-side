@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../../../redux/Products/productActions';
 import { addToCart } from '../../../../redux/Cart/cartActions';
 import Footer from '../../../Footer/Footer';
-
+import BasicTabs from './BasicTabs'
 
 const SingleSunglass = () => {
   const { id } = useParams();
@@ -58,7 +58,7 @@ const SingleSunglass = () => {
             height: '100vh',
           }}
         >
-          <CircularProgress />
+          <CircularProgress color="inherit"/>
         </Box>
       ) : error ? (
         <h2>{error}</h2>
@@ -109,6 +109,9 @@ const SingleSunglass = () => {
                     </button>
                   </div>
                 </Box>
+              </Grid>
+              <Grid item xs={12} sm={12} md={12}>
+                <BasicTabs description={product.description}/>
               </Grid>
             </Grid>
           </Container>
