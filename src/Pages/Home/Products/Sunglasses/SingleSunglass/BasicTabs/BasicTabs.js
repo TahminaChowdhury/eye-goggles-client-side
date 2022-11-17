@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import './BasicTabs.css';
+import Review from '../Review/Review';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -38,7 +39,7 @@ function a11yProps(index: number) {
   };
 }
 
-const BasicTabs = ({description}) => {
+const BasicTabs = ({ description }) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -69,13 +70,11 @@ const BasicTabs = ({description}) => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-     {description}
+        {description}
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        
-      </TabPanel>
+      <TabPanel value={value} index={1}></TabPanel>
       <TabPanel value={value} index={2}>
-       
+        <Review />
       </TabPanel>
     </Box>
   );

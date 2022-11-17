@@ -1,0 +1,14 @@
+.review-title {
+  cursor: pointer;
+}
+.review-title::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.6s;
+}
+.review-title:hover::after {
+  width: 22%;
+}

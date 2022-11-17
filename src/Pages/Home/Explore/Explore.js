@@ -12,7 +12,7 @@ import {
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
+
 
 const Explore = () => {
   const [sunglasses, setSunglasses] = useState([]);
@@ -97,7 +97,6 @@ const Explore = () => {
           ))}
         </Grid>
       </Container>
-      <Footer></Footer>
     </Box>
   );
 };

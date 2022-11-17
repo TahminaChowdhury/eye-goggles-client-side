@@ -17,6 +17,8 @@ import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import Cart from './Pages/Cart/Cart/Cart';
 import Navigationbar from './Pages/Shared/Navigationbar/Navigationbar';
+import Footer from './Pages/Home/Footer/Footer';
+import GoToTop from './Pages/Home/GoToTop/GoToTop';
 
 function App() {
   return (
@@ -68,6 +70,8 @@ function App() {
               }
             />
           </Routes>
+          <GoToTop/>
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </div>

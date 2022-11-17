@@ -13,3 +13,8 @@
     background-color: #ffefef;
     height: 150px;
 }
+.product-img img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}

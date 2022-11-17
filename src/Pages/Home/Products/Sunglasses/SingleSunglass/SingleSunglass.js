@@ -6,8 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../../../redux/Products/productActions';
 import { addToCart } from '../../../../redux/Cart/cartActions';
-import Footer from '../../../Footer/Footer';
-import BasicTabs from './BasicTabs'
+import BasicTabs from './BasicTabs/BasicTabs'
 
 const SingleSunglass = () => {
   const { id } = useParams();
@@ -66,7 +65,7 @@ const SingleSunglass = () => {
         <Box sx={{ width: '100%', my: 5, py: 5 }}>
           <Container fixed>
             <Grid container rowSpacing={1} columnSpacing={2}>
-              <Grid item xs={12} sm={12} md={6}>
+              <Grid item xs={12} sm={12} md={6} className="product-img">
                 <img src={product.img} alt={product.name} />
               </Grid>
               <Grid item xs={12} sm={12} md={6}>
@@ -117,7 +116,6 @@ const SingleSunglass = () => {
           </Container>
         </Box>
       )}
-      <Footer />
     </>
   );
 };
