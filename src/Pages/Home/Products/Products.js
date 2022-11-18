@@ -39,7 +39,7 @@ const Products = () => {
             <h2>{error}</h2>
           ) : (
             products
-              .slice(0, 3)
+              .slice(0, 6)
               .map((product) => (
                 <Sunglasses key={product._id} product={product}></Sunglasses>
               ))
