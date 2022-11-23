@@ -54,17 +54,6 @@
   .navbar-toggle-icon {
     background-color: black;
   }
-  .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-
-    background-color: red;
-    box-shadow: 24px;
-    padding: 20px;
-  }
 }
 @media only screen and (max-width: 688px) {
   .navbar {
@@ -89,4 +78,23 @@
     text-decoration: none;
     color: var(--primary);
   }
+}
+.shoppingcart {
+  position: relative;
+}
+.shoppingcart-icon {
+  position: absolute;
+  color: #fff;
+  position: absolute;
+  top: -1px;
+  left: 27px;
+  min-width: 17px;
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 12px;
+  border-radius: 50px;
+  z-index: 9;
+  background: var(--primary);
 }

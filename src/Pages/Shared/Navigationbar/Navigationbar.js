@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Button, Modal } from '@mui/material';
 import { Box } from '@mui/system';
 import Login from '../Login/Login';
+import { useSelector } from 'react-redux';
 
 const style = {
   position: 'absolute',
@@ -28,6 +29,11 @@ const Navigationbar = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+  };
   return (
     <div>
       <Navbar expand="lg">
@@ -51,7 +57,7 @@ const Navigationbar = () => {
             <div className="userinfo">
               <span>
                 <Button onClick={handleOpen}>
-                  <PersonOutlineOutlinedIcon sx={{ fontSize: 30 }} />
+                  <PersonOutlineOutlinedIcon sx={{ fontSize: 30, color: '#000' }} />
                 </Button>
                 <Modal
                   open={open}
@@ -60,7 +66,7 @@ const Navigationbar = () => {
                   aria-describedby="modal-modal-description"
                 >
                   <Box sx={style}>
-                    <Login/>
+                    <Login />
                   </Box>
                 </Modal>
               </span>
@@ -70,8 +76,11 @@ const Navigationbar = () => {
               <span>
                 <SearchIcon sx={{ fontSize: 30 }} />
               </span>
-              <span>
-                <ShoppingBasketOutlinedIcon sx={{ fontSize: 30 }} />
+              <span className="shoppingcart">
+                <Link to="/cart">
+                  <ShoppingBasketOutlinedIcon sx={{ fontSize: 30 }} />
+                  <span className="shoppingcart-icon">{getCartCount()}</span>
+                </Link>
               </span>
             </div>
           </div>

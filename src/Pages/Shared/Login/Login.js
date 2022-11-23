@@ -35,17 +35,17 @@ const Login = () => {
         style={{ textAlign: 'center' }}
       >
         <div>
-        <div className="logo">
-              <div>
-                <Link to="/home">
-                  Eye<span style={{ color: '#babd42' }}>Goggles</span>
-                </Link>
-              </div>
-
-              <div>
-                <i class="fa-solid fa-glasses"></i>
-              </div>
+          <div className="logo">
+            <div>
+              <Link to="/home">
+                Eye<span style={{ color: '#babd42' }}>Goggles</span>
+              </Link>
             </div>
+
+            <div>
+              <i class="fa-solid fa-glasses"></i>
+            </div>
+          </div>
 
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -77,10 +77,17 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div style={{marginTop: '20px', marginBottom: '20px'}}>
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
           <h6>Or Login Using</h6>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '20px',
+            marginBottom: '20px',
+          }}
+        >
           <div>
             <button onClick={handleLoginWithGoogle} className="social-btn">
               <i class="fab fa-google"></i>
