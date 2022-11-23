@@ -22,7 +22,6 @@ const style = {
   height: 550,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
-  p: 4,
 };
 
 const Navigationbar = () => {
@@ -57,7 +56,9 @@ const Navigationbar = () => {
             <div className="userinfo">
               <span>
                 <Button onClick={handleOpen}>
-                  <PersonOutlineOutlinedIcon sx={{ fontSize: 30, color: '#000' }} />
+                  <PersonOutlineOutlinedIcon
+                    sx={{ fontSize: 30, color: '#000' }}
+                  />
                 </Button>
                 <Modal
                   open={open}
