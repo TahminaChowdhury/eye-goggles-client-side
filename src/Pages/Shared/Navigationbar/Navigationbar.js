@@ -7,8 +7,27 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import './Navigationbar.css';
 import { Container } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Modal } from '@mui/material';
+import { Box } from '@mui/system';
+import Login from '../Login/Login';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  height: 550,
+  bgcolor: 'white',
+  boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
+  p: 4,
+};
 
 const Navigationbar = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <div>
       <Navbar expand="lg">
@@ -31,9 +50,19 @@ const Navigationbar = () => {
 
             <div className="userinfo">
               <span>
-                <NavLink to="/login" className="login">
+                <Button onClick={handleOpen}>
                   <PersonOutlineOutlinedIcon sx={{ fontSize: 30 }} />
-                </NavLink>
+                </Button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <Login/>
+                  </Box>
+                </Modal>
               </span>
               <span>
                 <FavoriteBorderOutlinedIcon sx={{ fontSize: 30 }} />
@@ -51,7 +80,10 @@ const Navigationbar = () => {
           {/* Bootom-bar start */}
           <div className="bottom-bar">
             <div>
-              <Navbar.Toggle className='navbar-toggle-icon' aria-controls="navbarScroll" />
+              <Navbar.Toggle
+                className="navbar-toggle-icon"
+                aria-controls="navbarScroll"
+              />
               <Navbar.Collapse id="navbarScroll">
                 <Nav className="nav py-3" navbarScroll>
                   <NavLink to="/home">Home</NavLink>

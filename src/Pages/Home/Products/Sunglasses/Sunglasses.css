@@ -5,7 +5,7 @@
   align-items: center;
   position: relative;
   width: 300px;
-  height: 350px;
+  height: 600px;
 }
 .pd-container:hover .pd-additional-icon {
   opacity: 1;
@@ -13,10 +13,15 @@
 }
 .pd-img-icon-div img {
   width: 250px;
-  height: 180px;
+  height: 100px;
   object-fit: contain;
 }
 .pd-img-icon-div {
+  width: 300px;
+  height: 320px;
+  padding: 0;
+  margin: 0;
+  background-color: #EDEDED;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,6 +32,7 @@
   display: flex;
   transition: all 0.5s ease;
   cursor: pointer;
+  margin-top: 40px;
 }
 .icon {
   width: 40px;
@@ -44,29 +50,35 @@
 .icon:hover {
   transform: scale(1.1);
 }
+.pd-info {
+  width: 100%;
+  height: 160px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pd-category {
+  font-size: 18px;
+  color: #8e8e8e;
+  font-weight: 400;
+}
 .pd-name {
   text-decoration: none;
   color: var(--primary);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
   cursor: pointer;
 }
 .pd-name:hover {
   color: var(--secondary);
 }
 .pd-price {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
+  color: var(--secondary);
+  margin: 0;
 }
-/* .simple-btn{
-    background-color: black;
-    border: 2px solid black;
-    color: White;
-    font-weight: 500;
-    
-}
-.MuiCard-root{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  } */

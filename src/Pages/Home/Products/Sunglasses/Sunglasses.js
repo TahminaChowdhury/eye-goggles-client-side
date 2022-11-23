@@ -11,12 +11,10 @@ const Sunglasses = ({ product }) => {
 
   return (
     <Grid item xs={12} sm={12} md={4} sx={{ mt: 3 }}>
-      
       <div className="pd-container">
-
-      {/* Product image and additional icon */}
+        {/* Product image and additional icon */}
         <div className="pd-img-icon-div">
-          <img src={img} alt="" />
+          <img src={img} alt={name} />
           <div className="pd-additional-icon">
             <div className="icon">
               <SearchOutlinedIcon />
@@ -30,13 +28,15 @@ const Sunglasses = ({ product }) => {
           </div>
         </div>
 
-      {/* Product Information */}
+        {/* Product Information */}
         <div className="pd-info">
-          <p>{category}</p>
-          <Link to={`/sunglass/${_id}`} className="pd-name">{name}</Link>
-          <p className='pd-price'>$ {price}</p>
-        </div>
+          <p className="pd-category">{category}</p>
+          <Link to={`/sunglass/${_id}`} className="pd-name">
+            {name}
+          </Link>
 
+          <p className="pd-price">$ {price}</p>
+        </div>
       </div>
     </Grid>
   );

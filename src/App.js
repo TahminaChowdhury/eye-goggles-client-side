@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import ContactUs from './Pages/Home/ConatctUs/ContactUs';
-import Login from './Pages/Shared/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
 import AuthProvider from './ContextApi/AuthProvider';
 import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
@@ -31,7 +30,6 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/sunglass/:id" element={<SingleSunglass />} />
@@ -70,7 +68,7 @@ function App() {
               }
             />
           </Routes>
-          <GoToTop/>
+          <GoToTop />
           <Footer />
         </BrowserRouter>
       </AuthProvider>

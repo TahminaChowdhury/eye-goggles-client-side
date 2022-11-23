@@ -1,40 +1,18 @@
-import './TopBanner.css'
+import './TopBanner.css';
 import React from 'react';
-import Slide from 'react-reveal/Slide';
-import img from '../../../images/h11-removebg-preview.png'
-import { Link } from 'react-router-dom';
-
-
+import { Box, Grid } from '@mui/material';
+import Slide from './Slide/Slide';
 
 const TopBanner = () => {
-    return (
-      <Slide top>
-        <div className="h-75 top-banner mx-5">
-          <div className="row d-flex">
-           <div className="col-sm-12 col-md-4 col-lg-4">
-              <div>
-                <h4 className="text-dark ms-5 ps-5 mt-5 pt-5">Stylish and Trendy 
-                </h4>
-                <p className="brand-name ms-5 ps-5">EYE GOGGLES</p>
-                <div className="ms-5 ps-5 ">
-                  <Link to="/explore">
-                      <button className="shopNow-btn text-white">
-                      <div>Explore More</div>
-                      <i class="fas fa-arrow-right"></i>
-                      </button>
-                  </Link>
-                </div>
-              </div>
-           </div>
-           <div className="col-sm-12 col-md-8 col-lg-8">
-              <div>
-                <img className="img-fluid w-100" src={img} alt="" />
-              </div>
-           </div>
-           </div>
-        </div>
-      </Slide>
-    );
+  return (
+    <Box sx={{ flexGrow: 1, width: '100%', height: '500px' }}>
+      <Grid container>
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide />
+        </Grid>
+      </Grid>
+    </Box>
+  );
 };
 
 export default TopBanner;
