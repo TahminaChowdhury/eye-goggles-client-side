@@ -12,7 +12,7 @@ const TopBanner = () => {
           <img src={img} alt="" />
           <div className="banner-content-div">
             <Link to="/explore">
-              <button className="shopNow-btn">
+              <button className="explore-btn">
                 <div>Explore More</div>
                 <i class="fas fa-arrow-right"></i>
               </button>

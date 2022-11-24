@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%);
 }
 
-.shopNow-btn {
+.explore-btn {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: 3px;
@@ -30,7 +30,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.shopNow-btn i {
+.explore-btn i {
   opacity: 0;
   font-size: 13px;
   transition: 0.2s;
@@ -41,15 +41,15 @@
   transition: transform 1;
 }
 
-.shopNow-btn div {
+.explore-btn div {
   transition: transform 0.8s;
 }
 
-.shopNow-btn:hover div {
+.explore-btn:hover div {
   transform: translateX(-6px);
 }
 
-.shopNow-btn::after {
+.explore-btn::after {
   content: '';
   background-color: black;
   width: 100%;
@@ -60,7 +60,7 @@
   left: 7px;
 }
 
-.shopNow-btn:hover i {
+.explore-btn:hover i {
   opacity: 1;
   transform: translateX(-6px);
 }
