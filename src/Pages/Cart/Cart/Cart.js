@@ -1,5 +1,3 @@
-
-import Footer from '../../Home/Footer/Footer';
 import { Box, Container, Grid } from '@material-ui/core';
 import {
   Paper,
@@ -193,7 +191,6 @@ const Cart = () => {
           </Grid>
         </Container>
       </Box>
-      <Footer />
     </Fragment>
   );
 };

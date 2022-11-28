@@ -1,64 +1,153 @@
+import { Box, Grid } from '@material-ui/core';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-dark pt-5 text-white">
-        <div className="container">
-          <div className="row d-flex justify-content-between">
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className=" text-start">
-                <h1 className="brand-name">Eye Goggles</h1>
-                <p>
-                  If you had weak eyes, they needed exercise to get strong.
-                  Glasses were like crutches. They prevented people with feeble
-                  eyes from seeing the world on their own.
-                </p>
-              </div>
+    <Box
+      sx={{ width: '100%' }}
+      style={{
+        backgroundColor: '#ededed',
+        width: '100%',
+        height: '400px',
+        margin: 0,
+        padding: 0,
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <Grid
+        container
+        spacing={2}
+        style={{
+          backgroundColor: '#000',
+          color: 'white',
+          width: '98%',
+          height: '380px',
+        }}
+        className="footer-container"
+      >
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '40px 0px',
+          }}
+        >
+          <div style={{ alignItems: 'start' }}>
+            <Link
+              to="/home"
+              style={{
+                fontSize: '30px',
+                fontWeight: 600,
+              }}
+            >
+              Eye<span style={{ color: '#babd42' }}>Goggles</span>
+            </Link>
+            <p
+              style={{
+                margin: '25px 0px',
+                fontSize: '18px',
+                textAlign: 'justify',
+              }}
+            >
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Consequuntur ducimus tempora aliquid similique alias laboriosam.
+            </p>
+            <div>
+              <span>
+                <i class="fa-brands fa-facebook"></i>
+              </span>
+              <span>
+                <i class="fa-brands fa-instagram"></i>
+              </span>
+              <span>
+                <i class="fa-brands fa-twitter"></i>
+              </span>
+              <span>
+                <i class="fa-brands fa-linkedin"></i>
+              </span>
             </div>
+          </div>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          style={{
+            display: 'flex',
 
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div>
-                <p>Contact-Info</p>
-                <p>
-                  <i class="far fa-envelope"></i> Email:eyegoggles@gmail.com
-                </p>
-                <p>
-                  <i class="fas fa-phone-alt"></i> Call us: 01755-555-80
-                </p>
-                <p>
-                  <i class="fas fa-map-marker-alt"></i>{' '}
-                  Sector-1,Road-3,Uttara,Dhaka-1230
-                </p>
-              </div>
-            </div>
+            justifyContent: 'center',
+            margin: '40px 0px',
+          }}
+        >
+          <div>
+            <h4>About Us</h4>
+            <ul className="list-unstyled">
+              <li>Help Center</li>
+              <li>Address Store</li>
+              <li>Privacy Policy</li>
+              <li>Receivers & Amplifiers</li>
+              <li>Store</li>
+            </ul>
           </div>
-          <div className="row">
-            <div className="col">
-              <div className="text-center py-5">
-                <span>
-                  <i class="fab fa-facebook social-icon"></i>
-                </span>
-                <span>
-                  <i class="fab fa-instagram social-icon"></i>
-                </span>
-                <span>
-                  <i class="fab fa-twitter social-icon"></i>
-                </span>
-                <span>
-                  <i class="fab fa-youtube social-icon"></i>
-                </span>
-                <br />
-                <small className="text-white">
-                  © Eye Goggles Clinic 2021. All Rights Reserved
-                </small>
-              </div>
-            </div>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '40px 0px',
+            color: 'white',
+          }}
+        >
+          <div>
+            <h4>Help & Information</h4>
+            <ul className="list-unstyled">
+              <li>Pagination</li>
+              <li>Terms & Conditions</li>
+              <li>Contact</li>
+              <li>Accessories</li>
+              <li>Term of use</li>
+            </ul>
           </div>
-        </div>
-      </footer>
-    </div>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '40px 0px',
+          }}
+        >
+          <div className="contact-section">
+            <h4>Contact Us</h4>
+            <p>
+              <i class="far fa-envelope"></i> eyegoggles@gmail.com
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i> +91 12345678
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Uttara, Dhaka - 1230
+            </p>
+            <div></div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

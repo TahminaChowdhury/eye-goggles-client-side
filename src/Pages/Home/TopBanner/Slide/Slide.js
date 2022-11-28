@@ -8,6 +8,7 @@ import img1 from '../../../../images/image-1.webp';
 import img2 from '../../../../images/image-2.webp';
 import img3 from '../../../../images/image-3.jpg';
 
+
 const Slide = () => {
   return (
     <>

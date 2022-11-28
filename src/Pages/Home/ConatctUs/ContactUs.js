@@ -5,14 +5,17 @@ import img1 from '../../../images/phone-symbol-auricular-inside-circle-260nw-112
 import img2 from '../../../images/9-99241_email-icon-black-circle-envelope-email-icon-png.png';
 import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const ContactUs = () => {
   return (
     <div>
-      <div className="page-header">
-        <Link to="/home">
-          <span>Home</span>
-        </Link>
+       <div className="page-header">
+        <p>Home</p>
+        <p>
+          <ChevronLeftIcon />
+        </p>
+        <p>Contact</p>
       </div>
       <div className="row d-flex text-center my-5 py-5">
         <div className="col-sm-6 col-md-4 col-lg-4">

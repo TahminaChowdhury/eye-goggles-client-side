@@ -6,10 +6,10 @@ import img2 from '../../../images/m-1.webp';
 
 const ItemBanner = () => {
   return (
-    <Box sx={{ flexGrow: 1, margin: '40px 0px' }}>
+    <Box sx={{ flexGrow: 1, margin: '40px 0px', padding: '60px 0px', backgroundColor: '#000' }}>
       <Grid container>
         <Grid item xs={12} sm={12} md={6} style={{ position: 'relative' }}>
-          <h1 style={{ marginLeft: '100px', marginBottom: '30px' }}>
+          <h1 style={{ marginLeft: '130px', marginBottom: '30px', color: 'white' }}>
             Women Glasses
           </h1>
           <div className="item-banner-container">
@@ -20,7 +20,7 @@ const ItemBanner = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={6} style={{ position: 'relative', marginTop: '150px' }}>
-          <h1 style={{ marginLeft: '100px', marginBottom: '30px' }}>
+          <h1 style={{ marginLeft: '130px', marginBottom: '30px', color: 'white' }}>
             Men Glasses
           </h1>
           <div className="item-banner-container">

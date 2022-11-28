@@ -16,12 +16,12 @@ const Products = () => {
   }, [dispatch]);
   return (
     <Container fixed>
-      <Box sx={{ flexGrow: 1, my: 5, py: 5, textAlign: 'center' }}>
-        <h1>Featured Products</h1>
+      <Box sx={{ flexGrow: 1, my: 4, textAlign: 'center' }}>
+        <h1 style={{ margin: '100px 0px' }}>Featured Products</h1>
         <Grid
           container
-          spacing={{ xs: 5, md: 5 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          rowSpacing={1}
+          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           sx={{ textAlign: 'center' }}
         >
           {loading ? (

@@ -3,7 +3,7 @@ import * as actionTypes from './cartConstants';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(
-    `https://pacific-lowlands-13394.herokuapp.com/sunglasses/${id}`
+    `https://eye-goggles.up.railway.app/sunglasses/${id}`
   );
 
   dispatch({

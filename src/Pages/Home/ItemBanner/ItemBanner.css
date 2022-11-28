@@ -1,6 +1,6 @@
 .item-banner-container img {
-  width: 480px;
-  height: 700px;
+  width: 400px;
+  height: 600px;
   object-fit: cover;
   object-position: left;
   position: relative;
@@ -8,7 +8,23 @@
 .item-banner-container {
   display: flex;
   justify-content: center;
+  animation: itembanner 1.2s linear infinite alternate-reverse;
 }
+@keyframes itembanner {
+  0% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(1rem);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .top-btn {
+    right: 0;
+    left: 40%;
+  }
+}
+
 .item-banner-content {
   position: absolute;
   top: 50%;

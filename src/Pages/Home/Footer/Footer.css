@@ -1,8 +1,30 @@
-footer{
-    position: sticky;
+footer {
+  position: sticky;
 }
-.social-icon{
-    color: white;
-    font-size: 25px;
-    margin-right: 30px;
+.footer-container a {
+  text-decoration: none;
+  color: white;
+}
+.fa-brands {
+  color: white;
+  font-size: 25px;
+  margin-right: 30px;
+}
+.contact-section p {
+  font-size: 17px;
+}
+.far {
+  margin-right: 10px;
+}
+.fas {
+  margin-right: 10px;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  font-size: 17px;
+}
+.list-unstyled > li {
+  margin: 15px 0px;
+  cursor: pointer;
 }
