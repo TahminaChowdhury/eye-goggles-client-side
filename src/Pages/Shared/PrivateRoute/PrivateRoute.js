@@ -1,6 +1,6 @@
-import { CircularProgress } from '@mui/material';
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
+import { Navigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="text-center my-5 py-5">
-        <CircularProgress animation="grow" />
+        <Spinner animation="grow" />
       </div>
     );
   }

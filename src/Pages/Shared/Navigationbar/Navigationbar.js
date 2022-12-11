@@ -12,6 +12,7 @@ import { Button, Modal } from '@mui/material';
 import { Box } from '@mui/system';
 import Login from '../Login/Login';
 import { useSelector } from 'react-redux';
+import useAuth from '../../../Hooks/useAuth';
 
 const style = {
   position: 'absolute',
@@ -25,6 +26,7 @@ const style = {
 };
 
 const Navigationbar = () => {
+  const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -54,23 +56,30 @@ const Navigationbar = () => {
             </div>
 
             <div className="userinfo">
-              <span>
-                <Button onClick={handleOpen}>
-                  <PersonOutlineOutlinedIcon
-                    sx={{ fontSize: 30, color: '#000' }}
-                  />
-                </Button>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style}>
-                    <Login />
-                  </Box>
-                </Modal>
-              </span>
+              {user?.email ? (
+                <button className="logout-btn" onClick={logout}>
+                  Logout
+                </button>
+              ) : (
+                <span>
+                  <Button onClick={handleOpen}>
+                    <PersonOutlineOutlinedIcon
+                      sx={{ fontSize: 30, color: '#000' }}
+                    />
+                  </Button>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <Login />
+                    </Box>
+                  </Modal>
+                </span>
+              )}
+
               <span>
                 <FavoriteBorderOutlinedIcon sx={{ fontSize: 30 }} />
               </span>

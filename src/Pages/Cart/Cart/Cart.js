@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from '@material-ui/core';
+import { Box, Button, Container, Grid, Modal } from '@material-ui/core';
 import {
   Paper,
   Table,
@@ -14,8 +14,28 @@ import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 import { addToCart, removeFromCart } from '../../redux/Cart/cartActions';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+import { useState } from 'react';
+import Login from '../../Shared/Login/Login';
+import PayButton from './PayButton';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  height: 550,
+  bgcolor: 'white',
+  boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
+};
 
 const Cart = () => {
+  const { user } = useAuth();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -177,11 +197,33 @@ const Cart = () => {
                           <span>Total</span>
                           <span> $ {total.toFixed(2)}</span>
                         </div>
-                        <button className="regular-btn">Checkout</button>
+                        <PayButton cartItems={cartItems} />
+
                         <button className="ms-4 regular-btn">
                           {' '}
                           Continue Shopping
                         </button>
+                        {user?.email ? (
+                          ''
+                        ) : (
+                          <div className='mt-5 login-div'>
+                            Please{' '}
+                            <span>
+                              <button onClick={handleOpen} className='simple-btn'>Login</button>
+                              <Modal
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                              >
+                                <Box sx={style}>
+                                  <Login />
+                                </Box>
+                              </Modal>
+                            </span>{' '}
+                            To Checkout
+                          </div>
+                        )}
                       </Paper>
                     </Grid>
                   </Grid>

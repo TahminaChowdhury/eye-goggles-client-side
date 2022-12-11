@@ -87,3 +87,31 @@
     margin-right: 10px;
     text-transform: uppercase;
 }
+.login-div{
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2em;
+  letter-spacing: 0.35em;
+  width: 96%;
+  text-transform: uppercase;
+  border-radius: 0;
+  outline: 0;
+  font-family: Jost, sans-serif;
+  padding: 14px 30px;
+  color: var(--primary);
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.simple-btn{
+  border: 0;
+  outline: 0;
+  padding: 14px 30px;
+  color: var(--primary);
+  background-color: var(--secondary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2em;
+  text-transform: uppercase;
+}

@@ -9,7 +9,7 @@ const CartItem = ({
   decreaseQuantity,
   removeFromCartHandler,
 }) => {
-  const { id, name, imageURL, price, qty, countInStock } = item;
+  const { id, name, image, price, qty, countInStock } = item;
 
   return (
     <TableRow
@@ -27,7 +27,7 @@ const CartItem = ({
         </button>
       </TableCell>
       <TableCell align="left">
-        <img src={imageURL} alt="" />
+       <img src={image} alt="" />
       </TableCell>
       <TableCell align="left">{name}</TableCell>
       <TableCell align="right">{price}</TableCell>

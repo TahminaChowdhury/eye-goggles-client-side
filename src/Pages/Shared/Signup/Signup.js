@@ -1,13 +1,28 @@
+import { Button, Grid, Modal } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
-import img from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg';
+import Login from '../Login/Login';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  height: 550,
+  bgcolor: 'white',
+  boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
+};
 
 const Signup = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const {
-    user,
     loginWithGoogle,
     loginWithFacebook,
     signupWithEmailAndPassword,
@@ -30,63 +45,101 @@ const Signup = () => {
       location
     );
   };
-
   return (
-    <div className="loginForm">
-      <div className="row">
-        <div className="col-sm-12 col-md-6 col-lg-6">
-          <div className="container text-center mt-5 pt-5">
-            <h2 className="mb-3">Sign Up</h2>
-            <span>Alreday have an acoount ?</span>
-            <Link to="/login" className="text-primary ps-2">
-              Login
-            </Link>
-            <div className="mt-4">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                  type="email"
-                  {...register('email')}
-                  placeholder="Email"
-                  className="input-field"
-                />
+    <Box className="from" sx={{ flexGrow: 1 }}>
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={12}
+        className="form"
+        style={{ textAlign: 'center' }}
+      >
+        <div>
+          <div style={{ marginTop: '40px' }}>
+            <div className="logo">
+              <div>
+                <Link to="/home">
+                  Eye<span style={{ color: '#babd42' }}>Goggles</span>
+                </Link>
+              </div>
 
-                <input
-                  type="password"
-                  placeholder="Password"
-                  {...register('password')}
-                  className="input-field"
-                />
-                <h5 className="text-danger my-3">{error}</h5>
+              <div>
+                <i class="fa-solid fa-glasses"></i>
+              </div>
+            </div>
+
+            <div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                  <input
+                    type="email"
+                    {...register('email')}
+                    placeholder="Email"
+                    className="input-field"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    {...register('password')}
+                    className="input-field"
+                  />
+                </div>
+
+                <h5>{error}</h5>
 
                 <input
                   type="submit"
                   value="Sign up"
-                  className="submit-input rounded-pill fs-5 fw-bold"
+                  className="submit-input mt-5 fw-bold"
                 />
               </form>
             </div>
-            <div className="text-center my-5">
-              <h6>Or Sign Up Using</h6>
+          </div>
+          <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+            <h6>Or Login Using</h6>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '20px',
+              marginBottom: '20px',
+            }}
+          >
+            <div>
+              <button onClick={handleSignUpWithGoogle} className="social-btn">
+                <i class="fab fa-google"></i>
+              </button>
             </div>
-            <div className="container d-flex justify-content-center">
-              <div className="me-2">
-                <button onClick={handleSignUpWithGoogle} className="social-btn">
-                  <i class="fab fa-google"></i>
-                </button>
-              </div>
-              <div className="ms-2">
-                <button onClick={loginWithFacebook} className="social-btn">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-              </div>
+            <div>
+              <button onClick={loginWithFacebook} className="social-btn">
+                <i class="fab fa-facebook-f"></i>
+              </button>
             </div>
           </div>
+          <div>
+            <span>Already have an acoount ? </span>
+            <Button onClick={handleOpen} className="modal-btn">
+              Login
+            </Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Login />
+              </Box>
+            </Modal>
+          </div>
         </div>
-        <div className="col-sm-12 col-md-6 col-lg-6 login-img">
-          <img className="img-fluid" src={img} alt="" />
-        </div>
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 

@@ -31,3 +31,10 @@
   background: #191919;
   border-radius: 50%;
 }
+.modal-btn {
+  border: 0;
+  outline: 0;
+  background-color: none;
+  color: var(--secondary);
+  text-transform: capitalize;
+}

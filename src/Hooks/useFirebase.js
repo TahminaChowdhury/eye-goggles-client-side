@@ -1,188 +1,183 @@
-import { getAuth, signInWithPopup, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
-import initAuth from '../Firebase/firebase.init'
+import {
+  getAuth,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  onAuthStateChanged,
+  signOut,
+} from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import initAuth from '../Firebase/firebase.init';
 
 initAuth();
 const useFirebase = () => {
+  const [user, setUser] = useState({});
+  const [error, setError] = useState('');
+  const [isLoading, setisLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
-    const [user, setUser] = useState({});
-    const [error, setError] = useState('');
-    const [isLoading, setisLoading] = useState(true);
-    const [admin, setAdmin] = useState(false);
+  // auth
+  const auth = getAuth();
 
+  // providers
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
-    // auth
-    const auth = getAuth();
+  // signin with email and password
 
-    // providers
-    const googleProvider = new GoogleAuthProvider();
-    const facebookProvider = new FacebookAuthProvider();
+  const signupWithEmailAndPassword = (
+    name,
+    email,
+    password,
+    navigate,
+    location
+  ) => {
+    setisLoading(true);
 
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const newUser = { email, displayName: name };
+        setUser(newUser);
 
+        saveUserToDb(name, email, 'POST');
 
-    // signin with email and password
-    
-    const signupWithEmailAndPassword = (name ,email, password, history, location) => {
-
-        setisLoading(true);
-
-        createUserWithEmailAndPassword(auth, email, password)
-
-        .then((result) => {
-           console.log(result.user)
-            const newUser = {email, displayName: name};
-            setUser(newUser);
-           
-            saveUserToDb(name, email, "POST")
-            
-            updateProfile(auth.currentUser, {
-                displayName: name
-              }).then(() => {
-            
-              }).catch((error) => {
-                
-              });
-              const { from } = location.state || { from: { pathname: "/" }};
-
-            history(from);
-
-              setError('');
+        updateProfile(auth.currentUser, {
+          displayName: name,
         })
-        .catch((error) => {
+          .then(() => {})
+          .catch((error) => {});
+        const { from } = location.state || { from: { pathname: '/' } };
 
-            setError(error.message);
+        navigate(from);
 
-        }).finally(() => setisLoading(false));
-    };
+        setError('');
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setisLoading(false));
+  };
 
+  // sign in with email and password
 
-    // sign in with email and password
+  const loginWithEmailAndPassword = (email, password, location, navigate) => {
+    setisLoading(true);
 
-    const loginWithEmailAndPassword = (email, password, location , history) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
 
-        setisLoading(true);
+        const { from } = location.state || { from: { pathname: '/' } };
 
-        signInWithEmailAndPassword(auth, email, password)
+        navigate(from);
+        setError('');
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setisLoading(false));
+  };
 
-        .then((userCredential) => {
-            const user = userCredential.user;
-            setUser(user);
+  // log in with google
 
-            const { from } = location.state || { from: { pathname: "/" }};
+  const loginWithGoogle = (location, navigate) => {
+    setisLoading(true);
 
-            history(from);
-            setError('');
-        })
-        .catch((error) => {
-            setError(error.message);
-        }).finally(() => setisLoading(false));
-    }
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
 
-    // log in with google 
+        saveUserToDb(user.displayName, user.email, 'PUT');
 
-    const loginWithGoogle = (location , history) => {
-        
-        setisLoading(true);
+        const { from } = location.state || { from: { pathname: '/' } };
 
-        signInWithPopup(auth, googleProvider)
+        navigate(from, { replace: true });
+        setError('');
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setisLoading(false));
+  };
 
-        .then((result) => {
-            const user = result.user;
-            setUser(user);
+  // login with facebook
 
-            saveUserToDb(user.displayName, user.email, "PUT");
-           
-            const { from } = location.state || { from: { pathname: "/" }};
+  const loginWithFacebook = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        const user = result.user;
 
-            history(from);
-            setError("")
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
-        }).catch((error) => {
+        const email = error.email;
 
-            setError(error.message);
+        const credential = FacebookAuthProvider.credentialFromError(error);
 
-        }).finally(() => setisLoading(false));
-    };
+        // ...
+      });
+  };
 
-    // login with facebook
+  // save user to database
 
-    const loginWithFacebook = () => {
-        signInWithPopup(auth, facebookProvider)
-            .then((result) => {
+  const saveUserToDb = (displayName, email, method) => {
+    const user = { displayName, email };
+    fetch('http://localhost:5000/users', {
+      method: method,
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
-                const user = result.user;
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin))
+      .catch((error) => {});
+  }, [user.email]);
 
-                const credential = FacebookAuthProvider.credentialFromResult(result);
-                const accessToken = credential.accessToken;
+  // logout
 
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+  const logout = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {});
+  };
 
-                const email = error.email;
-            
-                const credential = FacebookAuthProvider.credentialFromError(error);
+  // observer
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser({});
+      }
+      setisLoading(false);
+    });
+  }, []);
 
-                // ...
-            });
-    }
-
-    // save user to database
-
-    const saveUserToDb = (displayName, email, method) => {
-        const user = {displayName, email}
-        fetch('https://pacific-lowlands-13394.herokuapp.com/users', {
-            method: method,
-            headers: {"content-type": "application/json"},
-            body: JSON.stringify(user)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
-    }
-
-    useEffect(() => {
-        fetch(`https://pacific-lowlands-13394.herokuapp.com/users/${user.email}`)
-        .then(res => res.json())
-        .then(data => setAdmin(data.admin))
-        .catch(error => {
-
-        })
-    },[user.email])
-
-    // logout
-
-    const logout = () => {
-        signOut(auth).then(() => {
-            
-          }).catch((error) => {
-            
-          });
-    }
-    
-    // observer
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-              setUser({});
-            }
-            setisLoading(false);
-          });
-    },[])
-
-    return{
-        user,
-        error,
-        isLoading,
-        admin,
-        signupWithEmailAndPassword,
-        loginWithEmailAndPassword,
-        loginWithGoogle,
-        loginWithFacebook,
-        logout
-    };
+  return {
+    user,
+    error,
+    isLoading,
+    admin,
+    signupWithEmailAndPassword,
+    loginWithEmailAndPassword,
+    loginWithGoogle,
+    loginWithFacebook,
+    logout,
+  };
 };
 
 export default useFirebase;

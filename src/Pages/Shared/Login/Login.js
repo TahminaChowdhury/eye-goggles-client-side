@@ -4,25 +4,41 @@ import { useNavigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid, Modal } from '@mui/material';
+import { useState } from 'react';
+import Signup from '../Signup/Signup';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  height: 550,
+  bgcolor: 'white',
+  boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
+};
 
 const Login = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const {
     loginWithGoogle,
     loginWithFacebook,
     loginWithEmailAndPassword,
     error,
   } = useAuth();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const handleLoginWithGoogle = () => {
-    loginWithGoogle(location, history);
+    loginWithGoogle(location, navigate);
   };
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    loginWithEmailAndPassword(data.email, data.password, location, history);
+    loginWithEmailAndPassword(data.email, data.password, location, navigate);
   };
   return (
     <Box className="from" sx={{ flexGrow: 1 }}>
@@ -34,7 +50,7 @@ const Login = () => {
         className="form"
         style={{ textAlign: 'center' }}
       >
-        <div>
+        <div style={{ marginTop: '40px' }}>
           <div className="logo">
             <div>
               <Link to="/home">
@@ -101,7 +117,19 @@ const Login = () => {
         </div>
         <div>
           <span>Don't have an acoount ?</span>
-          <Link to="/signup">Sign-up here!</Link>
+          <Button onClick={handleOpen} className="modal-btn">
+            Sign-up here!
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Signup />
+            </Box>
+          </Modal>
         </div>
       </Grid>
     </Box>
