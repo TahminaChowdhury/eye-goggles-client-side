@@ -37,7 +37,9 @@ const Sunglasses = ({ product }) => {
             </div>
             <div className="icon">
               <Tooltip title="Add To Cart" placement="top">
-                <ShoppingBasketOutlinedIcon  />
+                <ShoppingBasketOutlinedIcon
+                  onClick={() => addToCarthandler(_id)}
+                />
               </Tooltip>
             </div>
           </div>
