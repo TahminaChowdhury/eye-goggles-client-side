@@ -110,3 +110,14 @@
 .logout-btn:hover {
   background-color: var(--secondary);
 }
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
+  color: var(--primary);
+  opacity: 0.3;
+}
+.close-btn:hover {
+  opacity: 1;
+}

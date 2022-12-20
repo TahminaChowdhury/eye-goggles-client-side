@@ -14,12 +14,13 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 500,
-  height: 550,
+  height: 650,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
 
 const Login = () => {
+  const {user} = useAuth()
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -27,6 +28,7 @@ const Login = () => {
     loginWithGoogle,
     loginWithFacebook,
     loginWithEmailAndPassword,
+    resetPass,
     error,
   } = useAuth();
   const navigate = useNavigate();
@@ -69,11 +71,9 @@ const Login = () => {
                 <input
                   type="email"
                   {...register('email')}
-                  placeholder="Email"
                   className="input-field"
                 />
               </div>
-
               <div>
                 <input
                   type="password"
@@ -82,13 +82,33 @@ const Login = () => {
                   className="input-field"
                 />
               </div>
-
-              <h5>{error}</h5>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <p
+                  style={{
+                    marginLeft: '48px',
+                    padding: '20px 0px',
+                    color: 'black',
+                    cursor: 'pointer'
+                  }}
+           onClick={resetPass(user?.email)}
+                >
+                  Forgot Password ?
+                </p>
+                <p
+                  style={{
+                    marginRight: '48px',
+                    padding: '20px 0px',
+                    color: 'red',
+                  }}
+                >
+                  {error}
+                </p>
+              </div>
 
               <input
                 type="submit"
                 value="Login"
-                className="submit-input mt-5 fw-bold"
+                className="submit-input mt-2 fw-bold"
               />
             </form>
           </div>

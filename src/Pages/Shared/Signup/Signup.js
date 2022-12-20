@@ -28,34 +28,32 @@ const Signup = () => {
     signupWithEmailAndPassword,
     error,
   } = useAuth();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const handleSignUpWithGoogle = () => {
-    loginWithGoogle(location, history);
+    loginWithGoogle(location, navigate);
   };
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data) => {
     signupWithEmailAndPassword(
-      data.name,
+      data.first_name,
+      data.last_name,
       data.email,
       data.password,
-      history,
+      navigate,
       location
     );
   };
   return (
     <Box className="from" sx={{ flexGrow: 1 }}>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        md={12}
-        className="form"
-        style={{ textAlign: 'center' }}
-      >
-        <div>
+      <Grid item xs={12} sm={12} md={12} className="form">
+        <div className="text-center">
           <div style={{ marginTop: '40px' }}>
             <div className="logo">
               <div>
@@ -73,8 +71,25 @@ const Signup = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <input
+                    type="text"
+                    {...register('first_name', { required: true })}
+                    placeholder="First Name"
+                    className="input-field"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    {...register('last_name', { required: true })}
+                    placeholder="Last Name"
+                    className="input-field"
+                  />
+                </div>
+                <div>
+                  <input
                     type="email"
-                    {...register('email')}
+                    {...register('email', { required: true })}
                     placeholder="Email"
                     className="input-field"
                   />
@@ -84,17 +99,27 @@ const Signup = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    {...register('password')}
+                    {...register('password', { required: true })}
                     className="input-field"
                   />
                 </div>
 
-                <h5>{error}</h5>
+                <div>
+                  <p
+                    style={{
+                      marginRight: '150px',
+                      padding: '20px 0px',
+                      color: 'red',
+                    }}
+                  >
+                    {error}
+                  </p>
+                </div>
 
                 <input
                   type="submit"
                   value="Sign up"
-                  className="submit-input mt-5 fw-bold"
+                  className="submit-input mt-2 fw-bold"
                 />
               </form>
             </div>

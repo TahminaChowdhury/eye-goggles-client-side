@@ -13,6 +13,8 @@ import { Box } from '@mui/system';
 import Login from '../Login/Login';
 import { useSelector } from 'react-redux';
 import useAuth from '../../../Hooks/useAuth';
+import Menu from '@mui/material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -30,11 +32,23 @@ const Navigationbar = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // Cart menu
+  const [anchorEl, setAnchorEl] = useState(null);
+  const menuOpen = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
+
   return (
     <div>
       <Navbar expand="lg">
@@ -57,9 +71,11 @@ const Navigationbar = () => {
 
             <div className="userinfo">
               {user?.email ? (
-                <button className="logout-btn" onClick={logout}>
-                  Logout
-                </button>
+                <>
+                  <button className="logout-btn" onClick={logout}>
+                    Logout
+                  </button>
+                </>
               ) : (
                 <span>
                   <Button onClick={handleOpen}>
@@ -87,12 +103,43 @@ const Navigationbar = () => {
                 <SearchIcon sx={{ fontSize: 30 }} />
               </span>
               <span className="shoppingcart">
-                <Link to="/cart">
-                  <ShoppingBasketOutlinedIcon sx={{ fontSize: 30 }} />
-                  <span className="shoppingcart-icon">{getCartCount()}</span>
-                </Link>
+                <ShoppingBasketOutlinedIcon
+                  id="basic-button"
+                  aria-controls={menuOpen ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={menuOpen ? 'true' : undefined}
+                  onClick={handleClick}
+                  sx={{ fontSize: 30 }}
+                />
+                <span className="shoppingcart-icon">{getCartCount()}</span>
+              </span>
+              <span style={{marginLeft: '15px'}}>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </span>
             </div>
+            {/* Cart menu */}
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={menuOpen}
+              onClose={handleMenuClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              {cartItems.length === 0 ? (
+                <div style={{ margin: '25px 20px', fontSize: '20px' }}>
+                  <CloseIcon
+                    onClick={handleMenuClose}
+                    className="close-btn"
+                    style={{ fontSize: '18px' }}
+                  />
+                  <p>Your cart is empty</p>
+                </div>
+              ) : (
+                ''
+              )}
+            </Menu>
           </div>
           {/* Top bar end */}
 

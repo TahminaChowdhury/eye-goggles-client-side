@@ -1,13 +1,20 @@
 import React from 'react';
 import './Sunglasses.css';
-import { Grid, Paper } from '@mui/material';
+import { Grid, Paper, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../redux/Cart/cartActions';
 
 const Sunglasses = ({ product }) => {
   const { _id, img, name, price, category } = product;
+  const dispatch = useDispatch();
+
+  const addToCarthandler = (id, qty = 1) => {
+    dispatch(addToCart(id, qty));
+  };
 
   return (
     <Grid
@@ -15,7 +22,7 @@ const Sunglasses = ({ product }) => {
       xs={12}
       sm={12}
       md={4}
-      sx={{display: 'flex', justifyContent: 'center'}}
+      sx={{ display: 'flex', justifyContent: 'center' }}
     >
       <div className="pd-container">
         {/* Product image and additional icon */}
@@ -29,7 +36,9 @@ const Sunglasses = ({ product }) => {
               <FavoriteBorderOutlinedIcon />
             </div>
             <div className="icon">
-              <ShoppingBasketOutlinedIcon />
+              <Tooltip title="Add To Cart" placement="top">
+                <ShoppingBasketOutlinedIcon  />
+              </Tooltip>
             </div>
           </div>
         </Paper>

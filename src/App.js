@@ -27,13 +27,12 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-          <Navigationbar />
+      
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout-success" element={<CheckoutSuccess />} />
             <Route path="/checkout-cancel" element={<CheckoutCancel />} />

@@ -2,13 +2,16 @@
   text-decoration: none;
   color: var(--primary);
 }
+
 .input-field {
   width: 80%;
   border: none;
   outline: none;
+  background: none;
   border-bottom: 2px solid gray;
-  margin-top: 30px;
+  margin-top: 15px;
 }
+
 
 .submit-input {
   color: white;
