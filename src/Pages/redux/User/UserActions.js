@@ -6,7 +6,9 @@ export const getCurrentUser = (email) => async (dispatch) => {
     dispatch({
       type: actionTypes.GET_USER_REQUEST,
     });
-    const data= await axios.get(`http://localhost:5000/users/${email}`);
+    const data = await axios.get(
+      `https://eye-goggles-server-side.vercel.app/users/${email}`
+    );
     dispatch({
       type: actionTypes.GET_USER_SUCCESS,
       payload: data.data,

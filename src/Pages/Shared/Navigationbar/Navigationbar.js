@@ -8,13 +8,22 @@ import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlin
 import './Navigationbar.css';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
-import { Button, Modal } from '@mui/material';
+import {
+  Button,
+  Modal,
+  Paper,
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+} from '@mui/material';
 import { Box } from '@mui/system';
 import Login from '../Login/Login';
 import { useSelector } from 'react-redux';
 import useAuth from '../../../Hooks/useAuth';
 import Menu from '@mui/material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import MenuItem from './MenuItem/MenuItem';
 
 const style = {
   position: 'absolute',
@@ -113,7 +122,7 @@ const Navigationbar = () => {
                 />
                 <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              <span style={{marginLeft: '15px'}}>
+              <span style={{ marginLeft: '15px' }}>
                 <NavLink to="/dashboard">Dashboard</NavLink>
               </span>
             </div>
@@ -137,7 +146,23 @@ const Navigationbar = () => {
                   <p>Your cart is empty</p>
                 </div>
               ) : (
-                ''
+                <div style={{ width: '400px', padding: '10px'}}>
+                  <TableContainer component={Paper}>
+                    <Table aria-label="simple table">
+                      <TableBody>
+                        {cartItems.map((item, index) => (
+                          <MenuItem key={index} item={item} />
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                    <Link to="/cart" className="regular-btn">
+                      View cart
+                    </Link>
+                    <button className="regular-btn">Checkout</button>
+                  </div>
+                </div>
               )}
             </Menu>
           </div>
