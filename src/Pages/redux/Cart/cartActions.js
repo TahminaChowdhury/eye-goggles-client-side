@@ -3,7 +3,7 @@ import * as actionTypes from './cartConstants';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(
-    `https://eye-goggles-server-side.vercel.app/sunglasses/${id}`
+    `https://eye-goggles.onrender.com/sunglasses/${id}`
   );
 
   dispatch({

@@ -122,9 +122,13 @@ const Navigationbar = () => {
                 />
                 <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              <span style={{ marginLeft: '15px' }}>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-              </span>
+              {user?.email ? (
+                <span style={{ marginLeft: '15px' }}>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </span>
+              ) : (
+                ''
+              )}
             </div>
             {/* Cart menu */}
             <Menu
@@ -146,7 +150,7 @@ const Navigationbar = () => {
                   <p>Your cart is empty</p>
                 </div>
               ) : (
-                <div style={{ width: '400px', padding: '10px'}}>
+                <div style={{ width: '400px', padding: '10px' }}>
                   <TableContainer component={Paper}>
                     <Table aria-label="simple table">
                       <TableBody>
@@ -156,7 +160,13 @@ const Navigationbar = () => {
                       </TableBody>
                     </Table>
                   </TableContainer>
-                  <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                  <div
+                    style={{
+                      marginTop: '20px',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                    }}
+                  >
                     <Link to="/cart" className="regular-btn">
                       View cart
                     </Link>

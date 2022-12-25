@@ -7,7 +7,7 @@ export const getCurrentUser = (email) => async (dispatch) => {
       type: actionTypes.GET_USER_REQUEST,
     });
     const data = await axios.get(
-      `https://eye-goggles-server-side.vercel.app/users/${email}`
+      `https://eye-goggles.onrender.com/users/${email}`
     );
     dispatch({
       type: actionTypes.GET_USER_SUCCESS,
