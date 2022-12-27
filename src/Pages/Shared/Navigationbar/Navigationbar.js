@@ -15,7 +15,6 @@ import {
   Table,
   TableBody,
   TableContainer,
-  TableHead,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import Login from '../Login/Login';
@@ -24,6 +23,7 @@ import useAuth from '../../../Hooks/useAuth';
 import Menu from '@mui/material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuItem from './MenuItem/MenuItem';
+import UserMenu from './UserMenu';
 
 const style = {
   position: 'absolute',
@@ -80,11 +80,7 @@ const Navigationbar = () => {
 
             <div className="userinfo">
               {user?.email ? (
-                <>
-                  <button className="logout-btn" onClick={logout}>
-                    Logout
-                  </button>
-                </>
+                ''
               ) : (
                 <span>
                   <Button onClick={handleOpen}>
@@ -122,14 +118,15 @@ const Navigationbar = () => {
                 />
                 <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              {user?.email ? (
-                <span style={{ marginLeft: '15px' }}>
-                  <NavLink to="/dashboard">Dashboard</NavLink>
-                </span>
-              ) : (
-                ''
-              )}
+              <span className='ms-2'>
+                {user?.email ? (
+                  <Link to="/dashboard">{user?.displayName}</Link>
+                ) : (
+                  ''
+                )}
+              </span>
             </div>
+
             {/* Cart menu */}
             <Menu
               id="basic-menu"

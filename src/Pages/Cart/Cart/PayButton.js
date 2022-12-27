@@ -16,7 +16,8 @@ const PayButton = ({ cartItems }) => {
     dispatch(getCurrentUser(user.email));
   }, [user.email]);
 
-  const handleCheckout = () => {
+ 
+const handleCheckout = () => {
     axios
       .post('http://localhost:5000/create-checkout-session', {
         cartItems,

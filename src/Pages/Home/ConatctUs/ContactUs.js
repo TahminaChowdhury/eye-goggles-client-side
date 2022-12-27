@@ -3,14 +3,15 @@ import './Contact.css';
 import img from '../../../images/location-icon-vector-24263344.jpg';
 import img1 from '../../../images/phone-symbol-auricular-inside-circle-260nw-1121268638.jpg';
 import img2 from '../../../images/9-99241_email-icon-black-circle-envelope-email-icon-png.png';
-import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Navigationbar from '../../Shared/Navigationbar/Navigationbar';
+import Footer from '../Footer/Footer';
 
 const ContactUs = () => {
   return (
-    <div>
-       <div className="page-header">
+    <>
+      <Navigationbar />
+      <div className="page-header">
         <p>Home</p>
         <p>
           <ChevronLeftIcon />
@@ -37,8 +38,8 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
-    </div>
+      <Footer />
+    </>
   );
 };
 

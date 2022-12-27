@@ -1,67 +1,126 @@
 import * as React from 'react';
 import './DashBoard.css';
-import AppBar from '@mui/material/AppBar';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import MenuIcon from '@material-ui/icons/Menu';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
-
 import {
-  Link,
-  useLocation,
-} from 'react-router-dom';
+  AppBar,
+  Avatar,
+  CssBaseline,
+  IconButton,
+  ListItem,
+} from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import SellIcon from '@mui/icons-material/Sell';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Stack } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
+import { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+
 const drawerWidth = 240;
 
-export default function DashBoard(props) {
+const DashBoard = (props) => {
+  const { user, logout } = useAuth();
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const { admin, logout } = useAuth();
-  console.log(admin);
-  let { pathname, url } = useLocation();
-
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <div className="link-list text-center">
-      <Toolbar style={{ backgroundColor: 'black', color: 'white' }}>
-        <h5 className="ms-4">Eye Goggles</h5>
+    <div style={{ backgroundColor: 'black', color: 'white', height: '100%' }}>
+      <Toolbar
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          margin: '30px 0px',
+        }}
+      >
+        <Stack direction="row">
+          <Avatar
+            alt="Remy Sharp"
+            sx={{ width: 56, height: 56 }}
+            src={user.photoURL}
+          />
+        </Stack>
+        <p style={{ color: 'white', margin: '10px 0px', fontSize: '18px' }}>
+          {user.displayName}
+        </p>
       </Toolbar>
-      <h5 className="fw-bold py-2">Admin Portal</h5>
       <Divider />
-      <List sx={{ fontSize: 20, py: 2 }}>
-        {!admin ? (
-          ''
-        ) : (
-          <Box>
-            <Link to="/dashboard/makeadmin">Make Admin</Link>
-            <br />
-            <Link to="/dashboard/manageallorders">Mange All Orders</Link>
-            <br />
-            <Link to="/dashboard/addproducts">Add Products</Link>
-            <br />
-            <Link to="/dashboard/manageproducts">Manage Products</Link>
-          </Box>
-        )}
-      </List>
-      <Divider />
-      <List sx={{ fontSize: 16 }}>
-        <Link to="/dashboard/myorders">My Orders</Link>
-        <br />
-        <Link to="/dashboard/payment">Payment</Link>
-        <br />
-        <Link to="/dashboard/review">Review</Link>
-        <br />
-        <button onClick={logout} className="logout-btn mt-3 px-3 py-1">
-          {' '}
-          Logout
-        </button>
+
+      {/* List items */}
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <PersonIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <Link to="/dashboard">
+              <ListItemText primary="My Profile" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <LocationOnIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <Link to="/dashboard/address">
+              <ListItemText primary="Address" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <SellIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <Link to="/dashboard/myOrders">
+              <ListItemText primary="My Orders" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <FavoriteIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <Link to="/dashboard/myWishlist">
+              <ListItemText primary="My Wishlist" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <ReviewsIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <Link to="/dashboard/myReviews">
+              <ListItemText primary="My Reviews" />
+            </Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton onClick={logout}>
+            <ListItemIcon>
+              <LogoutIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );
@@ -70,17 +129,19 @@ export default function DashBoard(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} className="dashboard">
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: '#000',
         }}
       >
-        <Toolbar style={{ backgroundColor: 'black' }}>
+        <Toolbar>
           <IconButton
+            color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -101,7 +162,7 @@ export default function DashBoard(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -129,10 +190,21 @@ export default function DashBoard(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
         <Toolbar />
+        <Outlet />
       </Box>
     </Box>
   );
-}
+};
+
+DashBoard.propTypes = {
+  window: PropTypes.func,
+};
+
+export default DashBoard;

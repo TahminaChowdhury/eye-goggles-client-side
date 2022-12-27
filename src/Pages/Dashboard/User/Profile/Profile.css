@@ -1,0 +1,11 @@
+.user-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: contain;
+}

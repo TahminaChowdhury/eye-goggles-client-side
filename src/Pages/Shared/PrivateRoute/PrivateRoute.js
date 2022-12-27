@@ -4,9 +4,9 @@ import { Navigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, isLoading } = useAuth();
   const location = useLocation();
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="text-center my-5 py-5">
         <Spinner animation="grow" />
@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
   return user?.email ? (
     children
   ) : (
-    <Navigate to="/login" state={{ from: location }} />
+    <Navigate to="/auth" state={{ from: location }} />
   );
 };
 

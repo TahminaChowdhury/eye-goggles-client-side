@@ -6,10 +6,12 @@ import Blog from './Blog/Blog';
 import Brands from './Brands/Brands';
 import NewsLetter from './NewsLetter/NewsLetter';
 import Navigationbar from '../Shared/Navigationbar/Navigationbar';
+import Footer from './Footer/Footer';
+
 const Home = () => {
   return (
-    <div>
-      <Navigationbar/>
+    <>
+      <Navigationbar />
       <TopBanner></TopBanner>
       <Products></Products>
       <ItemBanner />
@@ -17,7 +19,8 @@ const Home = () => {
       <Blog />
       <NewsLetter />
       <Brands />
-    </div>
+      <Footer />
+    </>
   );
 };
 

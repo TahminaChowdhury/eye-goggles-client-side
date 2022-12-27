@@ -2,7 +2,7 @@ import {
   getAuth,
   signInWithPopup,
   createUserWithEmailAndPassword,
-  sendPasswordResetEmail ,
+  sendPasswordResetEmail,
   updateProfile,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -48,7 +48,7 @@ const useFirebase = () => {
 
         updateProfile(auth.currentUser, {
           displayName: name,
-        })
+        });
         const { from } = location.state || { from: { pathname: '/' } };
 
         navigate(from);
@@ -62,7 +62,7 @@ const useFirebase = () => {
   };
 
   // log in with email and password
-  const loginWithEmailAndPassword = (email, password, location,navigate) => {
+  const loginWithEmailAndPassword = (email, password, location, navigate) => {
     setisLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -115,12 +115,9 @@ const useFirebase = () => {
   // reset password
   const resetPass = (email) => {
     sendPasswordResetEmail(auth, email)
-  .then(() => {
-  })
-  .catch((error) => {
-
-  });
-  }
+      .then(() => {})
+      .catch((error) => {});
+  };
   // save user to local storage
   const saveUserToLocalStorage = (token) => {
     localStorage.setItem('userToken', JSON.stringify(token));
@@ -129,7 +126,7 @@ const useFirebase = () => {
   // save user to database
   const saveUserToDb = (displayName, email, method) => {
     const user = { displayName, email };
-    fetch('https://eye-goggles.up.railway.app/users', {
+    fetch('https://eye-goggles.onrender.com/users', {
       method: method,
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user),
@@ -139,7 +136,7 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`https://eye-goggles.up.railway.app/users/${user.email}`)
+    fetch(`https://eye-goggles.onrender.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
       .catch((error) => {});

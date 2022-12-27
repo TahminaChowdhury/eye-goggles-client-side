@@ -10,6 +10,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Navigationbar from '../../Shared/Navigationbar/Navigationbar';
+import Footer from '../Footer/Footer';
 
 const Explore = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const Explore = () => {
   }, [dispatch]);
   return (
     <>
+      <Navigationbar />
       <div className="page-header">
         <p>Home</p>
         <p>
@@ -56,7 +59,11 @@ const Explore = () => {
                   xs={12}
                   sm={12}
                   md={4}
-                  sx={{ display: 'flex', justifyContent: 'center', marginTop: "100px" }}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '100px',
+                  }}
                 >
                   <div className="pd-container">
                     {/* Product image and additional icon */}
@@ -90,6 +97,7 @@ const Explore = () => {
           </Grid>
         </Box>
       </Container>
+      <Footer />
     </>
   );
 };

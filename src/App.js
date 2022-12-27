@@ -9,25 +9,22 @@ import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
 import SingleSunglass from './Pages/Home/Products/Sunglasses/SingleSunglass/SingleSunglass';
 import Explore from './Pages/Home/Explore/Explore';
 import DashBoard from './Pages/Dashboard/DashBoard/DashBoard';
-import AllOrders from './Pages/Dashboard/Admin/AllOrders/AllOrders';
-import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
-import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
-import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import Cart from './Pages/Cart/Cart/Cart';
-import Navigationbar from './Pages/Shared/Navigationbar/Navigationbar';
-import Footer from './Pages/Home/Footer/Footer';
 import GoToTop from './Pages/Home/GoToTop/GoToTop';
 import Checkout from './Pages/Cart/Checkout/Checkout';
-import Login from './Pages/Shared/Login/Login';
 import CheckoutSuccess from './Pages/Cart/Checkout/CheckoutSuccess';
 import CheckoutCancel from './Pages/Cart/Checkout/CheckoutCancel';
+import Auth from './Pages/Shared/Auth';
+import Profile from './Pages/Dashboard/User/Profile/Profile';
+import MyWishlist from './Pages/Dashboard/User/MyWishlist/MyWishlist';
+import MyReviews from './Pages/Dashboard/User/MyReviews/MyReviews';
+import MyOrders from './Pages/Dashboard/User/MyOrders/MyOrders';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-      
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -38,6 +35,7 @@ function App() {
             <Route path="/checkout-cancel" element={<CheckoutCancel />} />
             <Route path="/sunglass/:id" element={<SingleSunglass />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/auth" element={<Auth />} />
             <Route
               path="/dashboard"
               element={
@@ -45,7 +43,12 @@ function App() {
                   <DashBoard />
                 </PrivateRoute>
               }
-            />
+            >
+              <Route index element={<Profile />} />
+              <Route path="/dashboard/myOrders" element={<MyOrders />} />
+              <Route path="/dashboard/myWishlist" element={<MyWishlist />} />
+              <Route path="/dashboard/myReviews" element={<MyReviews />} />
+            </Route>
             <Route
               path="/checkout"
               element={
@@ -54,34 +57,8 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
-              path="/dashboard/makeadmin"
-              element={
-                <PrivateRoute>
-                  <MakeAdmin />
-                </PrivateRoute>
-              }
-            />
-            <Route path="/dashboard/allorders" element={<AllOrders />} />
-            <Route
-              path="/dashboard/addproduct"
-              element={
-                <PrivateRoute>
-                  <AddProduct />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/dashboard/updateproduct"
-              element={
-                <PrivateRoute>
-                  <UpdateProduct />
-                </PrivateRoute>
-              }
-            />
           </Routes>
           <GoToTop />
-          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </div>
