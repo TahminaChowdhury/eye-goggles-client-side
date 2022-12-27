@@ -14,11 +14,12 @@ import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 import { addToCart, removeFromCart } from '../../redux/Cart/cartActions';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import { useState } from 'react';
 import Login from '../../Shared/Login/Login';
 import PayButton from './PayButton';
+import Navigationbar from '../../Shared/Navigationbar/Navigationbar';
+import Footer from '../../Home/Footer/Footer';
 
 const style = {
   position: 'absolute',
@@ -81,7 +82,8 @@ const Cart = () => {
   let total = subtotal - tax - vat;
 
   return (
-    <Fragment>
+    <>
+      <Navigationbar />
       <div className="page-header">
         <p>Home</p>
         <p>
@@ -206,10 +208,15 @@ const Cart = () => {
                         {user?.email ? (
                           ''
                         ) : (
-                          <div className='mt-5 login-div'>
+                          <div className="mt-5 login-div">
                             Please{' '}
                             <span>
-                              <button onClick={handleOpen} className='simple-btn'>Login</button>
+                              <button
+                                onClick={handleOpen}
+                                className="simple-btn"
+                              >
+                                Login
+                              </button>
                               <Modal
                                 open={open}
                                 onClose={handleClose}
@@ -233,7 +240,8 @@ const Cart = () => {
           </Grid>
         </Container>
       </Box>
-    </Fragment>
+      <Footer />
+    </>
   );
 };
 

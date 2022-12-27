@@ -6,7 +6,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../../../redux/Products/productActions';
 import { addToCart } from '../../../../redux/Cart/cartActions';
-import BasicTabs from './BasicTabs/BasicTabs'
+import BasicTabs from './BasicTabs/BasicTabs';
+import Navigationbar from '../../../../Shared/Navigationbar/Navigationbar';
+import Footer from '../../../Footer/Footer';
 
 const SingleSunglass = () => {
   const { id } = useParams();
@@ -48,6 +50,7 @@ const SingleSunglass = () => {
 
   return (
     <>
+      <Navigationbar />
       {loading ? (
         <Box
           sx={{
@@ -57,7 +60,7 @@ const SingleSunglass = () => {
             height: '100vh',
           }}
         >
-          <CircularProgress color="inherit"/>
+          <CircularProgress color="inherit" />
         </Box>
       ) : error ? (
         <h2>{error}</h2>
@@ -110,12 +113,13 @@ const SingleSunglass = () => {
                 </Box>
               </Grid>
               <Grid item xs={12} sm={12} md={12}>
-                <BasicTabs description={product.description}/>
+                <BasicTabs description={product.description} />
               </Grid>
             </Grid>
           </Container>
         </Box>
       )}
+      <Footer />
     </>
   );
 };
