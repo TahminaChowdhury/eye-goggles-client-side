@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Modal } from '@material-ui/core';
+import { Box, Container, Grid, Modal } from '@material-ui/core';
 import {
   Paper,
   Table,
@@ -112,9 +112,9 @@ const Cart = () => {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {cartItems.map((item) => (
+                        {cartItems.map((item, index) => (
                           <CartItem
-                            key={item._id}
+                            key={index}
                             item={item}
                             increaseQuantity={increaseQuantity}
                             decreaseQuantity={decreaseQuantity}

@@ -23,7 +23,7 @@ import useAuth from '../../../Hooks/useAuth';
 import Menu from '@mui/material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuItem from './MenuItem/MenuItem';
-import UserMenu from './UserMenu';
+
 
 const style = {
   position: 'absolute',
@@ -37,7 +37,7 @@ const style = {
 };
 
 const Navigationbar = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -74,7 +74,7 @@ const Navigationbar = () => {
               </div>
 
               <div>
-                <i class="fa-solid fa-glasses"></i>
+                <i className="fa-solid fa-glasses"></i>
               </div>
             </div>
 
@@ -118,7 +118,7 @@ const Navigationbar = () => {
                 />
                 <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              <span className='ms-2'>
+              <span className="ms-2">
                 {user?.email ? (
                   <Link to="/dashboard">{user?.displayName}</Link>
                 ) : (

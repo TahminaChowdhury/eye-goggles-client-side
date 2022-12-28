@@ -29,7 +29,7 @@ const PayButton = ({ cartItems }) => {
           window.location.href = res.data.url;
         }
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -37,7 +37,6 @@ const PayButton = ({ cartItems }) => {
       <button onClick={() => handleCheckout()} className="regular-btn">
         Checkout
       </button>
-      {error && <p>{error}</p>}
     </>
   );
 };

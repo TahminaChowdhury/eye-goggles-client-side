@@ -147,7 +147,6 @@ const useFirebase = () => {
 
   // logout
   const logout = () => {
-    localStorage.removeItem('userToken');
     signOut(auth)
       .then(() => {})
       .catch((error) => {});

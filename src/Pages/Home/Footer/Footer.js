@@ -61,16 +61,16 @@ const Footer = () => {
             </p>
             <div>
               <span>
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </span>
               <span>
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </span>
               <span>
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </span>
               <span>
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </span>
             </div>
           </div>
@@ -135,13 +135,13 @@ const Footer = () => {
           <div className="contact-section">
             <h4>Contact Us</h4>
             <p>
-              <i class="far fa-envelope"></i> eyegoggles@gmail.com
+              <i className="far fa-envelope"></i> eyegoggles@gmail.com
             </p>
             <p>
-              <i class="fas fa-phone-alt"></i> +91 12345678
+              <i className="fas fa-phone-alt"></i> +91 12345678
             </p>
             <p>
-              <i class="fas fa-map-marker-alt"></i> Uttara, Dhaka - 1230
+              <i className="fas fa-map-marker-alt"></i> Uttara, Dhaka - 1230
             </p>
             <div></div>
           </div>
