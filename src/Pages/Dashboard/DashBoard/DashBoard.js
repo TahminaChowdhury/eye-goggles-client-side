@@ -8,6 +8,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import AddIcon from '@mui/icons-material/Add';
 import Toolbar from '@mui/material/Toolbar';
 import {
   AppBar,
@@ -31,7 +33,7 @@ import { Link, Outlet } from 'react-router-dom';
 const drawerWidth = 240;
 
 const DashBoard = (props) => {
-  const { user, logout } = useAuth();
+  const { user, logout, admin } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
@@ -50,7 +52,7 @@ const DashBoard = (props) => {
       >
         <Stack direction="row">
           <Avatar
-            alt="Remy Sharp"
+            alt={user.displayName}
             sx={{ width: 56, height: 56 }}
             src={user.photoURL}
           />
@@ -62,66 +64,129 @@ const DashBoard = (props) => {
       <Divider />
 
       {/* List items */}
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <PersonIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <Link to="/dashboard">
-              <ListItemText primary="My Profile" />
-            </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <LocationOnIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <Link to="/dashboard/address">
-              <ListItemText primary="Address" />
-            </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <SellIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <Link to="/dashboard/myOrders">
-              <ListItemText primary="My Orders" />
-            </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <FavoriteIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <Link to="/dashboard/myWishlist">
-              <ListItemText primary="My Wishlist" />
-            </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <ReviewsIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <Link to="/dashboard/myReviews">
-              <ListItemText primary="My Reviews" />
-            </Link>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton onClick={logout}>
-            <ListItemIcon>
-              <LogoutIcon sx={{ color: 'white' }} />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
-          </ListItemButton>
-        </ListItem>
-      </List>
+      {admin ? (
+         <List>
+         <ListItem disablePadding>
+           <ListItemButton>
+             <ListItemIcon>
+               <PersonIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <Link to="/dashboard">
+               <ListItemText primary="My Profile" />
+             </Link>
+           </ListItemButton>
+         </ListItem>
+         <ListItem disablePadding>
+           <ListItemButton>
+             <ListItemIcon>
+               <SellIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <Link to="/dashboard/orders">
+               <ListItemText primary="Orders" />
+             </Link>
+           </ListItemButton>
+         </ListItem>
+         <ListItem disablePadding>
+           <ListItemButton>
+             <ListItemIcon>
+               <PersonAddIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <Link to="/dashboard/makeAdmin">
+               <ListItemText primary="Make Admin" />
+             </Link>
+           </ListItemButton>
+         </ListItem>
+         <ListItem disablePadding>
+           <ListItemButton>
+             <ListItemIcon>
+               <AddIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <Link to="/dashboard/addproduct">
+               <ListItemText primary="Add product" />
+             </Link>
+           </ListItemButton>
+         </ListItem>
+         <ListItem disablePadding>
+           <ListItemButton>
+             <ListItemIcon>
+               <ReviewsIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <Link to="/dashboard/updateProduct">
+               <ListItemText primary="Update Product" />
+             </Link>
+           </ListItemButton>
+         </ListItem>
+         <ListItem disablePadding>
+           <ListItemButton onClick={logout}>
+             <ListItemIcon>
+               <LogoutIcon sx={{ color: 'white' }} />
+             </ListItemIcon>
+             <ListItemText primary="Logout" />
+           </ListItemButton>
+         </ListItem>
+       </List>
+      ) : (
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <PersonIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <Link to="/dashboard">
+                <ListItemText primary="My Profile" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <LocationOnIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <Link to="/dashboard/address">
+                <ListItemText primary="Address" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <SellIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <Link to="/dashboard/myOrders">
+                <ListItemText primary="My Orders" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <FavoriteIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <Link to="/dashboard/myWishlist">
+                <ListItemText primary="My Wishlist" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ReviewsIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <Link to="/dashboard/myReviews">
+                <ListItemText primary="My Reviews" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton onClick={logout}>
+              <ListItemIcon>
+                <LogoutIcon sx={{ color: 'white' }} />
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      )}
     </div>
   );
 

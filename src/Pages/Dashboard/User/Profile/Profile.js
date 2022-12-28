@@ -10,7 +10,14 @@ const Profile = () => {
     <Box sx={{ flexGrow: 1, mt: 5 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} className="user-photo">
-          <img src={user.photoURL} alt="" />
+          <img
+            src={
+              user.photoURL
+                ? `${user.photoURL}`
+                : `https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png`
+            }
+            alt={user.displayName}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <div>
@@ -21,7 +28,7 @@ const Profile = () => {
             <label htmlFor="email">Email</label>
             <p>{user.email}</p>
           </div>
-         
+
           <div>
             <label htmlFor="phone">Phone NUmber</label>
             <p></p>
@@ -30,7 +37,6 @@ const Profile = () => {
             <label htmlFor="password">Password</label>
             <p></p>
           </div>
-         
         </Grid>
       </Grid>
     </Box>

@@ -138,8 +138,11 @@ const useFirebase = () => {
   useEffect(() => {
     fetch(`https://eye-goggles.onrender.com/users/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setAdmin(data.admin))
-      .catch((error) => {});
+      .then((data) => 
+      setAdmin(data.role))
+      .catch((error) => {
+        setError(error.message)
+      });
   }, [user.email]);
 
   // logout

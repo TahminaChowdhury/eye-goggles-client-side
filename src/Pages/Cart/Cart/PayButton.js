@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,6 +9,7 @@ import { getCurrentUser } from '../../redux/User/UserActions';
 
 const PayButton = ({ cartItems }) => {
   const { user } = useAuth();
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.currentUser);
   const { currentUser } = userInfo;
@@ -25,10 +27,11 @@ const handleCheckout = () => {
       })
       .then((res) => {
         if (res.data.url) {
+          
           window.location.href = res.data.url;
         }
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -36,6 +39,9 @@ const handleCheckout = () => {
       <button onClick={() => handleCheckout()} className="regular-btn">
         Checkout
       </button>
+      {
+        error && <p>{error}</p>
+      }
     </>
   );
 };

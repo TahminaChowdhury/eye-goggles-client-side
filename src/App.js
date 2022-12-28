@@ -19,6 +19,10 @@ import Profile from './Pages/Dashboard/User/Profile/Profile';
 import MyWishlist from './Pages/Dashboard/User/MyWishlist/MyWishlist';
 import MyReviews from './Pages/Dashboard/User/MyReviews/MyReviews';
 import MyOrders from './Pages/Dashboard/User/MyOrders/MyOrders';
+import Orders from './Pages/Dashboard/Admin/Orders/Orders';
+import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
+import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
@@ -45,6 +49,14 @@ function App() {
               }
             >
               <Route index element={<Profile />} />
+              <Route path="/dashboard/orders" element={<Orders />} />
+              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
+              <Route path="/dashboard/addproduct" element={<AddProduct />} />
+              <Route
+                path="/dashboard/updateProduct"
+                element={<UpdateProduct />}
+              />
+
               <Route path="/dashboard/myOrders" element={<MyOrders />} />
               <Route path="/dashboard/myWishlist" element={<MyWishlist />} />
               <Route path="/dashboard/myReviews" element={<MyReviews />} />
