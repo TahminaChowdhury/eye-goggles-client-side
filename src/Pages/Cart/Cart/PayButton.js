@@ -18,16 +18,14 @@ const PayButton = ({ cartItems }) => {
     dispatch(getCurrentUser(user.email));
   }, [user.email]);
 
- 
-const handleCheckout = () => {
+  const handleCheckout = () => {
     axios
-      .post('http://localhost:5000/create-checkout-session', {
+      .post('https://eye-goggles.onrender.com/create-checkout-session', {
         cartItems,
         userId: currentUser._id,
       })
       .then((res) => {
         if (res.data.url) {
-          
           window.location.href = res.data.url;
         }
       })
@@ -39,9 +37,7 @@ const handleCheckout = () => {
       <button onClick={() => handleCheckout()} className="regular-btn">
         Checkout
       </button>
-      {
-        error && <p>{error}</p>
-      }
+      {error && <p>{error}</p>}
     </>
   );
 };
