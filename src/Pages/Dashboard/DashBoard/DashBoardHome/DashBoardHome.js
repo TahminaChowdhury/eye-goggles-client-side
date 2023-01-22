@@ -1,11 +1,8 @@
 import React from 'react';
+import './DashboardHome.css'
 
-const DashBoardHome = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const DashboardHome = () => {
+  return <div></div>;
 };
 
-export default DashBoardHome;
+export default DashboardHome;

@@ -7,7 +7,7 @@ import { Grid } from '@mui/material';
 const Profile = () => {
   const { user } = useAuth();
   return (
-    <Box sx={{ flexGrow: 1, mt: 5 }}>
+    <Box sx={{ flexGrow: 1, mt: 5,}}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} className="user-photo">
           <img
@@ -16,7 +16,7 @@ const Profile = () => {
                 ? `${user.photoURL}`
                 : `https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png`
             }
-            alt={user.displayName}
+            alt=''
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -30,7 +30,7 @@ const Profile = () => {
           </div>
 
           <div>
-            <label htmlFor="phone">Phone NUmber</label>
+            <label htmlFor="phone">Phone Number</label>
             <p></p>
           </div>
           <div>

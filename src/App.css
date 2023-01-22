@@ -10,6 +10,11 @@
   box-sizing: border-box;
   font-family: 'Arsenal', sans-serif;
 }
+a{
+  text-decoration: none;
+  color: var(--primary);
+}
+
 body {
   overflow-x: hidden;
 }

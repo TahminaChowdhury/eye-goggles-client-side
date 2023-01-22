@@ -8,7 +8,7 @@ import AuthProvider from './ContextApi/AuthProvider';
 import PrivateRoute from './Pages/Shared/PrivateRoute/PrivateRoute';
 import SingleSunglass from './Pages/Home/Products/Sunglasses/SingleSunglass/SingleSunglass';
 import Explore from './Pages/Home/Explore/Explore';
-import DashBoard from './Pages/Dashboard/DashBoard/DashBoard';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Cart from './Pages/Cart/Cart/Cart';
 import GoToTop from './Pages/Home/GoToTop/GoToTop';
 import Checkout from './Pages/Cart/Checkout/Checkout';
@@ -44,7 +44,7 @@ function App() {
               path="/dashboard"
               element={
                 <PrivateRoute>
-                  <DashBoard />
+                  <Dashboard />
                 </PrivateRoute>
               }
             >

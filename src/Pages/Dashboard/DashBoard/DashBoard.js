@@ -1,39 +1,22 @@
 import * as React from 'react';
-import './DashBoard.css';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import AddIcon from '@mui/icons-material/Add';
 import Toolbar from '@mui/material/Toolbar';
-import {
-  AppBar,
-  Avatar,
-  CssBaseline,
-  IconButton,
-  ListItem,
-} from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import SellIcon from '@mui/icons-material/Sell';
-import ReviewsIcon from '@mui/icons-material/Reviews';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { AppBar, Avatar, CssBaseline, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Stack } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import ListItems from './ListItems';
+import BarItems from './BarItems/BarItems';
 
 const drawerWidth = 240;
 
-const DashBoard = (props) => {
-  const { user, logout, admin } = useAuth();
+const Dashboard = (props) => {
+  const { user } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
@@ -41,7 +24,7 @@ const DashBoard = (props) => {
   };
 
   const drawer = (
-    <div style={{ backgroundColor: 'black', color: 'white', height: '100%' }}>
+    <div>
       <Toolbar
         sx={{
           display: 'flex',
@@ -50,6 +33,7 @@ const DashBoard = (props) => {
           margin: '30px 0px',
         }}
       >
+        {/* Logo */}
         <Stack direction="row">
           <Avatar
             alt={user.displayName}
@@ -57,136 +41,13 @@ const DashBoard = (props) => {
             src={user.photoURL}
           />
         </Stack>
-        <p style={{ color: 'white', margin: '10px 0px', fontSize: '18px' }}>
+        <p style={{ color: '#000', margin: '10px 0px', fontSize: '18px' }}>
           {user.displayName}
         </p>
       </Toolbar>
       <Divider />
-
       {/* List items */}
-      {admin ? (
-         <List>
-         <ListItem disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               <PersonIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <Link to="/dashboard">
-               <ListItemText primary="My Profile" />
-             </Link>
-           </ListItemButton>
-         </ListItem>
-         <ListItem disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               <SellIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <Link to="/dashboard/orders">
-               <ListItemText primary="Orders" />
-             </Link>
-           </ListItemButton>
-         </ListItem>
-         <ListItem disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               <PersonAddIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <Link to="/dashboard/makeAdmin">
-               <ListItemText primary="Make Admin" />
-             </Link>
-           </ListItemButton>
-         </ListItem>
-         <ListItem disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               <AddIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <Link to="/dashboard/addproduct">
-               <ListItemText primary="Add product" />
-             </Link>
-           </ListItemButton>
-         </ListItem>
-         <ListItem disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               <ReviewsIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <Link to="/dashboard/updateProduct">
-               <ListItemText primary="Update Product" />
-             </Link>
-           </ListItemButton>
-         </ListItem>
-         <ListItem disablePadding>
-           <ListItemButton onClick={logout}>
-             <ListItemIcon>
-               <LogoutIcon sx={{ color: 'white' }} />
-             </ListItemIcon>
-             <ListItemText primary="Logout" />
-           </ListItemButton>
-         </ListItem>
-       </List>
-      ) : (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <PersonIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <Link to="/dashboard">
-                <ListItemText primary="My Profile" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LocationOnIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <Link to="/dashboard/address">
-                <ListItemText primary="Address" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <SellIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <Link to="/dashboard/myOrders">
-                <ListItemText primary="My Orders" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FavoriteIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <Link to="/dashboard/myWishlist">
-                <ListItemText primary="My Wishlist" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ReviewsIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <Link to="/dashboard/myReviews">
-                <ListItemText primary="My Reviews" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={logout}>
-              <ListItemIcon>
-                <LogoutIcon sx={{ color: 'white' }} />
-              </ListItemIcon>
-              <ListItemText primary="Logout" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )}
+      <ListItems />
     </div>
   );
 
@@ -194,14 +55,16 @@ const DashBoard = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }} className="dashboard">
+    <Box sx={{ display: 'flex' }} className="Dashboard">
       <CssBaseline />
       <AppBar
+        elevation={0}
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: '#000',
+          backgroundColor: 'white',
+          color: ' #000',
         }}
       >
         <Toolbar>
@@ -212,8 +75,9 @@ const DashBoard = (props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: ' #000000' }} />
           </IconButton>
+          <BarItems />
         </Toolbar>
       </AppBar>
       <Box
@@ -256,6 +120,8 @@ const DashBoard = (props) => {
       <Box
         component="main"
         sx={{
+          height: '100vh',
+          color: '#000',
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -268,8 +134,8 @@ const DashBoard = (props) => {
   );
 };
 
-DashBoard.propTypes = {
+Dashboard.propTypes = {
   window: PropTypes.func,
 };
 
-export default DashBoard;
+export default Dashboard;
