@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import './GoToTop.css';
+import './GoToTop.scss';
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);

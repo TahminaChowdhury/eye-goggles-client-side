@@ -1,7 +1,7 @@
 import { TableCell, TableRow } from '@mui/material';
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import './CartItem.css';
+import './CartItem.scss';
 
 const CartItem = ({
   item,

@@ -1,4 +1,4 @@
-import './Explore.css';
+import './Explore.scss';
 import { Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';

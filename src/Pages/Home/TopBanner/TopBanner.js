@@ -1,4 +1,4 @@
-import './TopBanner.css';
+import './TopBanner.scss';
 import React from 'react';
 import { Box, Grid } from '@mui/material';
 import img from '../../../images/s-1.jpg';

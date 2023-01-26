@@ -11,7 +11,7 @@ import {
 import React, { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
-import './Cart.css';
+import './Cart.scss';
 import { addToCart, removeFromCart } from '../../redux/Cart/cartActions';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import useAuth from '../../../Hooks/useAuth';

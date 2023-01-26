@@ -1,6 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import React from 'react';
-import './ItemBanner.css';
+import './ItemBanner.scss';
 import img1 from '../../../images/f-2.webp';
 import img2 from '../../../images/m-1.webp';
 

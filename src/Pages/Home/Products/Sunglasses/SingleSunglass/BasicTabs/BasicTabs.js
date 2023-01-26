@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import './BasicTabs.css';
+import './BasicTabs.scss';
 import Review from '../Review/Review';
 
 interface TabPanelProps {

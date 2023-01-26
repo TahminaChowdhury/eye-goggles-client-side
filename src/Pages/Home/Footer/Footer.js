@@ -1,7 +1,7 @@
 import { Box, Grid } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
+import './Footer.scss';
 
 const Footer = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contact.css';
+import './Contact.scss';
 import img from '../../../images/location-icon-vector-24263344.jpg';
 import img1 from '../../../images/phone-symbol-auricular-inside-circle-260nw-1121268638.jpg';
 import img2 from '../../../images/9-99241_email-icon-black-circle-envelope-email-icon-png.png';

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './Styles/Styles.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import ContactUs from './Pages/Home/ConatctUs/ContactUs';
@@ -26,7 +26,7 @@ import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <AuthProvider>
         <BrowserRouter>
           <Routes>

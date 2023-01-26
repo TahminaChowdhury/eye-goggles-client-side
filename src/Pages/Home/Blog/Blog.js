@@ -1,6 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import React from 'react';
-import './Blog.css';
+import './Blog.scss';
 import img1 from '../../../images/portrait-smiling-beautiful-girl-her-handsome-boyfriend-casual-summer-clothes-woman-with-bottle-water-straw_158538-5358.jpg';
 import img2 from '../../../images/Models-wear-HUGO-HG-SUN-RX-01-and-HG-SUN-RX-02-available-at-Specsavers-removebg-preview.png';
 import img3 from '../../../images/160321_image-guide_LOOKBOOK_image_39.jpg';

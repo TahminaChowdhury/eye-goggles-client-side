@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sunglasses.css';
+import './Sunglasses.scss';
 import { Grid, Paper, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';

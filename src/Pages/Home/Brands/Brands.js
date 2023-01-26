@@ -1,6 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import React from 'react';
-import './Brands.css';
+import './Brands.scss';
 import img1 from '../../../images/Gucci_logo.svg.png';
 import img2 from '../../../images/Ray-Ban-logo.png';
 import img3 from '../../../images/michael-kors-logo-2D0B890759-seeklogo.com.png';

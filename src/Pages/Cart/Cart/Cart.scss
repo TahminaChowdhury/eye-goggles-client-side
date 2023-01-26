@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
 }
-.cart-items{
+.cart-items {
   margin-top: 130px;
 }
 .coupon-code-input {
@@ -27,7 +27,7 @@
     border-color 0.3s ease;
 }
 
-.regular-btn{
+.regular-btn {
   outline: 1px solid black;
   outline-offset: 2px;
   position: relative;
@@ -64,7 +64,7 @@
   justify-content: center;
   align-items: center;
 }
-.cart-items button:hover{
+.cart-items button:hover {
   background-color: var(--secondary);
 }
 .cart {
@@ -72,22 +72,22 @@
   justify-content: space-between;
 }
 .cart span {
-    font-size: 19px;
+  font-size: 19px;
 }
-.cart-note-label{
-    display: block;
-    margin-bottom: 20px;
+.cart-note-label {
+  display: block;
+  margin-bottom: 20px;
 }
-.cart-note-label span{
-    background: #e95144;
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 5px;
-    margin-right: 10px;
-    text-transform: uppercase;
+.cart-note-label span {
+  background: #e95144;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  margin-right: 10px;
+  text-transform: uppercase;
 }
-.login-div{
+.login-div {
   font-size: 13px;
   font-weight: 500;
   line-height: 2em;
@@ -104,7 +104,7 @@
   justify-content: center;
   align-items: center;
 }
-.simple-btn{
+.simple-btn {
   border: 0;
   outline: 0;
   padding: 14px 30px;

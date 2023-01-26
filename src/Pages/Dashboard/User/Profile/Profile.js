@@ -1,5 +1,5 @@
 import React from 'react';
-import './Profile.css';
+import './Profile.scss';
 import useAuth from '../../../../Hooks/useAuth';
 import { Box } from '@mui/system';
 import { Grid } from '@mui/material';

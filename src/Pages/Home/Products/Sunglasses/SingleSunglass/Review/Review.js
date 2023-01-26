@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Review.css';
+import './Review.scss';
 
 const Review = () => {
   const [isShown, setIsShown] = useState(false);
