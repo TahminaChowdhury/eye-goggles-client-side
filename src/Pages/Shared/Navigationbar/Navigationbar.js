@@ -24,7 +24,6 @@ import Menu from '@mui/material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuItem from './MenuItem/MenuItem';
 
-
 const style = {
   position: 'absolute',
   top: '50%',

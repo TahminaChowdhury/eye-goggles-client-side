@@ -1,130 +1,108 @@
-@media only screen and (min-width: 700px) {
-  .navbar {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
-  .navbar a {
-    text-decoration: none;
-    color: var(--primary);
-  }
+@import '../../../Styles/Partials/variables';
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
   .top-bar {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 10px 15px;
-    color: var(--primary);
+    color: $color-primary;
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      a {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .fa-glasses {
+        font-size: 30px;
+      }
+    }
+    .userinfo {
+      span {
+        margin-right: 20px;
+      }
+      .shoppingcart {
+        position: relative;
+        .shoppingcart-icon {
+          position: absolute;
+          color: #fff;
+          position: absolute;
+          top: -1px;
+          left: 27px;
+          min-width: 17px;
+          height: 17px;
+          line-height: 17px;
+          text-align: center;
+          font-weight: 800;
+          font-size: 12px;
+          border-radius: 50px;
+          z-index: 9;
+          background: $color-primary;
+        }
+      }
+    }
   }
-  .userinfo span {
-    margin-right: 20px;
-  }
-  .nav a {
+}
+.bottom-bar {
+  background-color: $color-primary;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  a {
     text-decoration: none;
-    color: var(--light);
+    color: $color-light;
     margin-right: 120px;
     font-size: 15px;
     line-height: 30px;
     font-weight: 600;
     letter-spacing: 0.25em;
   }
-  .logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .logo a {
-    font-size: 30px;
-    font-weight: 600;
-  }
-  .fa-glasses {
-    font-size: 30px;
-  }
-  .bottom-bar {
-    background-color: var(--primary);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .responsive-bar {
-    display: none;
-  }
   .navbar-toggle-icon {
-    background-color: black;
+    background-color: $color-primary;
   }
 }
-@media only screen and (max-width: 688px) {
-  .navbar {
-    display: none;
-  }
-  .responsive-bar {
-    display: contents;
-    display: flex;
-  }
-  .logo a {
-    text-decoration: none;
-    color: var(--primary);
-    font-size: 20px;
-  }
-  .userinfo span {
-    margin-right: 10px;
-  }
-  .userinfo a {
-    color: var(--primary);
-  }
-  .nav a {
-    text-decoration: none;
-    color: var(--primary);
-  }
+.responsive-bar {
+  display: none;
 }
-.shoppingcart {
-  position: relative;
-}
-.shoppingcart-icon {
-  position: absolute;
-  color: #fff;
-  position: absolute;
-  top: -1px;
-  left: 27px;
-  min-width: 17px;
-  height: 17px;
-  line-height: 17px;
-  text-align: center;
-  font-weight: 800;
-  font-size: 12px;
-  border-radius: 50px;
-  z-index: 9;
-  background: var(--primary);
-}
-.logout-btn {
-  border: 0;
-  outline: 0;
-  background-color: var(--primary);
-  color: white;
-  padding: 10px 20px;
-  letter-spacing: 0.35em;
-  margin-right: 30px;
-}
-.logout-btn:hover {
-  background-color: var(--secondary);
-}
+
 .close-btn {
   position: absolute;
   top: 0;
   right: 10px;
   cursor: pointer;
-  color: var(--primary);
+  color: $color-primary;
   opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
 }
-.close-btn:hover {
-  opacity: 1;
-}
-.user-img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
+
+@media only screen and (max-width: 688px) {
+  .navbar {
+    display: none;
+    .logo {
+      a {
+        text-decoration: none;
+        color: $color-primary;
+        font-size: 20px;
+      }
+    }
+    .userinfo {
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+  .responsive-bar {
+    display: contents;
+    display: flex;
+  }
 }
