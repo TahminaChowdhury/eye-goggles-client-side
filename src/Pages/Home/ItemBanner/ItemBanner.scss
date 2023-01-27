@@ -1,15 +1,26 @@
-.item-banner-container img {
-  width: 400px;
-  height: 600px;
-  object-fit: cover;
-  object-position: left;
-  position: relative;
-}
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+@import '../../../Styles/Partials/variables';
+
 .item-banner-container {
+  img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    object-position: left;
+    position: relative;
+  }
   display: flex;
   justify-content: center;
   animation: itembanner 1.2s linear infinite alternate-reverse;
+  .item-banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
+
 @keyframes itembanner {
   0% {
     transform: translateY(-0.5rem);
@@ -18,36 +29,7 @@
     transform: translateY(1rem);
   }
 }
-@media only screen and (max-width: 600px) {
-  .top-btn {
-    right: 0;
-    left: 40%;
-  }
-}
 
-.item-banner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.shopnow-btn {
-  vertical-align: middle;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0.35em;
-  width: auto;
-  margin: 0;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0;
-  outline: 0;
-  padding: 14px 37px;
-  cursor: pointer;
-  color: white;
-  background-color: var(--primary);
-  border: 1px solid transparent;
-}
 @media only screen and (max-width: 600px) {
   .male-item-banner {
     margin-top: 0px;

@@ -1,5 +1,6 @@
 import React from 'react';
-import './Slide.css';
+import './Slide.scss';
+import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
@@ -27,22 +28,22 @@ const Slide = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="slide-wrapper">
+          <Box className="slide-wrapper">
             <img class="zoom-in-zoom-out" src={img2} alt="" />
-            <div className="slide-content"></div>
-          </div>
+            <Box className="slide-content"></Box>
+          </Box>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide-wrapper">
+          <Box className="slide-wrapper">
             <img class="zoom-in-zoom-out" src={img1} alt="" />
-            <div className="slide-content"></div>
-          </div>
+            <Box className="slide-content"></Box>
+          </Box>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slide-wrapper">
+          <Box className="slide-wrapper">
             <img class="zoom-in-zoom-out" src={img3} alt="" />
-            <div className="slide-content"></div>
-          </div>
+            <Box className="slide-content"></Box>
+          </Box>
         </SwiperSlide>
       </Swiper>
     </>
