@@ -10,8 +10,8 @@
   .top-btn {
     width: 55px;
     height: 55px;
-    color: var(--light);
-    background-color: var(--primary);
+    color: $color-white;
+    background-color: $color-dark;
     position: fixed;
     bottom: 5rem;
     right: 5rem;

@@ -39,7 +39,7 @@ const Footer = () => {
             margin: '40px 0px',
           }}
         >
-          <div style={{ alignItems: 'start' }}>
+          <Box style={{ alignItems: 'start' }}>
             <Link
               to="/home"
               style={{
@@ -59,7 +59,7 @@ const Footer = () => {
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Consequuntur ducimus tempora aliquid similique alias laboriosam.
             </p>
-            <div>
+            <Box>
               <span>
                 <i className="fa-brands fa-facebook"></i>
               </span>
@@ -72,8 +72,8 @@ const Footer = () => {
               <span>
                 <i className="fa-brands fa-linkedin"></i>
               </span>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Grid>
         <Grid
           item
@@ -87,7 +87,7 @@ const Footer = () => {
             margin: '40px 0px',
           }}
         >
-          <div>
+          <Box>
             <h4>About Us</h4>
             <ul className="list-unstyled">
               <li>Help Center</li>
@@ -96,7 +96,7 @@ const Footer = () => {
               <li>Receivers & Amplifiers</li>
               <li>Store</li>
             </ul>
-          </div>
+          </Box>
         </Grid>
         <Grid
           item
@@ -110,7 +110,7 @@ const Footer = () => {
             color: 'white',
           }}
         >
-          <div>
+          <Box>
             <h4>Help & Information</h4>
             <ul className="list-unstyled">
               <li>Pagination</li>
@@ -119,7 +119,7 @@ const Footer = () => {
               <li>Accessories</li>
               <li>Term of use</li>
             </ul>
-          </div>
+          </Box>
         </Grid>
         <Grid
           item
@@ -132,7 +132,7 @@ const Footer = () => {
             margin: '40px 0px',
           }}
         >
-          <div className="contact-section">
+          <Box className="contact-section">
             <h4>Contact Us</h4>
             <p>
               <i className="far fa-envelope"></i> eyegoggles@gmail.com
@@ -143,8 +143,8 @@ const Footer = () => {
             <p>
               <i className="fas fa-map-marker-alt"></i> Uttara, Dhaka - 1230
             </p>
-            <div></div>
-          </div>
+            <Box></Box>
+          </Box>
         </Grid>
       </Grid>
     </Box>
