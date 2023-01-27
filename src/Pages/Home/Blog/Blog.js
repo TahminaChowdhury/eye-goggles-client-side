@@ -22,15 +22,15 @@ const Blog = () => {
           md={4}
           style={{ display: 'flex', justifyContent: 'center' }}
         >
-          <div className="blog-container">
-            <div className="blog-img-div">
+          <Box className="blog-container">
+            <Box className="blog-img-container">
               <img src={img1} alt="" />
-              <div className="date">
+              <Box className="date">
                 <span className="day">26</span>
                 <span className="month">June</span>
-              </div>
-            </div>
-            <div className="blog-content">
+              </Box>
+            </Box>
+            <Box className="blog-content">
               <h3 className="blog-title">GORDON-GLASSES</h3>
               <p className="description">
                 One morning, when Gregor Samsa woke from troubled dreams, he
@@ -38,8 +38,8 @@ const Blog = () => {
                 lay on his armour-like...
               </p>
               <button className="read-more">Read more</button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Grid>
         <Grid
           item
@@ -48,24 +48,24 @@ const Blog = () => {
           md={4}
           style={{ display: 'flex', justifyContent: 'center' }}
         >
-          <div className="blog-container">
-            <div className="blog-img-div">
+          <Box className="blog-container">
+            <Box className="blog-img-container">
               <img src={img2} alt="" />
-              <div className="date">
+              <Box className="date">
                 <span className="day">26</span>
                 <span className="month">June</span>
-              </div>
-            </div>
-            <div className="blog-content">
-              <h3 className="blog-title">GORDON-GLASSE</h3>
+              </Box>
+            </Box>
+            <Box className="blog-content">
+              <h3>GORDON-GLASSE</h3>
               <p className="description">
                 One morning, when Gregor Samsa woke from troubled dreams, he
                 found himself transformed in his bed into a horrible vermin. He
                 lay on his armour-like...
               </p>
               <button className="read-more">Read more</button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Grid>
         <Grid
           item
@@ -74,15 +74,15 @@ const Blog = () => {
           md={4}
           style={{ display: 'flex', justifyContent: 'center' }}
         >
-          <div className="blog-container">
-            <div className="blog-img-div">
+          <Box className="blog-container">
+            <Box className="blog-img-container">
               <img src={img3} alt="" />
-              <div className="date">
+              <Box className="date">
                 <span className="day">26</span>
                 <span className="month">June</span>
-              </div>
-            </div>
-            <div className="blog-content">
+              </Box>
+            </Box>
+            <Box className="blog-content">
               <h3 className="blog-title">GORDON-GLASSE</h3>
               <p className="description">
                 One morning, when Gregor Samsa woke from troubled dreams, he
@@ -90,8 +90,8 @@ const Blog = () => {
                 lay on his armour-like...
               </p>
               <button className="read-more">Read more</button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Grid>
       </Grid>
     </Box>
