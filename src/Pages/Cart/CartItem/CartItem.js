@@ -27,7 +27,7 @@ const CartItem = ({
         </button>
       </TableCell>
       <TableCell align="left">
-       <img src={image} alt="" />
+        <img src={image} alt="" />
       </TableCell>
       <TableCell align="left">{name}</TableCell>
       <TableCell align="right">{price}</TableCell>
