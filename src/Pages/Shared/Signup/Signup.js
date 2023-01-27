@@ -1,11 +1,20 @@
-import { Button, Grid, Modal } from '@mui/material';
-import { Box } from '@mui/system';
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Button, Grid, Modal } from '@mui/material';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Login from '../Login/Login';
+import './Signup.scss';
 
 const style = {
   position: 'absolute',
@@ -13,33 +22,40 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 500,
-  height: 550,
+  height: "auto",
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
 
 const Signup = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const {
     loginWithGoogle,
     loginWithFacebook,
     signupWithEmailAndPassword,
     error,
   } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Handle password
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  // Handle Modal
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleSignUpWithGoogle = () => {
     loginWithGoogle(location, navigate);
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // Handle form submit
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     signupWithEmailAndPassword(
       data.first_name,
@@ -50,6 +66,7 @@ const Signup = () => {
       location
     );
   };
+
   return (
     <Box className="from" sx={{ flexGrow: 1 }}>
       <Grid item xs={12} sm={12} md={12} className="form">
@@ -70,40 +87,92 @@ const Signup = () => {
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                  <input
-                    type="text"
+                  <TextField
+                    id="standard-basic"
+                    label="First Name"
+                    variant="standard"
                     {...register('first_name', { required: true })}
-                    placeholder="First Name"
-                    className="input-field"
+                    sx={{
+                      width: '80%',
+                      '& label.Mui-focused': {
+                        color: 'black',
+                      },
+                      '& .MuiInput-underline:after': {
+                        borderBottomColor: 'black',
+                      },
+                    }}
                   />
                 </div>
 
                 <div>
-                  <input
-                    type="text"
+                  <TextField
+                    id="standard-basic"
+                    label="Last Name"
+                    variant="standard"
                     {...register('last_name', { required: true })}
-                    placeholder="Last Name"
-                    className="input-field"
+                    sx={{
+                      width: '80%',
+                      '& label.Mui-focused': {
+                        color: 'black',
+                      },
+                      '& .MuiInput-underline:after': {
+                        borderBottomColor: 'black',
+                      },
+                    }}
                   />
                 </div>
                 <div>
-                  <input
-                    type="email"
+                  <TextField
+                    id="standard-basic"
+                    label="Email"
+                    variant="standard"
                     {...register('email', { required: true })}
-                    placeholder="Email"
-                    className="input-field"
+                    sx={{
+                      width: '80%',
+                      '& label.Mui-focused': {
+                        color: 'black',
+                      },
+                      '& .MuiInput-underline:after': {
+                        borderBottomColor: 'black',
+                      },
+                    }}
                   />
                 </div>
 
                 <div>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    {...register('password', { required: true })}
-                    className="input-field"
-                  />
+                  <FormControl
+                    sx={{
+                      width: '80%',
+                      '& label.Mui-focused': {
+                        color: 'black',
+                      },
+                      '& .MuiInput-underline:after': {
+                        borderBottomColor: 'black',
+                      },
+                    }}
+                    variant="standard"
+                  >
+                    <InputLabel htmlFor="standard-adornment-password">
+                      Password
+                    </InputLabel>
+                    <Input
+                      {...register('password', { required: true })}
+                      id="standard-adornment-password"
+                      type={showPassword ? 'text' : 'password'}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
                 </div>
-
                 <div>
                   <p
                     style={{

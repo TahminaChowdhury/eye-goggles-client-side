@@ -19,7 +19,6 @@ const UserMenu = () => {
       <img
         onClick={handleClick}
         size="small"
-    
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}

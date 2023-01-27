@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Box, Button, Grid, Modal } from '@mui/material';
+import { Box, Button, Grid, Modal, TextField } from '@mui/material';
 import { useState } from 'react';
 import Signup from '../Signup/Signup';
 
@@ -20,7 +20,7 @@ const style = {
 };
 
 const Login = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -73,6 +73,7 @@ const Login = () => {
                   {...register('email')}
                   className="input-field"
                 />
+              
               </div>
               <div>
                 <input
@@ -88,9 +89,9 @@ const Login = () => {
                     marginLeft: '48px',
                     padding: '20px 0px',
                     color: 'black',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
                   }}
-           onClick={resetPass(user?.email)}
+                  onClick={resetPass(user?.email)}
                 >
                   Forgot Password ?
                 </p>
