@@ -163,10 +163,10 @@ const Navigationbar = () => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <Link to="/cart" className="regular-btn">
+                    <Link to="/cart" className="button">
                       View cart
                     </Link>
-                    <button className="regular-btn">Checkout</button>
+                    <button className="button">Checkout</button>
                   </div>
                 </div>
               )}

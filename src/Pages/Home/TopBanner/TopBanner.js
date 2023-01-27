@@ -8,16 +8,17 @@ const TopBanner = () => {
   return (
     <Box sx={{ flexGrow: 1, width: '100%', height: '500px' }}>
       <Grid container>
-        <Grid item xs={12} sm={12} md={12} className="banner-container">
+        <Grid 
+        item xs={12} sm={12} md={12} className="banner-container">
           <img src={img} alt="" />
-          <div className="banner-content-div">
+          <Box className="banner-content">
             <Link to="/explore">
               <button className="explore-btn">
-                <div>Explore More</div>
-                <i class="fas fa-arrow-right"></i>
+                <Box sx={{ paddingRight: '10px' }}>Explore More</Box>
+                <i className="fas fa-arrow-right"></i>
               </button>
             </Link>
-          </div>
+          </Box>
         </Grid>
       </Grid>
     </Box>
