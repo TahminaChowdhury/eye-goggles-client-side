@@ -1,25 +1,29 @@
-.scroll-btn-div {
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+@import '../../../Styles/Partials/variables';
+
+.scroll-btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-.top-btn {
-  width: 55px;
-  height: 55px;
-  color: var(--light);
-  background-color: var(--primary);
-  position: fixed;
-  bottom: 5rem;
-  right: 5rem;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.top-btn-icon {
-  animation: gototop 1.2s linear infinite alternate-reverse;
+  .top-btn {
+    width: 55px;
+    height: 55px;
+    color: var(--light);
+    background-color: var(--primary);
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .top-btn-icon {
+      animation: gototop 1.2s linear infinite alternate-reverse;
+    }
+  }
 }
 @keyframes gototop {
   0% {

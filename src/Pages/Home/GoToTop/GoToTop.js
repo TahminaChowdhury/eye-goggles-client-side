@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Box } from '@mui/material';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import './GoToTop.scss';
 
@@ -27,13 +28,13 @@ const GoToTop = () => {
   }, []);
 
   return (
-    <div className="scroll-btn-div">
+    <Box className="scroll-btn-container">
       {isVisible && (
-        <div className="top-btn" onClick={goToTopBtn}>
+        <Box className="top-btn" onClick={goToTopBtn}>
           <KeyboardDoubleArrowUpIcon className="top-btn-icon" />
-        </div>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 };
 
