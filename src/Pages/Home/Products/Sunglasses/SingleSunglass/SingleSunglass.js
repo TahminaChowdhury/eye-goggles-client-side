@@ -105,7 +105,7 @@ const SingleSunglass = () => {
                     </div>
                     <button
                       onClick={addToCarthandler}
-                      className="ms-3 regular-btn"
+                      className="ms-3 button"
                     >
                       Add to Cart
                     </button>

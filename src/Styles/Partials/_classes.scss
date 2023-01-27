@@ -1,17 +1,12 @@
   @import './variables';
   @import './mixin';
 
-  
-  
-  .logout-btn {
-    border: 0;
-    outline: 0;
-    background-color: $color-primary;
-    color: white;
-    padding: 10px 20px;
-    letter-spacing: 0.35em;
-    margin-right: 30px;
-  }
-  .logout-btn:hover {
-    background-color: $color-primary;
-  }
+%plus-minus-btn{
+  outline: 0;
+  border: none;
+  background: none;
+  width: 40px;
+  max-height: 30px;
+  border-right: 1px solid $color-dark;
+  border-bottom: 1px solid $color-dark;
+}
