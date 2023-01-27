@@ -11,7 +11,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 10px 15px;
-    color: $color-primary;
+    color: $color-dark;
     .logo {
       display: flex;
       flex-direction: column;
@@ -45,14 +45,14 @@
           font-size: 12px;
           border-radius: 50px;
           z-index: 9;
-          background: $color-primary;
+          background: $color-dark;
         }
       }
     }
   }
 }
 .bottom-bar {
-  background-color: $color-primary;
+  background-color: $color-dark;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -66,7 +66,7 @@
     letter-spacing: 0.25em;
   }
   .navbar-toggle-icon {
-    background-color: $color-primary;
+    background-color: $color-dark;
   }
 }
 .responsive-bar {
@@ -78,7 +78,7 @@
   top: 0;
   right: 10px;
   cursor: pointer;
-  color: $color-primary;
+  color: $color-dark;
   opacity: 0.3;
   &:hover {
     opacity: 1;
@@ -91,7 +91,7 @@
     .logo {
       a {
         text-decoration: none;
-        color: $color-primary;
+        color: $color-dark;
         font-size: 20px;
       }
     }

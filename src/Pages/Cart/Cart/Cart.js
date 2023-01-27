@@ -84,13 +84,13 @@ const Cart = () => {
   return (
     <>
       <Navigationbar />
-      <div className="page-header">
+      <Box className="page-header">
         <p>Home</p>
         <p>
           <ChevronLeftIcon />
         </p>
         <p>Cart</p>
-      </div>
+      </Box>
       <Box sx={{ my: 5 }}>
         <Container fixed>
           <Grid container className="cart-items">
@@ -127,20 +127,25 @@ const Cart = () => {
                 </Grid>
                 <Grid item xs={12} md={12} container spacing={2}>
                   <Grid item xs={12} md={12} className="my-5 py-5">
-                    <div className="coupon-code">
-                      <div>
+                    <Box
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Box>
                         <input
                           type="text"
                           name="coupon_code"
                           placeholder="Coupon Code"
                           className="coupon-code-input"
                         />
-                        <button className="regular-btn">Apply Coupon</button>
-                      </div>
-                      <div>
-                        <button className="regular-btn">Update cart</button>
-                      </div>
-                    </div>
+                        <button className="button">Apply Coupon</button>
+                      </Box>
+                      <Box>
+                        <button className="button">Update cart</button>
+                      </Box>
+                    </Box>
                   </Grid>
                   <Grid
                     item
@@ -161,10 +166,10 @@ const Cart = () => {
                           alignItems: 'center',
                         }}
                       >
-                        <div>
+                        <Box>
                           <label
                             htmlFor="cartSpecialInstructions"
-                            className="cart-note-label"
+                            className="note-label"
                           >
                             <span>Note</span> Add a note to your order
                           </label>
@@ -174,62 +179,56 @@ const Cart = () => {
                             cols="60"
                             rows="8"
                           ></textarea>
-                        </div>
+                        </Box>
                       </Paper>
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <Paper variant="outlined" square className="p-5">
-                        <div className="cart my-4">
+                        <Box className="flex-item my-4">
                           <span>Items:</span>
                           <span>{cartItemsCount()}</span>
-                        </div>
-                        <div className="cart my-4">
+                        </Box>
+                        <Box className="flex-item my-4">
                           <span>SubTotal</span>
                           <span>{getCartSubtotal().toFixed(2)}</span>
-                        </div>
-                        <div className="cart my-4">
+                        </Box>
+                        <Box className="flex-item my-4">
                           <span>Tax</span>
                           <span> $ {tax.toFixed(2)}</span>
-                        </div>
-                        <div className="cart my-4">
+                        </Box>
+                        <Box className="flex-item my-4">
                           <span>Vat</span>
                           <span> $ {vat.toFixed(2)}</span>
-                        </div>
-                        <div className="cart my-4">
+                        </Box>
+                        <Box className="flex-item my-4">
                           <span>Total</span>
                           <span> $ {total.toFixed(2)}</span>
-                        </div>
+                        </Box>
                         <PayButton cartItems={cartItems} />
 
-                        <button className="ms-4 regular-btn">
+                        <button className="ms-4 button">
                           {' '}
                           Continue Shopping
                         </button>
                         {user?.email ? (
                           ''
                         ) : (
-                          <div className="mt-5 login-div">
-                            Please{' '}
-                            <span>
-                              <button
-                                onClick={handleOpen}
-                                className="simple-btn"
-                              >
-                                Login
-                              </button>
-                              <Modal
-                                open={open}
-                                onClose={handleClose}
-                                aria-labelledby="modal-modal-title"
-                                aria-describedby="modal-modal-description"
-                              >
-                                <Box sx={style}>
-                                  <Login />
-                                </Box>
-                              </Modal>
-                            </span>{' '}
-                            To Checkout
-                          </div>
+                          // Login div
+                          <Box className="mt-4">
+                            <button onClick={handleOpen} className="button">
+                              Please Login To Checkout
+                            </button>
+                            <Modal
+                              open={open}
+                              onClose={handleClose}
+                              aria-labelledby="modal-modal-title"
+                              aria-describedby="modal-modal-description"
+                            >
+                              <Box sx={style}>
+                                <Login />
+                              </Box>
+                            </Modal>
+                          </Box>
                         )}
                       </Paper>
                     </Grid>

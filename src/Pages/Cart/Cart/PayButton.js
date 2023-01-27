@@ -36,7 +36,7 @@ const PayButton = ({ cartItems }) => {
 
   return (
     <>
-      <button onClick={() => handleCheckout()} className="regular-btn">
+      <button onClick={() => handleCheckout()} className="button">
         Checkout
       </button>
     </>
