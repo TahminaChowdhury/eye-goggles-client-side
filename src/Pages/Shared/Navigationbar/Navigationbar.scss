@@ -20,6 +20,7 @@
       a {
         font-size: 30px;
         font-weight: 600;
+        color: $color-dark;
       }
       .fa-glasses {
         font-size: 30px;
@@ -28,6 +29,7 @@
     .userinfo {
       span {
         margin-right: 20px;
+        cursor: pointer;
       }
       .shoppingcart {
         position: relative;

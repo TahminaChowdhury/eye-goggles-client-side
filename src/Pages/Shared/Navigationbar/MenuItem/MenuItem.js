@@ -3,7 +3,6 @@ import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../../../redux/Cart/cartActions';
-import { Link } from 'react-router-dom';
 
 const MenuItem = ({ item }) => {
   const dispatch = useDispatch();

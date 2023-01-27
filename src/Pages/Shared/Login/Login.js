@@ -1,11 +1,23 @@
-import React from 'react';
-import './Login.css';
+import { useState } from 'react';
+import './Login.scss';
 import { useNavigate, useLocation } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Box, Button, Grid, Modal, TextField } from '@mui/material';
-import { useState } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  IconButton,
+  Input,
+  InputAdornment,
+  InputLabel,
+  Modal,
+  TextField,
+} from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Signup from '../Signup/Signup';
 
 const style = {
@@ -14,7 +26,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 500,
-  height: 650,
+  height: 550,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
@@ -22,6 +34,16 @@ const style = {
 const Login = () => {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Handle password
+  const handleClickShowPassword = () => 
+  setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const {
@@ -40,7 +62,8 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    loginWithEmailAndPassword(data.email, data.password, location, navigate);
+    loginWithEmailAndPassword(data.email, data.password, 
+      location, navigate);
   };
   return (
     <Box className="from" sx={{ flexGrow: 1 }}>
@@ -52,38 +75,76 @@ const Login = () => {
         className="form"
         style={{ textAlign: 'center' }}
       >
-        <div style={{ marginTop: '40px' }}>
-          <div className="logo">
-            <div>
+        <Box style={{ marginTop: '40px' }}>
+          <Box className="logo">
+            <Box>
               <Link to="/home">
                 Eye<span style={{ color: '#babd42' }}>Goggles</span>
               </Link>
-            </div>
+            </Box>
 
-            <div>
+            <Box>
               <i class="fa-solid fa-glasses"></i>
-            </div>
-          </div>
+            </Box>
+          </Box>
 
-          <div>
+          <Box>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div>
-                <input
-                  type="email"
+              <Box style={{ marginTop: '15px' }}>
+                <TextField
+                  id="standard-basic"
+                  label="Email"
+                  variant="standard"
                   {...register('email')}
-                  className="input-field"
+                  sx={{
+                    width: '80%',
+                    '& label.Mui-focused': {
+                      color: 'black',
+                    },
+                    '& .MuiInput-underline:after': {
+                      borderBottomColor: 'black',
+                    },
+                  }}
                 />
-              
-              </div>
-              <div>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  {...register('password')}
-                  className="input-field"
-                />
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              </Box>
+              <Box style={{ marginTop: '15px' }}>
+                <FormControl
+                  sx={{
+                    width: '80%',
+                    '& label.Mui-focused': {
+                      color: 'black',
+                    },
+                    '& .MuiInput-underline:after': {
+                      borderBottomColor: 'black',
+                    },
+                  }}
+                  variant="standard"
+                >
+                  <InputLabel htmlFor="standard-adornment-password">
+                    Password
+                  </InputLabel>
+                  <Input
+                    {...register('password', { required: true })}
+                    id="standard-adornment-password"
+                    type={showPassword ? 'text' : 'password'}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                        >
+                          {showPassword ? 
+                          <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </Box>
+
+              <Box style={{ display: 'flex', 
+              justifyContent: 'space-between' }}>
                 <p
                   style={{
                     marginLeft: '48px',
@@ -104,20 +165,23 @@ const Login = () => {
                 >
                   {error}
                 </p>
-              </div>
+              </Box>
 
               <input
+              style={{width: '80%'}}
                 type="submit"
                 value="Login"
-                className="submit-input mt-2 fw-bold"
+                className="button"
               />
             </form>
-          </div>
-        </div>
-        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+          </Box>
+        </Box>
+
+        {/* third party login */}
+        <Box style={{ marginTop: '20px', marginBottom: '20px' }}>
           <h6>Or Login Using</h6>
-        </div>
-        <div
+        </Box>
+        <Box
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -125,18 +189,21 @@ const Login = () => {
             marginBottom: '20px',
           }}
         >
-          <div>
-            <button onClick={handleLoginWithGoogle} className="social-btn">
+          <Box>
+            <button onClick={handleLoginWithGoogle} 
+            className="social-btn">
               <i class="fab fa-google"></i>
             </button>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <button onClick={loginWithFacebook} className="social-btn">
               <i class="fab fa-facebook-f"></i>
             </button>
-          </div>
-        </div>
-        <div>
+          </Box>
+        </Box>
+
+        {/* Sign up modal */}
+        <Box>
           <span>Don't have an acoount ?</span>
           <Button onClick={handleOpen} className="modal-btn">
             Sign-up here!
@@ -151,7 +218,7 @@ const Login = () => {
               <Signup />
             </Box>
           </Modal>
-        </div>
+        </Box>
       </Grid>
     </Box>
   );

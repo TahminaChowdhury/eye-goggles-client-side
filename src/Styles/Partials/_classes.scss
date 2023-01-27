@@ -1,7 +1,7 @@
-  @import './variables';
-  @import './mixin';
+@import './variables';
+@import './mixin';
 
-%plus-minus-btn{
+%plus-minus-btn {
   outline: 0;
   border: none;
   background: none;
@@ -10,3 +10,4 @@
   border-right: 1px solid $color-dark;
   border-bottom: 1px solid $color-dark;
 }
+

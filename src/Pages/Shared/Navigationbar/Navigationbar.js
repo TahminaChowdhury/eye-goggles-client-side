@@ -82,11 +82,10 @@ const Navigationbar = () => {
                 ''
               ) : (
                 <span>
-                  <Button onClick={handleOpen}>
-                    <PersonOutlineOutlinedIcon
-                      sx={{ fontSize: 30, color: '#000' }}
-                    />
-                  </Button>
+                  <PersonOutlineOutlinedIcon
+                    sx={{ fontSize: 30, color: '#000' }}
+                    onClick={handleOpen}
+                  />
                   <Modal
                     open={open}
                     onClose={handleClose}
@@ -203,19 +202,51 @@ const Navigationbar = () => {
             </Link>
           </div>
           <div className="userinfo">
+            {user?.email ? (
+              ''
+            ) : (
+              <span>
+                <Button onClick={handleOpen}>
+                  <PersonOutlineOutlinedIcon
+                    sx={{ fontSize: 30, color: '#000' }}
+                  />
+                </Button>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <Login />
+                  </Box>
+                </Modal>
+              </span>
+            )}
+
             <span>
-              <NavLink to="/login" className="login">
-                <PersonOutlineOutlinedIcon sx={{ fontSize: 25 }} />
-              </NavLink>
+              <FavoriteBorderOutlinedIcon sx={{ fontSize: 30 }} />
             </span>
             <span>
-              <FavoriteBorderOutlinedIcon sx={{ fontSize: 25 }} />
+              <SearchIcon sx={{ fontSize: 30 }} />
             </span>
-            <span>
-              <SearchIcon sx={{ fontSize: 25 }} />
+            <span className="shoppingcart">
+              <ShoppingBasketOutlinedIcon
+                id="basic-button"
+                aria-controls={menuOpen ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={menuOpen ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{ fontSize: 30 }}
+              />
+              <span className="shoppingcart-icon">{getCartCount()}</span>
             </span>
-            <span>
-              <ShoppingBasketOutlinedIcon sx={{ fontSize: 25 }} />
+            <span className="ms-2">
+              {user?.email ? (
+                <Link to="/dashboard">{user?.displayName}</Link>
+              ) : (
+                ''
+              )}
             </span>
           </div>
           <Navbar.Toggle aria-controls="navbarScroll" />

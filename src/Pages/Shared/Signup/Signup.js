@@ -14,7 +14,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Login from '../Login/Login';
-import './Signup.scss';
 
 const style = {
   position: 'absolute',
@@ -22,15 +21,13 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 500,
-  height: "auto",
+  height: 550,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
 
 const Signup = () => {
   const {
-    loginWithGoogle,
-    loginWithFacebook,
     signupWithEmailAndPassword,
     error,
   } = useAuth();
@@ -50,10 +47,6 @@ const Signup = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSignUpWithGoogle = () => {
-    loginWithGoogle(location, navigate);
-  };
-
   // Handle form submit
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -70,23 +63,23 @@ const Signup = () => {
   return (
     <Box className="from" sx={{ flexGrow: 1 }}>
       <Grid item xs={12} sm={12} md={12} className="form">
-        <div className="text-center">
-          <div style={{ marginTop: '40px' }}>
-            <div className="logo">
-              <div>
+        <Box className="text-center">
+          <Box style={{ marginTop: '40px' }}>
+            <Box className="logo">
+              <Box>
                 <Link to="/home">
                   Eye<span style={{ color: '#babd42' }}>Goggles</span>
                 </Link>
-              </div>
+              </Box>
 
-              <div>
+              <Box>
                 <i class="fa-solid fa-glasses"></i>
-              </div>
-            </div>
+              </Box>
+            </Box>
 
-            <div>
+            <Box>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
+                <Box style={{marginTop: '15px'}}>
                   <TextField
                     id="standard-basic"
                     label="First Name"
@@ -102,9 +95,9 @@ const Signup = () => {
                       },
                     }}
                   />
-                </div>
+                </Box>
 
-                <div>
+                <Box style={{marginTop: '15px'}}>
                   <TextField
                     id="standard-basic"
                     label="Last Name"
@@ -120,8 +113,9 @@ const Signup = () => {
                       },
                     }}
                   />
-                </div>
-                <div>
+                </Box>
+
+                <Box style={{marginTop: '15px'}}>
                   <TextField
                     id="standard-basic"
                     label="Email"
@@ -137,9 +131,9 @@ const Signup = () => {
                       },
                     }}
                   />
-                </div>
+                </Box>
 
-                <div>
+                <Box style={{marginTop: '15px'}}>
                   <FormControl
                     sx={{
                       width: '80%',
@@ -166,56 +160,37 @@ const Signup = () => {
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
                           >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                            {showPassword ? 
+                            <VisibilityOff /> : <Visibility />}
                           </IconButton>
                         </InputAdornment>
                       }
                     />
                   </FormControl>
-                </div>
-                <div>
+                </Box>
+                <Box>
                   <p
                     style={{
-                      marginRight: '150px',
-                      padding: '20px 0px',
+                      marginRight: '200px',
+                      padding: '10px 0px',
                       color: 'red',
                     }}
                   >
                     {error}
                   </p>
-                </div>
+                </Box>
 
                 <input
+                  style={{ width: '80%' }}
                   type="submit"
                   value="Sign up"
-                  className="submit-input mt-2 fw-bold"
+                  className="button"
                 />
               </form>
-            </div>
-          </div>
-          <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-            <h6>Or Login Using</h6>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '20px',
-              marginBottom: '20px',
-            }}
-          >
-            <div>
-              <button onClick={handleSignUpWithGoogle} className="social-btn">
-                <i class="fab fa-google"></i>
-              </button>
-            </div>
-            <div>
-              <button onClick={loginWithFacebook} className="social-btn">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-            </div>
-          </div>
-          <div>
+            </Box>
+          </Box>
+
+          <Box sx={{marginTop: '20px'}}>
             <span>Already have an acoount ? </span>
             <Button onClick={handleOpen} className="modal-btn">
               Login
@@ -230,8 +205,8 @@ const Signup = () => {
                 <Login />
               </Box>
             </Modal>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </Grid>
     </Box>
   );

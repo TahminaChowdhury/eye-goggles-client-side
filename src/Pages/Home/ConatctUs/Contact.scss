@@ -1,5 +1,9 @@
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+@import '../../../Styles/Partials/variables';
+
 .page-header {
-  background-color: var(--light);
+  background-color: $color-white;
   height: 110px;
   font-size: 19px;
   display: flex;
