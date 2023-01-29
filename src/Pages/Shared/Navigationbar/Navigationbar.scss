@@ -12,20 +12,7 @@
     width: 100%;
     padding: 10px 15px;
     color: $color-dark;
-    .logo {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      a {
-        font-size: 30px;
-        font-weight: 600;
-        color: $color-dark;
-      }
-      .fa-glasses {
-        font-size: 30px;
-      }
-    }
+   
     .userinfo {
       span {
         margin-right: 20px;
@@ -95,16 +82,48 @@
         text-decoration: none;
         color: $color-dark;
         font-size: 20px;
+        font-weight: 600;
       }
     }
     .userinfo {
       span {
         margin-right: 10px;
+        cursor: pointer;
+      }
+      .shoppingcart {
+        position: relative;
+        .shoppingcart-icon {
+          position: absolute;
+          color: #fff;
+          position: absolute;
+          top: -1px;
+          left: 19px;
+          min-width: 17px;
+          height: 17px;
+          line-height: 17px;
+          text-align: center;
+          font-weight: 800;
+          font-size: 12px;
+          border-radius: 50px;
+          z-index: 9;
+          background: $color-dark;
+        }
       }
     }
   }
   .responsive-bar {
     display: contents;
     display: flex;
+    padding: 10px 0px;
+    .nav {
+      a {
+        background-color: $color-dark;
+        color: $color-white;
+        font-size: 15px;
+        padding: 15px 10px;
+        border-bottom: 1px solid $color-white;
+        cursor: pointer;
+      }
+    }
   }
 }

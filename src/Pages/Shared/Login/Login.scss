@@ -1,27 +1,23 @@
 @import '../../../Styles/Partials/variables';
 
-.form {
-  a {
-    text-decoration: none;
-    color: $color-dark;
-  }
-  .social-btn {
-    display: inline-block;
-    height: 48px;
-    width: 48px;
-    line-height: 37px;
-    text-align: center;
-    color: $color-light;
-    transition: 0.3s;
-    font-size: 25px;
-    margin: 0 6px;
-    background: #191919;
-    border-radius: 50%;
-  }
-  .modal-btn {
-    border: 0;
-    outline: 0;
-    background-color: none;
-    text-transform: capitalize;
-  }
+.social-btn {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  line-height: 37px;
+  text-align: center;
+  color: $color-light;
+  transition: 0.3s;
+  font-size: 25px;
+  margin: 0 6px;
+  background: #191919;
+  border-radius: 50%;
+}
+.modal-btn {
+  border: 0;
+  outline: 0;
+  background-color: none;
+  text-transform: uppercase;
+  color: red;
+  cursor: pointer;
 }

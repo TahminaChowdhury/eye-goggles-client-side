@@ -15,7 +15,8 @@ const ItemBanner = () => {
       }}
     >
       <Grid container>
-        <Grid item xs={12} sm={12} md={6} style={{ position: 'relative' }}>
+        <Grid item xs={12} sm={12} md={6} 
+        style={{ position: 'relative' }}>
           <h1
             style={{
               marginLeft: '130px',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Grid, Modal } from '@mui/material';
+import { Alert, Grid, Modal } from '@mui/material';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
@@ -20,17 +20,14 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
-  height: 550,
+  width: 400,
+  height: 600,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
 
 const Signup = () => {
-  const {
-    signupWithEmailAndPassword,
-    error,
-  } = useAuth();
+  const { signupWithEmailAndPassword, error } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -61,152 +58,150 @@ const Signup = () => {
   };
 
   return (
-    <Box className="from" sx={{ flexGrow: 1 }}>
-      <Grid item xs={12} sm={12} md={12} className="form">
-        <Box className="text-center">
-          <Box style={{ marginTop: '40px' }}>
-            <Box className="logo">
-              <Box>
-                <Link to="/home">
-                  Eye<span style={{ color: '#babd42' }}>Goggles</span>
-                </Link>
-              </Box>
-
-              <Box>
-                <i class="fa-solid fa-glasses"></i>
-              </Box>
-            </Box>
-
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid
+        container
+        sx={{
+          textAlign: 'center',
+          padding: '10px',
+        }}
+      >
+        <Grid item xs={12} sm={12} md={12} xl={12} sx={{ padding: '20px' }}>
+          <Box className="logo">
             <Box>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <Box style={{marginTop: '15px'}}>
-                  <TextField
-                    id="standard-basic"
-                    label="First Name"
-                    variant="standard"
-                    {...register('first_name', { required: true })}
-                    sx={{
-                      width: '80%',
-                      '& label.Mui-focused': {
-                        color: 'black',
-                      },
-                      '& .MuiInput-underline:after': {
-                        borderBottomColor: 'black',
-                      },
-                    }}
-                  />
-                </Box>
-
-                <Box style={{marginTop: '15px'}}>
-                  <TextField
-                    id="standard-basic"
-                    label="Last Name"
-                    variant="standard"
-                    {...register('last_name', { required: true })}
-                    sx={{
-                      width: '80%',
-                      '& label.Mui-focused': {
-                        color: 'black',
-                      },
-                      '& .MuiInput-underline:after': {
-                        borderBottomColor: 'black',
-                      },
-                    }}
-                  />
-                </Box>
-
-                <Box style={{marginTop: '15px'}}>
-                  <TextField
-                    id="standard-basic"
-                    label="Email"
-                    variant="standard"
-                    {...register('email', { required: true })}
-                    sx={{
-                      width: '80%',
-                      '& label.Mui-focused': {
-                        color: 'black',
-                      },
-                      '& .MuiInput-underline:after': {
-                        borderBottomColor: 'black',
-                      },
-                    }}
-                  />
-                </Box>
-
-                <Box style={{marginTop: '15px'}}>
-                  <FormControl
-                    sx={{
-                      width: '80%',
-                      '& label.Mui-focused': {
-                        color: 'black',
-                      },
-                      '& .MuiInput-underline:after': {
-                        borderBottomColor: 'black',
-                      },
-                    }}
-                    variant="standard"
-                  >
-                    <InputLabel htmlFor="standard-adornment-password">
-                      Password
-                    </InputLabel>
-                    <Input
-                      {...register('password', { required: true })}
-                      id="standard-adornment-password"
-                      type={showPassword ? 'text' : 'password'}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                          >
-                            {showPassword ? 
-                            <VisibilityOff /> : <Visibility />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    />
-                  </FormControl>
-                </Box>
-                <Box>
-                  <p
-                    style={{
-                      marginRight: '200px',
-                      padding: '10px 0px',
-                      color: 'red',
-                    }}
-                  >
-                    {error}
-                  </p>
-                </Box>
-
-                <input
-                  style={{ width: '80%' }}
-                  type="submit"
-                  value="Sign up"
-                  className="button"
-                />
-              </form>
+              <Link to="/home">
+                Eye<span style={{ color: '#babd42' }}>Goggles</span>
+              </Link>
+            </Box>
+            <Box>
+              <i className="fa-solid fa-glasses"></i>
             </Box>
           </Box>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} xl={12} sx={{ padding: '20px' }}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Box>
+              <TextField
+                id="standard-basic"
+                label="First Name"
+                variant="standard"
+                {...register('first_name', { required: true })}
+                sx={{
+                  width: '100%',
+                  '& label.Mui-focused': {
+                    color: 'black',
+                  },
+                  '& .MuiInput-underline:after': {
+                    borderBottomColor: 'black',
+                  },
+                }}
+              />
+            </Box>
 
-          <Box sx={{marginTop: '20px'}}>
-            <span>Already have an acoount ? </span>
-            <Button onClick={handleOpen} className="modal-btn">
-              Login
-            </Button>
+            <Box style={{ marginTop: '15px' }}>
+              <TextField
+                id="standard-basic"
+                label="Last Name"
+                variant="standard"
+                {...register('last_name', { required: true })}
+                sx={{
+                  width: '100%',
+                  '& label.Mui-focused': {
+                    color: 'black',
+                  },
+                  '& .MuiInput-underline:after': {
+                    borderBottomColor: 'black',
+                  },
+                }}
+              />
+            </Box>
+
+            <Box style={{ marginTop: '15px' }}>
+              <TextField
+                id="standard-basic"
+                label="Email"
+                variant="standard"
+                {...register('email', { required: true })}
+                sx={{
+                  width: '100%',
+                  '& label.Mui-focused': {
+                    color: 'black',
+                  },
+                  '& .MuiInput-underline:after': {
+                    borderBottomColor: 'black',
+                  },
+                }}
+              />
+            </Box>
+
+            <Box style={{ marginTop: '15px' }}>
+              <FormControl
+                sx={{
+                  width: '100%',
+                  '& label.Mui-focused': {
+                    color: 'black',
+                  },
+                  '& .MuiInput-underline:after': {
+                    borderBottomColor: 'black',
+                  },
+                }}
+                variant="standard"
+              >
+                <InputLabel htmlFor="standard-adornment-password">
+                  Password
+                </InputLabel>
+                <Input
+                  {...register('password', { required: true })}
+                  id="standard-adornment-password"
+                  type={showPassword ? 'text' : 'password'}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </Box>
+            <Box sx={{ textAlign: 'start', padding: '10px 0px', color: 'red' }}>
+              <p>Error: {error}</p>
+            </Box>
+            <input
+              style={{ width: '100%' }}
+              type="submit"
+              value="Sign up"
+              className="button"
+            />
+          </form>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} xl={12} sx={{ padding: '10px' }}>
+          <Box>
+            <Alert
+              icon={false}
+            >
+              Already have an account ? Please
+              <span onClick={handleOpen} className="modal-btn">
+                login
+              </span>
+            </Alert>
             <Modal
+              hideBackdrop
               open={open}
               onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
+              aria-labelledby="child-modal-title"
+              aria-describedby="child-modal-description"
             >
               <Box sx={style}>
                 <Login />
               </Box>
             </Modal>
           </Box>
-        </Box>
+        </Grid>
       </Grid>
     </Box>
   );

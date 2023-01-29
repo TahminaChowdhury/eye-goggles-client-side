@@ -18,6 +18,7 @@ initAuth();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
+  const [loginError, setLoginError] = useState('');
   const [isLoading, setisLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
 
@@ -72,10 +73,10 @@ const useFirebase = () => {
         const { from } = location.state || { from: { pathname: '/' } };
 
         navigate(from);
-        setError('');
+        setLoginError('');
       })
       .catch((error) => {
-        setError(error.message);
+        setLoginError(error.message);
       })
       .finally(() => setisLoading(false));
   };
@@ -93,10 +94,10 @@ const useFirebase = () => {
         const { from } = location.state || { from: { pathname: '/' } };
 
         navigate(from, { replace: true });
-        setError('');
+       
       })
       .catch((error) => {
-        setError(error.message);
+   
       })
       .finally(() => setisLoading(false));
   };
@@ -167,6 +168,7 @@ const useFirebase = () => {
   return {
     user,
     error,
+    loginError,
     isLoading,
     admin,
     resetPass,

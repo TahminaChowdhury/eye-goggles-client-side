@@ -9,7 +9,7 @@ import './Navigationbar.scss';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import {
-  Button,
+  Avatar,
   Modal,
   Paper,
   Table,
@@ -29,14 +29,16 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
-  height: 550,
+  width: 400,
+  height: 600,
   bgcolor: 'white',
   boxShadow: '7px 6px 40px 0 rgb(204 204 223 / 16%)',
 };
 
 const Navigationbar = () => {
   const { user } = useAuth();
+
+  // Handle Modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -87,6 +89,7 @@ const Navigationbar = () => {
                     onClick={handleOpen}
                   />
                   <Modal
+                  disableEnforceFocus
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
@@ -114,11 +117,14 @@ const Navigationbar = () => {
                   onClick={handleClick}
                   sx={{ fontSize: 30 }}
                 />
-                <span className="shoppingcart-icon">{getCartCount()}</span>
+                <span className="shoppingcart-icon">
+                {getCartCount()}</span>
               </span>
               <span className="ms-2">
                 {user?.email ? (
-                  <Link to="/dashboard">{user?.displayName}</Link>
+                  <Link to="/dashboard">
+                    <Avatar alt={user.displayName} src={user.photoURL} />
+                  </Link>
                 ) : (
                   ''
                 )}
@@ -177,8 +183,9 @@ const Navigationbar = () => {
           <div className="bottom-bar">
             <div>
               <Navbar.Toggle
-                className="navbar-toggle-icon"
+                className="navbar-toggle-icon "
                 aria-controls="navbarScroll"
+                size="sm"
               />
               <Navbar.Collapse id="navbarScroll">
                 <Nav className="nav py-3" navbarScroll>
@@ -193,7 +200,7 @@ const Navigationbar = () => {
         </div>
       </Navbar>
 
-      {/* Second navbar for mobile device */}
+      {/* Responsive navbar for mobile device */}
       <Navbar expand="lg" className="responsive-bar">
         <Container>
           <div className="logo">
@@ -206,11 +213,10 @@ const Navigationbar = () => {
               ''
             ) : (
               <span>
-                <Button onClick={handleOpen}>
-                  <PersonOutlineOutlinedIcon
-                    sx={{ fontSize: 30, color: '#000' }}
-                  />
-                </Button>
+                <PersonOutlineOutlinedIcon
+                  sx={{ fontSize: 20, color: '#000' }}
+                  onClick={handleOpen}
+                />
                 <Modal
                   open={open}
                   onClose={handleClose}
@@ -225,10 +231,10 @@ const Navigationbar = () => {
             )}
 
             <span>
-              <FavoriteBorderOutlinedIcon sx={{ fontSize: 30 }} />
+              <FavoriteBorderOutlinedIcon sx={{ fontSize: 20 }} />
             </span>
             <span>
-              <SearchIcon sx={{ fontSize: 30 }} />
+              <SearchIcon sx={{ fontSize: 20 }} />
             </span>
             <span className="shoppingcart">
               <ShoppingBasketOutlinedIcon
@@ -237,9 +243,10 @@ const Navigationbar = () => {
                 aria-haspopup="true"
                 aria-expanded={menuOpen ? 'true' : undefined}
                 onClick={handleClick}
-                sx={{ fontSize: 30 }}
+                sx={{ fontSize: 20 }}
               />
-              <span className="shoppingcart-icon">{getCartCount()}</span>
+              <span className="shoppingcart-icon">
+                {getCartCount()}</span>
             </span>
             <span className="ms-2">
               {user?.email ? (
@@ -251,7 +258,7 @@ const Navigationbar = () => {
           </div>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="nav py-3" navbarScroll>
+            <Nav className="nav my-2" navbarScroll>
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/explore">Explore</NavLink>
               <NavLink to="/about">About Us</NavLink>

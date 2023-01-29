@@ -8,7 +8,7 @@ const Footer = () => {
     <Box
       sx={{ width: '100%' }}
       style={{
-        backgroundColor: '#ededed',
+        backgroundColor: '#ffffe8',
         width: '100%',
         height: '400px',
         margin: 0,
@@ -82,7 +82,6 @@ const Footer = () => {
           md={3}
           style={{
             display: 'flex',
-
             justifyContent: 'center',
             margin: '40px 0px',
           }}
