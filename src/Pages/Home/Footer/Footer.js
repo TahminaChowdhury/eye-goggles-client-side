@@ -6,12 +6,10 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <Box
-      sx={{ width: '100%' }}
       style={{
         backgroundColor: '#ffffe8',
         width: '100%',
-        height: '400px',
-        margin: 0,
+        marginBottom: '20px',
         padding: 0,
         display: 'flex',
         justifyContent: 'center',
@@ -24,14 +22,13 @@ const Footer = () => {
           backgroundColor: '#000',
           color: 'white',
           width: '98%',
-          height: '380px',
         }}
         className="footer-container"
       >
         <Grid
           item
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           md={3}
           style={{
             display: 'flex',
@@ -44,7 +41,7 @@ const Footer = () => {
               to="/home"
               style={{
                 fontSize: '30px',
-                fontWeight: 600,
+                fontWeight: 1200,
               }}
             >
               Eye<span style={{ color: '#babd42' }}>Goggles</span>
@@ -77,8 +74,8 @@ const Footer = () => {
         </Grid>
         <Grid
           item
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           md={3}
           style={{
             display: 'flex',
@@ -99,8 +96,8 @@ const Footer = () => {
         </Grid>
         <Grid
           item
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           md={3}
           style={{
             display: 'flex',
@@ -122,8 +119,8 @@ const Footer = () => {
         </Grid>
         <Grid
           item
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           md={3}
           style={{
             display: 'flex',
@@ -137,7 +134,7 @@ const Footer = () => {
               <i className="far fa-envelope"></i> eyegoggles@gmail.com
             </p>
             <p>
-              <i className="fas fa-phone-alt"></i> +91 12345678
+              <i className="fas fa-phone-alt"></i> +91 123451278
             </p>
             <p>
               <i className="fas fa-map-marker-alt"></i> Uttara, Dhaka - 1230
