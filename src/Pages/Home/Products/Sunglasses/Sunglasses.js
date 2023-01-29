@@ -7,6 +7,8 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../redux/Cart/cartActions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Sunglasses = ({ product }) => {
   const { _id, img, name, price, category } = product;
@@ -15,7 +17,16 @@ const Sunglasses = ({ product }) => {
   const addToCarthandler = (id, qty = 1) => {
     dispatch(addToCart(id, qty));
   };
-
+  const notify = () => toast(' Added to cart successfully!', {
+    position: "bottom-left",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
   return (
     <Grid
       item
@@ -30,19 +41,37 @@ const Sunglasses = ({ product }) => {
           <img src={img} alt={name} />
           <div className="pd-additional-icon">
             <div className="icon">
-              <SearchOutlinedIcon />
+              <Tooltip title="Search" placement="top">
+                <SearchOutlinedIcon />
+              </Tooltip>
             </div>
             <div className="icon">
-              <FavoriteBorderOutlinedIcon />
+              <Tooltip title="Add To Wishlist" placement="top">
+                <FavoriteBorderOutlinedIcon />
+              </Tooltip>
             </div>
             <div className="icon">
               <Tooltip title="Add To Cart" placement="top">
                 <ShoppingBasketOutlinedIcon
-                  onClick={() => addToCarthandler(_id)}
+                  onClick={() => {
+                    addToCarthandler(_id);
+                    notify();
+                  }}
                 />
               </Tooltip>
             </div>
           </div>
+          <ToastContainer 
+              position="bottom-left"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"/>
         </Paper>
 
         {/* Product Information */}
