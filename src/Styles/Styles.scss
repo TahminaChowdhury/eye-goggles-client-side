@@ -15,7 +15,9 @@ a {
 body {
   overflow-x: hidden;
 }
-
+.title{
+  font-weight: 700;
+}
 .flex-item {
   display: flex;
   justify-content: space-between;

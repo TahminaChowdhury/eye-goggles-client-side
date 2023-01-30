@@ -50,7 +50,6 @@ function App() {
               }
             >
               <Route index element={<DashboardHome />} />
-              <Route path='/dashboard/profile' element={<Profile />} />
               <Route path="/dashboard/orders" element={<Orders />} />
               <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
               <Route path="/dashboard/addproduct" element={<AddProduct />} />

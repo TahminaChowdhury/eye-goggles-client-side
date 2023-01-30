@@ -36,16 +36,6 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <PersonIcon className="list-icons" />
-              </ListItemIcon>
-              <Link to="/dashboard/profile">
-                <ListItemText primary="My Profile" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
                 <SellIcon className="list-icons" />
               </ListItemIcon>
               <Link to="/dashboard/orders">
@@ -101,26 +91,6 @@ const ListItems = () => {
               </ListItemIcon>
               <Link to="/dashboard">
                 <ListItemText primary="Dashboard" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <PersonIcon className="list-icons" />
-              </ListItemIcon>
-              <Link to="/dashboard/profile">
-                <ListItemText primary="My Profile" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LocationOnIcon className="list-icons" />
-              </ListItemIcon>
-              <Link to="/dashboard/address">
-                <ListItemText primary="Address" />
               </Link>
             </ListItemButton>
           </ListItem>
