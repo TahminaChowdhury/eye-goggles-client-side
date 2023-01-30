@@ -123,7 +123,7 @@ const Navigationbar = () => {
               <span className="ms-2">
                 {user?.email ? (
                   <Link to="/dashboard">
-                    <Avatar alt={user.displayName} src={user.photoURL} />
+                    <img src={user.photoURL} className='user-img' alt="" />
                   </Link>
                 ) : (
                   ''
