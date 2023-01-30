@@ -204,32 +204,33 @@ const Cart = () => {
                           <span>Total</span>
                           <span> $ {total.toFixed(2)}</span>
                         </Box>
-                        <PayButton cartItems={cartItems} />
+                        <Box className="flex-item">
+                          {user?.email ? (
+                            <PayButton cartItems={cartItems} />
+                          ) : (
+                            // Login div
+                            <Box>
+                              <button onClick={handleOpen} className="button">
+                                Login First
+                              </button>
+                              <Modal
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                              >
+                                <Box sx={style}>
+                                  <Login />
+                                </Box>
+                              </Modal>
+                            </Box>
+                          )}
 
-                        <button className="ms-4 button">
-                          {' '}
-                          Continue Shopping
-                        </button>
-                        {user?.email ? (
-                          ''
-                        ) : (
-                          // Login div
-                          <Box className="mt-4">
-                            <button onClick={handleOpen} className="button">
-                              Please Login To Checkout
-                            </button>
-                            <Modal
-                              open={open}
-                              onClose={handleClose}
-                              aria-labelledby="modal-modal-title"
-                              aria-describedby="modal-modal-description"
-                            >
-                              <Box sx={style}>
-                                <Login />
-                              </Box>
-                            </Modal>
-                          </Box>
-                        )}
+                          <button className="ms-4 button">
+                            {' '}
+                            Continue Shopping
+                          </button>
+                        </Box>
                       </Paper>
                     </Grid>
                   </Grid>

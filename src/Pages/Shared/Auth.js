@@ -24,9 +24,9 @@ const Auth = () => {
   return (
     <>
       <Navigationbar />
-      <div className="m-5 p-5 text-center">
+      <Box className="m-5 p-5 text-center">
         <h1>Please Login First</h1>
-        <button onClick={handleOpen} className="regular-btn mt-5">
+        <button onClick={handleOpen} className="button mt-5">
           Login
         </button>
         <Modal
@@ -39,7 +39,7 @@ const Auth = () => {
             <Login />
           </Box>
         </Modal>
-      </div>
+      </Box>
       <Footer />
     </>
   );

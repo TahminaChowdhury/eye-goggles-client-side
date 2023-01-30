@@ -20,7 +20,7 @@ const PayButton = ({ cartItems }) => {
 
   const handleCheckout = () => {
     axios
-      .post('http://localhost:5000/create-checkout-session', {
+      .post('https://eye-goggles.onrender.com/create-checkout-session', {
         cartItems,
         userId: currentUser._id,
       })
