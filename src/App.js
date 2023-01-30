@@ -23,6 +23,7 @@ import Orders from './Pages/Dashboard/Admin/Orders/Orders';
 import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
+import DashboardHome from './Pages/Dashboard/Dashboard/DashboardHome/DashboardHome';
 
 function App() {
   return (
@@ -48,7 +49,8 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route index element={<Profile />} />
+              <Route index element={<DashboardHome />} />
+              <Route path='/dashboard/profile' element={<Profile />} />
               <Route path="/dashboard/orders" element={<Orders />} />
               <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
               <Route path="/dashboard/addproduct" element={<AddProduct />} />

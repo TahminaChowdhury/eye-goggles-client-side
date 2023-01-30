@@ -1,22 +1,20 @@
 import * as React from 'react';
+import './Dashboard.scss'
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
-import { AppBar, Avatar, CssBaseline, IconButton } from '@mui/material';
+import { AppBar, CssBaseline, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Stack } from 'react-bootstrap';
-import useAuth from '../../../Hooks/useAuth';
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import ListItems from './ListItems';
+import { Link, Outlet } from 'react-router-dom';
+import ListItems from './ListItem/ListItems';
 import BarItems from './BarItems/BarItems';
 
 const drawerWidth = 240;
 
 const Dashboard = (props) => {
-  const { user } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
@@ -24,7 +22,7 @@ const Dashboard = (props) => {
   };
 
   const drawer = (
-    <div>
+    <div className="dashboard">
       <Toolbar
         sx={{
           display: 'flex',
@@ -34,16 +32,16 @@ const Dashboard = (props) => {
         }}
       >
         {/* Logo */}
-        <Stack direction="row">
-          <Avatar
-            alt={user.displayName}
-            sx={{ width: 56, height: 56 }}
-            src={user.photoURL}
-          />
-        </Stack>
-        <p style={{ color: '#000', margin: '10px 0px', fontSize: '18px' }}>
-          {user.displayName}
-        </p>
+        <Box className="logo">
+            <Box>
+              <Link to="/home">
+                Eye<span style={{ color: '#babd42' }}>Goggles</span>
+              </Link>
+            </Box>
+            <Box>
+              <i className="fa-solid fa-glasses"></i>
+            </Box>
+          </Box>
       </Toolbar>
       <Divider />
       {/* List items */}
@@ -55,7 +53,7 @@ const Dashboard = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }} className="Dashboard">
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         elevation={0}
@@ -110,6 +108,8 @@ const Dashboard = (props) => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              backgroundColor: '#000',
+              color: 'white',
             },
           }}
           open
@@ -122,6 +122,7 @@ const Dashboard = (props) => {
         sx={{
           height: '100vh',
           color: '#000',
+          backgroundColor: '#F5F5F5',
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },

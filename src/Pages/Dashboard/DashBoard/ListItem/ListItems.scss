@@ -1,0 +1,12 @@
+@import '../../../../Styles/Partials/variables';
+@import '../../../../Styles/Partials/mixin';
+
+.list-items {
+  a {
+    color: $color-white;
+  }
+
+  .list-icons {
+    color: $color-white;
+  }
+}

@@ -10,7 +10,7 @@
 }
 a {
   text-decoration: none;
-  color: $color-primary;
+  color: $color-dark;
 }
 body {
   overflow-x: hidden;
@@ -23,56 +23,30 @@ body {
 }
 
 .button {
-  border-radius: 0;
-  outline: 0;
-  width: auto;
-  padding: 14px 25px;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  font-family: $font-family;
-  cursor: pointer;
-  color: $color-white;
-  background-color: $color-dark;
-  border: 1px solid transparent;
-  &:hover {
-    background-color: $color-primary;
-  }
+  @include button($primaryBgColor: $color-dark, $secondaryBgcolor: $color-primary)
 }
 .logo {
+  @include logo($color: $color-dark)
+}
+.quantity-input {
+  width: 40px;
+  max-height: 60px;
+  padding: 0%;
+  margin: 0;
+  border: 0;
+  border: 1px solid $color-dark;
+  padding-left: 12px;
+}
+.group-btn-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  a {
-    font-size: 25px;
-    font-weight: 600;
-    color: $color-dark;
+  margin: 0;
+  padding: 0;
+  .icrement-btn {
+    @extend %plus-minus-btn;
+    border-top: 1px solid $color-dark;
   }
-  .fa-glasses {
-    font-size: 25px;
+  .decrement-btn {
+    @extend %plus-minus-btn;
   }
 }
- .quantity-input {
-    width: 40px;
-    max-height: 60px;
-    padding: 0%;
-    margin: 0;
-    border: 0;
-    border: 1px solid $color-dark;
-    padding-left: 12px;
-  }
-  .group-btn-div {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    .icrement-btn {
-      @extend %plus-minus-btn;
-      border-top: 1px solid $color-dark;
-    }
-    .decrement-btn {
-      @extend %plus-minus-btn;
-    }
-  }

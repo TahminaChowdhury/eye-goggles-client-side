@@ -1,0 +1,9 @@
+@import '../../../Styles/Partials/variables';
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+
+.dashboard{
+    .logo{
+        @include logo($color: $color-white)
+    }
+}
