@@ -5,8 +5,14 @@ import Profile from '../../User/Profile/Profile';
 
 const DashboardHome = () => {
   const { admin } = useAuth();
-  return <>
-  {!admin ? <Profile /> : ''}</>;
+  console.log(admin);
+  return (
+    <>
+ {
+  admin === 'admin' ? 'Hello' : 'Bye'
+ }
+    </>
+  );
 };
 
 export default DashboardHome;
