@@ -133,7 +133,6 @@ const useFirebase = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
   };
 
   useEffect(() => {

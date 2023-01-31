@@ -15,15 +15,15 @@ import Checkout from './Pages/Cart/Checkout/Checkout';
 import CheckoutSuccess from './Pages/Cart/Checkout/CheckoutSuccess';
 import CheckoutCancel from './Pages/Cart/Checkout/CheckoutCancel';
 import Auth from './Pages/Shared/Auth';
-import Profile from './Pages/Dashboard/User/Profile/Profile';
 import MyWishlist from './Pages/Dashboard/User/MyWishlist/MyWishlist';
 import MyReviews from './Pages/Dashboard/User/MyReviews/MyReviews';
-import MyOrders from './Pages/Dashboard/User/MyOrders/MyOrders';
+import OrderHistory from './Pages/Dashboard/User/MyOrders/OrderHistory';
 import Orders from './Pages/Dashboard/Admin/Orders/Orders';
 import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import DashboardHome from './Pages/Dashboard/Dashboard/DashboardHome/DashboardHome';
+
 
 function App() {
   return (
@@ -58,7 +58,7 @@ function App() {
                 element={<UpdateProduct />}
               />
 
-              <Route path="/dashboard/myOrders" element={<MyOrders />} />
+              <Route path="/dashboard/order-history" element={<OrderHistory />} />
               <Route path="/dashboard/myWishlist" element={<MyWishlist />} />
               <Route path="/dashboard/myReviews" element={<MyReviews />} />
             </Route>

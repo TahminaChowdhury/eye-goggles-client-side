@@ -4,8 +4,9 @@ import useAuth from '../../../../Hooks/useAuth';
 import Profile from '../../User/Profile/Profile';
 
 const DashboardHome = () => {
-  const { user } = useAuth();
-  return <>{user?.email ? <Profile /> : ''}</>;
+  const { admin } = useAuth();
+  return <>
+  {!admin ? <Profile /> : ''}</>;
 };
 
 export default DashboardHome;

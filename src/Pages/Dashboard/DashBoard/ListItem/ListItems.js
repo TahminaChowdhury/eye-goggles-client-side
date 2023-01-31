@@ -7,8 +7,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import AddIcon from '@mui/icons-material/Add';
-import PersonIcon from '@mui/icons-material/Person';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SellIcon from '@mui/icons-material/Sell';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -76,7 +74,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton onClick={logout}>
               <ListItemIcon>
-                <LogoutIcon />
+                <LogoutIcon className="list-icons"/>
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemButton>
@@ -99,8 +97,8 @@ const ListItems = () => {
               <ListItemIcon>
                 <SellIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/dashboard/myOrders">
-                <ListItemText primary="My Orders" />
+              <Link to="/dashboard/order-history">
+                <ListItemText primary="Order History" />
               </Link>
             </ListItemButton>
           </ListItem>
