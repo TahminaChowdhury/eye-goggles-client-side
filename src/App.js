@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles/Styles.scss'
+import './Styles/Styles.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import ContactUs from './Pages/Home/ConatctUs/ContactUs';
@@ -23,7 +23,7 @@ import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import DashboardHome from './Pages/Dashboard/Dashboard/DashboardHome/DashboardHome';
-
+import Profile from './Pages/Dashboard/User/Profile/Profile';
 
 function App() {
   return (
@@ -41,6 +41,7 @@ function App() {
             <Route path="/sunglass/:id" element={<SingleSunglass />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/auth" element={<Auth />} />
+
             <Route
               path="/dashboard"
               element={
@@ -57,11 +58,21 @@ function App() {
                 path="/dashboard/updateProduct"
                 element={<UpdateProduct />}
               />
-
-              <Route path="/dashboard/order-history" element={<OrderHistory />} />
-              <Route path="/dashboard/myWishlist" element={<MyWishlist />} />
-              <Route path="/dashboard/myReviews" element={<MyReviews />} />
             </Route>
+            <Route
+              path="/user"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route path="/user/profile" element={<Profile />} />
+              <Route path="/user/order-history" element={<OrderHistory />} />
+              <Route path="/user/myWishlist" element={<MyWishlist />} />
+              <Route path="/user/myReviews" element={<MyReviews />} />
+            </Route>
+
             <Route
               path="/checkout"
               element={

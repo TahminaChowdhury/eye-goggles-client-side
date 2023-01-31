@@ -8,21 +8,15 @@ import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlin
 import './Navigationbar.scss';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
-import {
-  Avatar,
-  Modal,
-  Paper,
-  Table,
-  TableBody,
-  TableContainer,
-} from '@mui/material';
+import { Modal, Paper, Table, TableBody, TableContainer } from '@mui/material';
 import { Box } from '@mui/system';
 import Login from '../Login/Login';
 import { useSelector } from 'react-redux';
 import useAuth from '../../../Hooks/useAuth';
 import Menu from '@mui/material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import MenuItem from './MenuItem/MenuItem';
+import CartMenuItem from './CartMenuItem/CartMenuItem';
+import UserProfile from './UserProfile';
 
 const style = {
   position: 'absolute',
@@ -36,7 +30,7 @@ const style = {
 };
 
 const Navigationbar = () => {
-  const { user } = useAuth();
+  const { user, admin } = useAuth();
 
   // Handle Modal
   const [open, setOpen] = useState(false);
@@ -89,7 +83,7 @@ const Navigationbar = () => {
                     onClick={handleOpen}
                   />
                   <Modal
-                  disableEnforceFocus
+                    disableEnforceFocus
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
@@ -117,17 +111,10 @@ const Navigationbar = () => {
                   onClick={handleClick}
                   sx={{ fontSize: 30 }}
                 />
-                <span className="shoppingcart-icon">
-                {getCartCount()}</span>
+                <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              <span className="ms-2">
-                {user?.email ? (
-                  <Link to="/dashboard">
-                    <img src={user.photoURL} className='user-img' alt="" />
-                  </Link>
-                ) : (
-                  ''
-                )}
+              <span>
+                {user?.email ? <UserProfile /> : ''}
               </span>
             </div>
 
@@ -156,7 +143,7 @@ const Navigationbar = () => {
                     <Table aria-label="simple table">
                       <TableBody>
                         {cartItems.map((item, index) => (
-                          <MenuItem key={index} item={item} />
+                          <CartMenuItem key={index} item={item} />
                         ))}
                       </TableBody>
                     </Table>
@@ -245,8 +232,7 @@ const Navigationbar = () => {
                 onClick={handleClick}
                 sx={{ fontSize: 20 }}
               />
-              <span className="shoppingcart-icon">
-                {getCartCount()}</span>
+              <span className="shoppingcart-icon">{getCartCount()}</span>
             </span>
             <span className="ms-2">
               {user?.email ? (

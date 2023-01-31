@@ -1,41 +1,94 @@
 import React from 'react';
-import useAuth from '../../../../Hooks/useAuth';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AddIcon from '@mui/icons-material/Add';
+import useAuth from '../../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
 import SellIcon from '@mui/icons-material/Sell';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { Box, ListItem } from '@mui/material';
-import { Link } from 'react-router-dom';
-import './ListItems.scss';
-import PersonIcon from '@mui/icons-material/Person';
+import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 
-const ListItems = () => {
-  const { logout, admin } = useAuth();
+const UserProfile = () => {
+  const { user, logout, admin } = useAuth();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
-    <Box>
-      {admin ? (
-        <List className='list-items'>
+    <div>
+      <IconButton
+        onClick={handleClick}
+        size="small"
+        sx={{ ml: 2 }}
+        aria-controls={open ? 'account-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+      >
+        <Avatar sx={{ width: 32, height: 32 }} src={user?.photoURL} />
+      </IconButton>
+      <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+         {admin ? (
+        <List>
           <ListItem disablePadding>
             <ListItemButton >
               <ListItemIcon>
-                <DashboardIcon className="list-icons" />
+                <DashboardIcon  />
               </ListItemIcon>
               <Link to="/dashboard">
-                <ListItemText primary="dashboard" />
+                <ListItemText primary="Dashboard" />
               </Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <SellIcon className="list-icons" />
+                <SellIcon  />
               </ListItemIcon>
               <Link to="/dashboard/orders">
                 <ListItemText primary="Orders" />
@@ -45,7 +98,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <PersonAddIcon className="list-icons" />
+                <PersonAddIcon  />
               </ListItemIcon>
               <Link to="/dashboard/makeAdmin">
                 <ListItemText primary="Make Admin" />
@@ -55,7 +108,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <AddIcon className="list-icons" />
+                <AddIcon  />
               </ListItemIcon>
               <Link to="/dashboard/addproduct">
                 <ListItemText primary="Add product" />
@@ -65,17 +118,18 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <ReviewsIcon className="list-icons" />
+                <ReviewsIcon  />
               </ListItemIcon>
               <Link to="/dashboard/updateProduct">
                 <ListItemText primary="Update Product" />
               </Link>
             </ListItemButton>
           </ListItem>
+          <Divider/>
           <ListItem disablePadding>
             <ListItemButton onClick={logout}>
               <ListItemIcon>
-                <LogoutIcon className="list-icons"/>
+                <LogoutIcon />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemButton>
@@ -86,7 +140,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <PersonIcon className="list-icons" />
+                <PersonIcon  />
               </ListItemIcon>
               <Link to="/user/profile">
                 <ListItemText primary="Profile" />
@@ -96,7 +150,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <SellIcon className="list-icons" />
+                <SellIcon  />
               </ListItemIcon>
               <Link to="/user/order-history">
                 <ListItemText primary="Order History" />
@@ -106,7 +160,7 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <FavoriteIcon className="list-icons" />
+                <FavoriteIcon  />
               </ListItemIcon>
               <Link to="/user/myWishlist">
                 <ListItemText primary="My Wishlist" />
@@ -116,25 +170,28 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <ReviewsIcon className="list-icons" />
+                <ReviewsIcon  />
               </ListItemIcon>
               <Link to="/user/myReviews">
                 <ListItemText primary="My Reviews" />
               </Link>
             </ListItemButton>
           </ListItem>
+          <Divider/>
           <ListItem disablePadding>
-            <ListItemButton onClick={logout} className="logout-btn">
+            <ListItemButton onClick={logout} 
+            className="logout-btn">
               <ListItemIcon>
-                <LogoutIcon className="list-icons" />
+                <LogoutIcon  />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
         </List>
       )}
-    </Box>
+      </Menu>
+    </div>
   );
 };
 
-export default ListItems;
+export default UserProfile;

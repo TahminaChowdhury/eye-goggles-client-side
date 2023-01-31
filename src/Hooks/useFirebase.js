@@ -94,11 +94,8 @@ const useFirebase = () => {
         const { from } = location.state || { from: { pathname: '/' } };
 
         navigate(from, { replace: true });
-       
       })
-      .catch((error) => {
-   
-      })
+      .catch((error) => {})
       .finally(() => setisLoading(false));
   };
 
@@ -131,17 +128,15 @@ const useFirebase = () => {
       method: method,
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
+    });
   };
 
   useEffect(() => {
     fetch(`https://eye-goggles.onrender.com/users/${user.email}`)
       .then((res) => res.json())
-      .then((data) => 
-      setAdmin(data.role))
+      .then((data) => setAdmin(data.role))
       .catch((error) => {
-        setError(error.message)
+        setError(error.message);
       });
   }, [user.email]);
 
