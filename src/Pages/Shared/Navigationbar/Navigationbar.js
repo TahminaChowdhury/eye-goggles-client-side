@@ -53,6 +53,7 @@ const Navigationbar = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
 
+
   return (
     <div>
       <Navbar expand="lg">
@@ -113,9 +114,7 @@ const Navigationbar = () => {
                 />
                 <span className="shoppingcart-icon">{getCartCount()}</span>
               </span>
-              <span>
-                {user?.email ? <UserProfile /> : ''}
-              </span>
+              <span>{user?.email ? <UserProfile /> : ''}</span>
             </div>
 
             {/* Cart menu */}
@@ -176,7 +175,11 @@ const Navigationbar = () => {
               />
               <Navbar.Collapse id="navbarScroll">
                 <Nav className="nav py-3" navbarScroll>
-                  <NavLink to="/home">Home</NavLink>
+                  <NavLink
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
                   <NavLink to="/explore">Explore</NavLink>
                   <NavLink to="/about">About Us</NavLink>
                   <NavLink to="/contact">Contact</NavLink>

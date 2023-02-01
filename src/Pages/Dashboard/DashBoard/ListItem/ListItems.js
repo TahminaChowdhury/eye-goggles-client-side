@@ -6,7 +6,9 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import AddIcon from '@mui/icons-material/Add';
+import GroupsIcon from '@mui/icons-material/Groups';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PeopleIcon from '@mui/icons-material/People';
 import SellIcon from '@mui/icons-material/Sell';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -14,21 +16,50 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Box, ListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './ListItems.scss';
-import PersonIcon from '@mui/icons-material/Person';
 
 const ListItems = () => {
   const { logout, admin } = useAuth();
   return (
     <Box>
       {admin ? (
-        <List className='list-items'>
+        <List className="list-items">
           <ListItem disablePadding>
-            <ListItemButton >
+            <ListItemButton>
               <ListItemIcon>
                 <DashboardIcon className="list-icons" />
               </ListItemIcon>
               <Link to="/dashboard">
-                <ListItemText primary="dashboard" />
+                <ListItemText primary="Dashboard" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ShoppingCartIcon className="list-icons" />
+              </ListItemIcon>
+              <Link to="/allproducts">
+                <ListItemText primary="Products" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <GroupsIcon className="list-icons" />
+              </ListItemIcon>
+              <Link to="/employees">
+                <ListItemText primary="Employees" />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <PeopleIcon className="list-icons" />
+              </ListItemIcon>
+              <Link to="/users">
+                <ListItemText primary="Users" />
               </Link>
             </ListItemButton>
           </ListItem>
@@ -53,43 +84,23 @@ const ListItems = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <AddIcon className="list-icons" />
-              </ListItemIcon>
-              <Link to="/dashboard/addproduct">
-                <ListItemText primary="Add product" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ReviewsIcon className="list-icons" />
-              </ListItemIcon>
-              <Link to="/dashboard/updateProduct">
-                <ListItemText primary="Update Product" />
-              </Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
             <ListItemButton onClick={logout}>
               <ListItemIcon>
-                <LogoutIcon className="list-icons"/>
+                <LogoutIcon className="list-icons" />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
         </List>
       ) : (
-        <List className='list-items'>
+        <List className="list-items">
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <PersonIcon className="list-icons" />
+                <DashboardIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/user/profile">
-                <ListItemText primary="Profile" />
+              <Link to="/dashboard">
+                <ListItemText primary="Dashboard" />
               </Link>
             </ListItemButton>
           </ListItem>
@@ -98,7 +109,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <SellIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/user/order-history">
+              <Link to="/dashboard/order-history">
                 <ListItemText primary="Order History" />
               </Link>
             </ListItemButton>
@@ -108,7 +119,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <FavoriteIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/user/myWishlist">
+              <Link to="/dashboard/myWishlist">
                 <ListItemText primary="My Wishlist" />
               </Link>
             </ListItemButton>
@@ -118,7 +129,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <ReviewsIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/user/myReviews">
+              <Link to="/dashboard/myReviews">
                 <ListItemText primary="My Reviews" />
               </Link>
             </ListItemButton>
