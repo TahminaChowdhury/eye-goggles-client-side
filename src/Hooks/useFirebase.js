@@ -114,7 +114,7 @@ const useFirebase = () => {
   const resetPass = (email) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {})
-      .catch((error) => {});
+      .catch((error) => console.log(error.message));
   };
   // save user to local storage
   const saveUserToLocalStorage = (token) => {

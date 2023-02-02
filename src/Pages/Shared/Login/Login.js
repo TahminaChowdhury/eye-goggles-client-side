@@ -57,8 +57,15 @@ const Login = () => {
   const handleLoginWithGoogle = () => {
     loginWithGoogle(location, navigate);
   };
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
 
+  const email = watch('email');
+
+  const handleForgotPass = () => {
+    if (email) {
+      resetPass(email);
+    }
+  };
   const onSubmit = (data) => {
     loginWithEmailAndPassword(data.email, data.password, location, navigate);
   };
@@ -156,8 +163,8 @@ const Login = () => {
                   padding: '15px 0px',
                 }}
               >
-                <p onClick={resetPass(user?.email)}>Forgot Password ?</p>
-                <p color="error">Error: {loginError}</p>
+                <p onClick={handleForgotPass} style={{ cursor: 'pointer' }}>Forgot Password ?</p>
+                <p color="error">{loginError}</p>
               </Box>
               <input
                 style={{ width: '100%' }}
@@ -192,9 +199,7 @@ const Login = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={12} xl={12} sx={{ padding: '20px' }}>
           <Box>
-            <Alert
-              icon={false}
-            >
+            <Alert icon={false}>
               Don't have an acoount ?{' '}
               <span onClick={handleOpen} className="modal-btn">
                 Sign-up here!
