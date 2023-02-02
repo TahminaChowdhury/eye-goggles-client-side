@@ -18,10 +18,11 @@ initAuth();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
+
   const [loginError, setLoginError] = useState('');
   const [isLoading, setisLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
-
+  console.log(error)
   // auth
   const auth = getAuth();
 
@@ -57,7 +58,7 @@ const useFirebase = () => {
         setError('');
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error);
       })
       .finally(() => setisLoading(false));
   };

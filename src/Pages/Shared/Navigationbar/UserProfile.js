@@ -74,7 +74,7 @@ const UserProfile = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
          {admin ? (
-        <List>
+        <List style={{color: '#000'}}>
           <ListItem disablePadding>
             <ListItemButton >
               <ListItemIcon>
@@ -136,7 +136,7 @@ const UserProfile = () => {
           </ListItem>
         </List>
       ) : (
-        <List className='list-items'>
+        <List style={{color: '#000'}}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
