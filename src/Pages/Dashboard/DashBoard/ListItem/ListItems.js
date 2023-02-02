@@ -9,6 +9,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SellIcon from '@mui/icons-material/Sell';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -97,10 +98,10 @@ const ListItems = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <DashboardIcon className="list-icons" />
+                <AccountCircleIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/dashboard">
-                <ListItemText primary="Dashboard" />
+              <Link to="/profile">
+                <ListItemText primary="Profile" />
               </Link>
             </ListItemButton>
           </ListItem>
@@ -109,7 +110,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <SellIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/dashboard/order-history">
+              <Link to="/user/order-history">
                 <ListItemText primary="Order History" />
               </Link>
             </ListItemButton>
@@ -119,7 +120,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <FavoriteIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/dashboard/myWishlist">
+              <Link to="/user/myWishlist">
                 <ListItemText primary="My Wishlist" />
               </Link>
             </ListItemButton>
@@ -129,7 +130,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <ReviewsIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/dashboard/myReviews">
+              <Link to="/user/myReviews">
                 <ListItemText primary="My Reviews" />
               </Link>
             </ListItemButton>

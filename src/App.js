@@ -68,7 +68,7 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route path="/user/profile" element={<Profile />}/>
+              <Route index path="/user/profile" element={<Profile />}/>
               <Route path="/user/profile/edit" element={<EditProfile />} />
               <Route path="/user/order-history" element={<OrderHistory />} />
               <Route path="/user/myWishlist" element={<MyWishlist />} />
