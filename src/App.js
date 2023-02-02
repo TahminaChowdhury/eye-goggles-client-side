@@ -24,6 +24,7 @@ import AddProduct from './Pages/Dashboard/Admin/AddProduct/AddProduct';
 import UpdateProduct from './Pages/Dashboard/Admin/UpdateProduct/UpdateProduct';
 import DashboardHome from './Pages/Dashboard/Dashboard/DashboardHome/DashboardHome';
 import Profile from './Pages/Dashboard/User/Profile/Profile';
+import EditProfile from './Pages/Dashboard/User/Profile/Editprofile/EditProfile';
 
 function App() {
   return (
@@ -67,7 +68,8 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route path="/user/profile" element={<Profile />} />
+              <Route path="/user/profile" element={<Profile />}/>
+              <Route path="/user/profile/edit" element={<EditProfile />} />
               <Route path="/user/order-history" element={<OrderHistory />} />
               <Route path="/user/myWishlist" element={<MyWishlist />} />
               <Route path="/user/myReviews" element={<MyReviews />} />

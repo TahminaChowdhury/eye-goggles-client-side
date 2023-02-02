@@ -3,6 +3,7 @@ import './Profile.scss';
 import useAuth from '../../../../Hooks/useAuth';
 import { Box } from '@mui/system';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { user } = useAuth();
@@ -26,8 +27,11 @@ const Profile = () => {
               alt=""
             />
             <Box mt={3}>
-              <button className="edit-btn">Edit Profile</button>
-              <button className="edit-btn" style={{ marginLeft: '10px' }}>
+              <Link to="/user/profile/edit">
+                <button className="simple-button">Edit Profile</button>
+              </Link>
+
+              <button className="simple-button" style={{ marginLeft: '10px' }}>
                 Change Password
               </button>
             </Box>
