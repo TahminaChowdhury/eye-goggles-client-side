@@ -9,7 +9,8 @@ const Profile = () => {
   const { user } = useAuth();
   return (
     <Box
-      sx={{ flexGrow: 1, mt: 5, backgroundColor: '#fff', borderRadius: '10px' }}
+      sx={{ flexGrow: 1, mt: 5,}}
+      className='dashboard-outlet'
     >
       <Box className="flex-item" style={{ padding: '20px 50px 20px 50px' }}>
         <h2 className="title">My Account</h2>
@@ -26,7 +27,7 @@ const Profile = () => {
               }
               alt=""
             />
-            <Box mt={3}>
+            <Box mt={3} sx={{display: 'flex', alignItems:'center'}}>
               <Link to="/user/profile/edit">
                 <button className="simple-button">Edit Profile</button>
               </Link>
@@ -46,7 +47,6 @@ const Profile = () => {
             <label htmlFor="email">Email</label>
             <p>{user.email}</p>
           </Box>
-
           <Box>
             <label htmlFor="phone">Phone Number</label>
             <p>Please add your phone number</p>

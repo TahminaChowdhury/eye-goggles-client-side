@@ -120,7 +120,7 @@ const Dashboard = (props) => {
       <Box
         component="main"
         sx={{
-          height: '100vh',
+      
           color: '#000',
           backgroundColor: '#F5F5F5',
           flexGrow: 1,

@@ -2,8 +2,8 @@
 @import '../../../Styles/Partials/classes';
 @import '../../../Styles/Partials/mixin';
 
-.dashboard{
-    .logo{
-        @include logo($color: $color-white)
-    }
+.dashboard {
+  .logo {
+    @include logo($color: $color-white);
+  }
 }

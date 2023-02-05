@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   updateProfile,
+  updatePassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   FacebookAuthProvider,
@@ -12,17 +13,20 @@ import {
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initAuth from '../Firebase/firebase.init';
+import { getStorage } from "firebase/storage";
+
+export const storage = getStorage(initAuth());
 
 initAuth();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
-
   const [loginError, setLoginError] = useState('');
+
   const [isLoading, setisLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
-  console.log(error)
+  console.log(user);
   // auth
   const auth = getAuth();
 
@@ -54,7 +58,6 @@ const useFirebase = () => {
         const { from } = location.state || { from: { pathname: '/' } };
 
         navigate(from);
-
         setError('');
       })
       .catch((error) => {
@@ -117,6 +120,44 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => console.log(error.message));
   };
+
+  // Update password
+  const updatePass = (newPassword) => {
+    updatePassword(user, newPassword)
+      .then(() => {
+        console.log('Succesfully updated password');
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // Update user profle
+  const updateProfleInfo = (displayName = user.displayName, phoneNumber) => {
+    updateProfile(user, {
+      displayName: displayName,
+    })
+      .then(() => {
+        console.log('sucessfully change profile info');
+      })
+      .catch((error) => {
+        console.log('Error:', error.message);
+      });
+  };
+  // Update user profle
+  const updateImage = (photoURL) => {
+    console.log(photoURL)
+    updateProfile(user, {
+      photoURL: photoURL,
+    })
+      .then(() => {
+        console.log('sucessfully change profile picture');
+      })
+      .catch((error) => {
+        console.log('Error:', error.message);
+      });
+  };
+ 
   // save user to local storage
   const saveUserToLocalStorage = (token) => {
     localStorage.setItem('userToken', JSON.stringify(token));
@@ -172,6 +213,10 @@ const useFirebase = () => {
     loginWithGoogle,
     loginWithFacebook,
     logout,
+    updatePass,
+    updateProfleInfo,
+    storage,
+    updateImage
   };
 };
 
