@@ -13,8 +13,7 @@ import {
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initAuth from '../Firebase/firebase.init';
-import { getStorage } from "firebase/storage";
-
+import { getStorage } from 'firebase/storage';
 export const storage = getStorage(initAuth());
 
 initAuth();
@@ -23,10 +22,9 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
   const [loginError, setLoginError] = useState('');
-
   const [isLoading, setisLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
-  console.log(user);
+
   // auth
   const auth = getAuth();
 
@@ -132,32 +130,35 @@ const useFirebase = () => {
       });
   };
 
-  // Update user profle
-  const updateProfleInfo = (displayName = user.displayName, phoneNumber) => {
+  // Update user profle Info
+  const updateProfleInfo = (displayName = user.displayName) => {
+    setisLoading(true);
     updateProfile(user, {
       displayName: displayName,
     })
-      .then(() => {
-        console.log('sucessfully change profile info');
-      })
+      .then(() => {})
       .catch((error) => {
         console.log('Error:', error.message);
-      });
+      })
+      .finally(() => setisLoading(false));
   };
-  // Update user profle
-  const updateImage = (photoURL) => {
-    console.log(photoURL)
+
+  // Update user profle photo
+  const updateProfilePhoto = (photoURL) => {
+    setisLoading(false);
     updateProfile(user, {
       photoURL: photoURL,
     })
       .then(() => {
-        console.log('sucessfully change profile picture');
+        window.location.reload();
+        setError('')
       })
       .catch((error) => {
-        console.log('Error:', error.message);
-      });
+        setError(error.message);
+      })
+      .finally(() => setisLoading(false));
   };
- 
+
   // save user to local storage
   const saveUserToLocalStorage = (token) => {
     localStorage.setItem('userToken', JSON.stringify(token));
@@ -215,8 +216,8 @@ const useFirebase = () => {
     logout,
     updatePass,
     updateProfleInfo,
+    updateProfilePhoto,
     storage,
-    updateImage
   };
 };
 

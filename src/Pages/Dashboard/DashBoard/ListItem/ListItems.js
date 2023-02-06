@@ -100,7 +100,7 @@ const ListItems = () => {
               <ListItemIcon>
                 <AccountCircleIcon className="list-icons" />
               </ListItemIcon>
-              <Link to="/profile">
+              <Link to="/user/profile">
                 <ListItemText primary="Profile" />
               </Link>
             </ListItemButton>
