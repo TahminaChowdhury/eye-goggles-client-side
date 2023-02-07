@@ -18,7 +18,7 @@ const EditProfile = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    updateProfleInfo(data.displayName, data.phoneNumber);
+    updateProfleInfo(data.displayName);
   };
 
   const handleImage = (e) => {
@@ -35,8 +35,6 @@ const EditProfile = () => {
           .then((url) => {
             if (url) {
               updateProfilePhoto(url);
-            } else {
-              return;
             }
           })
           .catch((error) => {

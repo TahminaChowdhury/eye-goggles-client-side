@@ -2,6 +2,7 @@ import React from 'react';
 import './Styles/Styles.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
+import About from './Pages/About/About';
 import ContactUs from './Pages/Home/ConatctUs/ContactUs';
 import NotFound from './Pages/NotFound/NotFound';
 import AuthProvider from './ContextApi/AuthProvider';
@@ -26,6 +27,7 @@ import DashboardHome from './Pages/Dashboard/Dashboard/DashboardHome/DashboardHo
 import Profile from './Pages/Dashboard/User/Profile/Profile';
 import EditProfile from './Pages/Dashboard/User/Profile/Editprofile/EditProfile';
 
+
 function App() {
   return (
     <div>
@@ -34,6 +36,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/cart" element={<Cart />} />

@@ -145,12 +145,11 @@ const useFirebase = () => {
 
   // Update user profle photo
   const updateProfilePhoto = (photoURL) => {
-    setisLoading(false);
+    setisLoading(true);
     updateProfile(user, {
       photoURL: photoURL,
     })
       .then(() => {
-        window.location.reload();
         setError('')
       })
       .catch((error) => {

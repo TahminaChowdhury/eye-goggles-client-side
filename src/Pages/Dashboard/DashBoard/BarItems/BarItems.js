@@ -1,11 +1,11 @@
 import React from 'react';
+import './BarItems.scss';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { Avatar, Badge, Box, Grid } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import './BarItems.scss';
 import useAuth from '../../../../Hooks/useAuth';
 import { styled, alpha } from '@mui/material/styles';
 

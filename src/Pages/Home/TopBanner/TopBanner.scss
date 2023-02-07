@@ -6,11 +6,7 @@
   position: relative;
   text-align: center;
   color: $color-dark;
-  img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-  }
+
   .banner-content {
     position: absolute;
     top: 80%;
@@ -60,5 +56,45 @@
       opacity: 1;
       transform: translateX(-6px);
     }
+  }
+}
+.slider {
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  cursor: pointer;
+  background-color: $color-dark;
+  color: $color-white;
+  padding: 20px;
+  border: 0;
+  outline: 0;
+  &:hover{
+    background-color: rgb(57, 53, 53);
+  }
+}
+.prev-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 0;
+  display: block;
+  cursor: pointer;
+  background-color: $color-dark;
+  color: $color-white;
+  padding: 20px;
+  border: 0;
+  outline: 0;
+  &:hover{
+    background-color: rgb(57, 53, 53);
   }
 }

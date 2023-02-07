@@ -9,8 +9,13 @@ const Profile = () => {
   const { user } = useAuth();
   return (
     <Box
-      sx={{ flexGrow: 1, mt: 5,}}
-      className='dashboard-outlet'
+    sx={{
+      mt: 5,
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      width: '100%',
+      heigh: '100%',
+    }}
     >
       <Box className="flex-item" style={{ padding: '20px 50px 20px 50px' }}>
         <h2 className="title">My Account</h2>
