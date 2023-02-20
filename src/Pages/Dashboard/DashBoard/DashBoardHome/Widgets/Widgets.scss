@@ -1,0 +1,21 @@
+@import '../../../../../Styles/Partials/classes';
+@import '../../../../../Styles/Partials/mixin';
+@import '../../../../../Styles/Partials/variables';
+
+.card {
+  background-color: $color-white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .arrow-icon {
+    position: absolute;
+    top: 20px;
+    right: 110px;
+    font-size: 30px;
+  }
+}

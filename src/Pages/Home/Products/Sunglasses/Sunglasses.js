@@ -33,7 +33,7 @@ const Sunglasses = ({ product }) => {
       xs={12}
       sm={12}
       md={4}
-      sx={{ display: 'flex', justifyContent: 'center' }}
+      sx={{ display: 'flex', justifyContent: 'center',}}
     >
       <div className="pd-container">
         {/* Product image and additional icon */}

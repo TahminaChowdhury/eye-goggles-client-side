@@ -1,4 +1,11 @@
-.explore-more{
-    background-color: #ffefef;
-    height: 150px;
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+@import '../../../Styles/Partials/variables';
+.page-title {
+  background-color: $color-light;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }

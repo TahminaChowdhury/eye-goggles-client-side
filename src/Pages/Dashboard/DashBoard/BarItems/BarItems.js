@@ -71,7 +71,7 @@ const BarItems = () => {
         >
           {/* Search Bar */}
           <Box>
-            <Search>
+            <Search style={{ backgroundColor: '#F5F5F5', width: '300px' }}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -93,10 +93,6 @@ const BarItems = () => {
         >
           {/* Icons */}
           <Box>
-            <IconButton>
-              <CalendarMonthIcon />
-            </IconButton>
-
             <IconButton>
               <Badge
                 overlap="circular"
