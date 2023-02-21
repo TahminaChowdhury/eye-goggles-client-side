@@ -26,7 +26,7 @@ const data = [
     title: 'ORDER RECEIVED',
     subTitle: 'Todays Order',
     amount: '12000',
-    percentage: '20%',
+    percentage: 20,
     color: '#00c292',
   },
   {
@@ -34,7 +34,7 @@ const data = [
     title: 'TAX DEDUCATION',
     subTitle: 'Monthly Deduction',
     amount: '5,000',
-    percentage: '30%',
+    percentage: 30,
     color: '#fb9678',
   },
   {
@@ -42,7 +42,7 @@ const data = [
     title: 'REVENUE STATS',
     subTitle: 'Todays Income',
     amount: '8,000',
-    percentage: '60%',
+    percentage: 60,
     color: '#03a9f3',
   },
   {
@@ -50,7 +50,7 @@ const data = [
     title: 'YEARLY SALES',
     subTitle: 'Todays Order',
     amount: '12,000',
-    percentage: '80%',
+    percentage: 80,
     color: '#000',
   },
 ];
@@ -70,11 +70,11 @@ const Widgets = () => {
               <h1>{item.amount}</h1>
             </Box>
             <Box sx={{ flexGrow: 1 }}>
-              <span style={{ color: item.color }}>{item.percentage}</span>
+              <span style={{ color: item.color }}>{item.percentage}%</span>
               <BorderLinearProgress
                 bgColor={item.color}
                 variant="determinate"
-                value={50}
+                value={item.percentage}
               />
             </Box>
           </Paper>
