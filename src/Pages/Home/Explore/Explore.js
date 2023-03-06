@@ -51,9 +51,9 @@ const Explore = () => {
                 style={{ backgroundColor: '#F5F5F5' }}
                 className="flex-item"
               >
-                <div>
+                <Box>
                   {' '}
-                  {/* <ToggleButtonGroup
+                  <ToggleButtonGroup
                     orientation="alignment"
                     value={view}
                     exclusive
@@ -65,11 +65,10 @@ const Explore = () => {
                     <ToggleButton value="left" aria-label="left aligned">
                       <ViewModuleIcon />
                     </ToggleButton>
-                  </ToggleButtonGroup> */}
-                </div>
-                <div>
-                  {/* <SelectOption/> */}
-                </div>
+                  </ToggleButtonGroup>
+                </Box>
+                <Box>
+                </Box>
               </Box>
               <Grid
                 container

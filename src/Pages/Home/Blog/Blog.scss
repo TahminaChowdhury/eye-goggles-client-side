@@ -1,3 +1,7 @@
+@import '../../../Styles/Partials/classes';
+@import '../../../Styles/Partials/mixin';
+@import '../../../Styles/Partials/variables';
+
 .blog-container {
   img {
     width: 350px;
@@ -14,8 +18,8 @@
       box-shadow: 0 3px 10px #00000014;
       width: 68px;
       height: 68px;
-      background-color: var(--primary);
-      color: white;
+      background-color: $color-dark;
+      color: $color-white;
       font-weight: 600;
       text-align: center;
       text-transform: uppercase;
@@ -60,7 +64,7 @@
       line-height: 32px;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: #000;
+      color: $color-dark;
       position: relative;
       display: inline-block;
       &::after {
@@ -69,7 +73,7 @@
         display: block;
         width: 100%;
         height: 2px;
-        background-color: black;
+        background-color: $color-dark;
       }
     }
   }

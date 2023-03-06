@@ -20,7 +20,7 @@ const Home = () => {
       <NewsLetter />
       <Brands />
       <Footer />
-    </>
+    </ >
   );
 };
 

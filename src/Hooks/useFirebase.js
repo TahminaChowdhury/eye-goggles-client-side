@@ -24,7 +24,6 @@ const useFirebase = () => {
   const [loginError, setLoginError] = useState('');
   const [isLoading, setisLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
-
   // auth
   const auth = getAuth();
 
