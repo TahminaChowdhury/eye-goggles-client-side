@@ -1,28 +1,22 @@
-import './Explore.scss';
-import { Grid } from '@mui/material';
+import { Grid, Pagination } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../redux/Products/productActions';
-import { CircularProgress, Paper } from '@material-ui/core';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import { CircularProgress } from '@material-ui/core';
 import Navigationbar from '../../Shared/Navigationbar/Navigationbar';
 import Footer from '../Footer/Footer';
 import Sidebar from './Sidebar/Sidebar';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import SelectOption from './Sidebar/SelectOption';
+import Sunglasses from '../Products/Sunglasses/Sunglasses';
+import PageTitle from '../../PageTitle/PageTitle';
+import ProductSelectionTop from './ProductSelectionTop';
 
 const Explore = () => {
-  const [view, setView] = useState('list');
-  const handleChange = (event, nextView) => {
-    setView(nextView);
-  };
+  const pageSize = 4;
+  const [pagination, setPagination] = useState({
+    from: 0,
+    to: pageSize,
+  });
   const dispatch = useDispatch();
   const product = useSelector((state) => state.products);
   const { loading, products, error } = product;
@@ -30,14 +24,19 @@ const Explore = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  const handlePageChange = (e, page) => {
+    const from = (page - 1) * pageSize;
+    console.log(from);
+    const to = (page - 1) * pageSize + pageSize;
+    console.log(to);
+    setPagination({ ...pagination, from: from, to: to });
+  };
+
   return (
     <>
       <Navigationbar />
-      <Box className="page-title">
-        <Box px={8}>
-          <p style={{ fontSize: '19px' }}>Home | Explore</p>
-        </Box>
-      </Box>
+      <PageTitle name="Explore" />
       <Box fixed my={8}>
         <Grid container>
           <Grid item md={3}>
@@ -45,95 +44,49 @@ const Explore = () => {
           </Grid>
           <Grid item md={9}>
             <Box sx={{ flexGrow: 1 }}>
-              <Box
-                p={2}
-                mb={2}
-                style={{ backgroundColor: '#F5F5F5' }}
-                className="flex-item"
-              >
-                <Box>
-                  {' '}
-                  <ToggleButtonGroup
-                    orientation="alignment"
-                    value={view}
-                    exclusive
-                    onChange={handleChange}
-                  >
-                    <ToggleButton value="left" aria-label="left aligned" style={{marginRight: '10px'}}>
-                      <ViewListIcon />
-                    </ToggleButton>
-                    <ToggleButton value="left" aria-label="left aligned">
-                      <ViewModuleIcon />
-                    </ToggleButton>
-                  </ToggleButtonGroup>
-                </Box>
-                <Box>
-                </Box>
-              </Box>
+              {/* Product selection top header component */}
+              <ProductSelectionTop />
               <Grid
                 container
-                spacing={{ xs: 2, md: 3 }}
-                columns={{ xs: 4, sm: 8, md: 12 }}
+                spacing={2}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
               >
                 {loading ? (
                   <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100vh',
-                    }}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
                   >
                     <CircularProgress color="inherit" />
                   </Box>
                 ) : error ? (
-                  <h2>{error}</h2>
+                  <h1>{error}</h1>
                 ) : (
-                  products.map((product) => (
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={6}
-                      xl={4}
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '100px',
-                      }}
-                    >
-                      <Box className="pd-container">
-                        {/* Product image and additional icon */}
-                        <Paper className="pd-img-icon-div">
-                          <img src={product.img} alt={product.name} />
-                          <Box className="pd-additional-icon">
-                            <Box className="icon">
-                              <SearchOutlinedIcon />
-                            </Box>
-                            <Box className="icon">
-                              <FavoriteBorderOutlinedIcon />
-                            </Box>
-                            <Box className="icon">
-                              <ShoppingBasketOutlinedIcon />
-                            </Box>
-                          </Box>
-                        </Paper>
-
-                        {/* Product Information */}
-                        <Box className="pd-info">
-                          <p className="pd-category">{product.category}</p>
-                          <Link
-                            to={`/sunglass/${product._id}`}
-                            className="pd-name"
-                          >
-                            {product.name}
-                          </Link>
-                          <p className="pd-price">$ {product.price}</p>
-                        </Box>
-                      </Box>
-                    </Grid>
-                  ))
+                  products
+                    .slice(pagination.from, pagination.to)
+                    .map((product, index) => (
+                      <>
+                        <Grid
+                          item
+                          xs={1}
+                          sm={1}
+                          md={6}
+                          key={index}
+                          display="flex"
+                          justifyContent="center"
+                          alignItems="center"
+                        >
+                          <Sunglasses product={product} />
+                        </Grid>
+                      </>
+                    ))
                 )}
+                <Pagination
+                  count={Math.ceil(products.length / pageSize)}
+                  onChange={handlePageChange}
+                />
               </Grid>
             </Box>
           </Grid>

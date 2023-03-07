@@ -3,22 +3,16 @@ import './Contact.scss';
 import img from '../../../images/location-icon-vector-24263344.jpg';
 import img1 from '../../../images/phone-symbol-auricular-inside-circle-260nw-1121268638.jpg';
 import img2 from '../../../images/9-99241_email-icon-black-circle-envelope-email-icon-png.png';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Navigationbar from '../../Shared/Navigationbar/Navigationbar';
 import Footer from '../Footer/Footer';
 import { Box } from '@material-ui/core';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const ContactUs = () => {
   return (
     <>
       <Navigationbar />
-      <Box className="page-header">
-        <p>Home</p>
-        <p>
-          <ChevronLeftIcon />
-        </p>
-        <p>Contact</p>
-      </Box>
+      <PageTitle name='Contact'/>
       <Box className="row d-flex text-center my-5 py-5">
         <Box className="col-sm-6 col-md-4 col-lg-4">
           <Box>
